@@ -2,10 +2,10 @@
 
 namespace Sfneal\Users\Queries;
 
-use Sfneal\Users\Models\Role;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Caching\Traits\Cacheable;
 use Sfneal\Queries\AbstractQuery;
+use Sfneal\Users\Models\Role;
 
 class UserRolesQuery extends AbstractQuery
 {

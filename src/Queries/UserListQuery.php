@@ -2,9 +2,9 @@
 
 namespace Sfneal\Users\Queries;
 
-use Sfneal\Users\Models\User;
 use Illuminate\Http\Request;
 use Sfneal\Queries\AbstractQuery;
+use Sfneal\Users\Models\User;
 
 class UserListQuery extends AbstractQuery
 {

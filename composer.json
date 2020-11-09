@@ -16,7 +16,12 @@
         }
     ],
     "require": {
-        "php": ">=5.3"
+        "php": ">=7.1",
+        "sfneal/address": ">=0.1.0",
+        "sfneal/caching": ">=0.3.0",
+        "sfneal/casts": ">=0.2.1",
+        "sfneal/models": ">=0.3.0",
+        "sfneal/scopes": ">=0.3.0"
     },
     "require-dev": {
         "phpunit/phpunit": ">=4.8.36"
@@ -24,7 +29,10 @@
     "autoload": {
         "psr-4": {
             "Sfneal\\Users\\": "src"
-        }
+        },
+        "files": [
+            "src/Helpers/auth.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

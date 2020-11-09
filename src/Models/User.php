@@ -12,7 +12,7 @@ use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Scopes\UserActiveScope;
-use Sfneal\Currency\FormatDollarsAction;
+use Sfneal\Currency\FormatDollars;
 
 class User extends AbstractAuthenticatable
 {
@@ -574,6 +574,6 @@ class User extends AbstractAuthenticatable
      */
     public function getRateFormattedAttribute(): string
     {
-        return (! empty($this->rate)) ? '$'.FormatDollarsAction::execute($this->rate) : '-';
+        return (! empty($this->rate)) ? '$'.FormatDollars::execute($this->rate) : '-';
     }
 }

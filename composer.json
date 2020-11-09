@@ -16,10 +16,10 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "sfneal/address": ">=0.1.0",
         "sfneal/caching": ">=0.3.0",
-        "sfneal/currency": ">=0.1.0",
+        "sfneal/currency": ">=0.1.1",
         "sfneal/models": ">=0.3.0",
         "sfneal/queries": ">=0.3.0",
         "sfneal/scopes": ">=0.3.0"

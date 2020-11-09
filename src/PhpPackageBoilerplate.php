@@ -1,8 +1,8 @@
 <?php
 
-namespace Sfneal\PhpPackageBoilerplate;
+namespace Sfneal\Users;
 
-class PhpPackageBoilerplate
+class Users
 {
     // Build your next great package.
 }

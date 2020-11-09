@@ -1,7 +1,6 @@
 # Changelog
 
-All notable changes to `php-package-boilerplate` will be documented in this file
+All notable changes to `users` will be documented in this file
 
-## 1.0.0 - 201X-XX-XX
-
+## 0.1.0 - 2020-11-09
 - initial release

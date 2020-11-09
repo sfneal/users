@@ -21,6 +21,7 @@
         "sfneal/caching": ">=0.3.0",
         "sfneal/casts": ">=0.2.1",
         "sfneal/models": ">=0.3.0",
+        "sfneal/queries": "^0.3.0",
         "sfneal/scopes": ">=0.3.0"
     },
     "require-dev": {

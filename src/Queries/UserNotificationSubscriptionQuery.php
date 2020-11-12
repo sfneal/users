@@ -2,12 +2,12 @@
 
 namespace Sfneal\Users\Queries;
 
-use Sfneal\Users\Builders\UserNotificationBuilder;
-use Sfneal\Users\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Caching\Traits\Cacheable;
 use Sfneal\PostOffice\Notifications\AbstractNotification;
 use Sfneal\Queries\AbstractQuery;
+use Sfneal\Users\Builders\UserNotificationBuilder;
+use Sfneal\Users\Models\User;
 
 class UserNotificationSubscriptionQuery extends AbstractQuery
 {

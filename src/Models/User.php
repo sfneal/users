@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
+use Sfneal\Casts\NewlineCast;
 use Sfneal\Currency\FormatDollars;
 use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
@@ -75,15 +76,14 @@ class User extends AbstractAuthenticatable
         'remember_token',
     ];
 
-//    /**
-//     * The attributes that should type cast.
-//     *
-//     * @var array
-//     */
-//    protected $casts = [
-//        'bio' => NewlineCast::class,
-//        'plan_management_buckets' => 'array',
-//    ];
+    /**
+     * The attributes that should type cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'bio' => NewlineCast::class,
+    ];
 
 //    /**
 //     * @var array Events to be dispatched after certain events

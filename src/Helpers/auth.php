@@ -2,7 +2,6 @@
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
-
 /**
  * Retrieve the active User.
  *

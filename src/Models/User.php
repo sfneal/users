@@ -14,11 +14,12 @@ use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Scopes\UserActiveScope;
+use Vkovic\LaravelCustomCasts\HasCustomCasts;
 
 class User extends AbstractAuthenticatable
 {
     // todo: refactor status to use Status model?
-//    use HasCustomCasts;
+    use HasCustomCasts;
 
     /**
      * The "booting" method of the model.

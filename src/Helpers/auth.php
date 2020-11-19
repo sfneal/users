@@ -2,7 +2,7 @@
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
-// todo: create package
+
 /**
  * Retrieve the active User.
  *

@@ -14,6 +14,10 @@ All notable changes to `users` will be documented in this file
 - fix User model trait use
 
 
-## 0.1.2 - 2020-11-19
+## 0.1.3 - 2020-11-19
 - (trigger Travis CI build after api being unresponsive earlier)
 - fix User model trait use
+
+
+## 0.1.4 - 2020-11-19
+- fix min phpunit package version in order to pass Travis CI tests

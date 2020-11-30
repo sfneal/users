@@ -25,3 +25,7 @@ All notable changes to `users` will be documented in this file
 
 ## 0.2.0 - 2020-11-30
 - fix sfneal/casts min version requirement to allow support for php8
+
+
+## 0.2.1 - 2020-11-30
+- fix min sfneal/casts version

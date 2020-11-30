@@ -19,7 +19,7 @@
         "php": ">=7.2",
         "sfneal/address": ">=0.1.0",
         "sfneal/caching": ">=0.3.0",
-        "sfneal/casts": ">=0.2.1",
+        "sfneal/casts": ">=0.3.2",
         "sfneal/currency": ">=0.1.1",
         "sfneal/laravel-helpers": ">=0.3.1",
         "sfneal/models": ">=0.3.0",

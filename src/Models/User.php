@@ -14,7 +14,7 @@ use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Scopes\UserActiveScope;
-use Vkovic\LaravelCustomCasts\HasCustomCasts;
+use Sfneal\LaravelCustomCasts\HasCustomCasts;
 
 class User extends AbstractAuthenticatable
 {

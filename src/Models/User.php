@@ -307,17 +307,6 @@ class User extends AbstractAuthenticatable
     }
 
     /**
-     * Determine if the current user is permitted to take actions on plans in the this bucket.
-     *
-     * @param string $bucket
-     * @return bool
-     */
-    public function isBucketPermitted(string $bucket)
-    {
-        return in_array($bucket, $this->permitted_buckets);
-    }
-
-    /**
      * Retrieve a User's initials.
      *
      * @return string
@@ -331,29 +320,6 @@ class User extends AbstractAuthenticatable
         ])->map(function ($name) {
             return substr($name, 0, 1);
         })->toArray());
-    }
-
-    /**
-     * Retrieve a Plan Review ID for displaying a plans.plan.show modal.
-     *
-     * @param int $review_id
-     * @return int
-     */
-    public function validatePlanReviewRequest(int $review_id)
-    {
-        // Determine what bucket permissions are being checked
-        if ($review_id == 1) {
-            $bucket = 'review';
-        } elseif ($review_id > 1) {
-            $bucket = 'complete';
-        }
-
-        // Confirm bucket is requested and permitted
-        if (isset($bucket) && $this->isBucketPermitted($bucket)) {
-            return $review_id;
-        } else {
-            return 0;
-        }
     }
 
     /**

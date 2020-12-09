@@ -29,3 +29,8 @@ All notable changes to `users` will be documented in this file
 
 ## 0.2.1 - 2020-11-30
 - fix min sfneal/casts version
+
+
+## 0.2.2 - 2020-12-09
+- cut isBucketPermitted & validatePlanReviewRequest methods
+- add support for php8

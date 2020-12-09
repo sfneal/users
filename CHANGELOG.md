@@ -34,3 +34,7 @@ All notable changes to `users` will be documented in this file
 ## 0.2.2 - 2020-12-09
 - cut isBucketPermitted & validatePlanReviewRequest methods
 - add support for php8
+
+
+## 0.2.3 - 2020-12-09
+- cut getImageAttribute() method from User model

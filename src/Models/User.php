@@ -495,16 +495,6 @@ class User extends AbstractAuthenticatable
     }
 
     /**
-     * Retrieve the User's image path if an image exists.
-     *
-     * @return string|null
-     */
-    public function getImageAttribute()
-    {
-        return $this->file->path ?? null;
-    }
-
-    /**
      * Retrieve an email link.
      *
      * @return string

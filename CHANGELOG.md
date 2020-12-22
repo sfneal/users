@@ -38,3 +38,7 @@ All notable changes to `users` will be documented in this file
 
 ## 0.2.3 - 2020-12-09
 - cut getImageAttribute() method from User model
+
+
+## 0.3.0 - 2020-12-22
+- add 'textarea' attribute accessor to User model for editing a User's model

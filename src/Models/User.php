@@ -533,4 +533,14 @@ class User extends AbstractAuthenticatable
     {
         return (! empty($this->rate)) ? '$'.FormatDollars::execute($this->rate) : '-';
     }
+
+    /**
+     * Retrieve the raw 'text' attribute with newline chars.
+     *
+     * @return mixed
+     */
+    public function getTextareaAttribute()
+    {
+        return $this->attributes['bio'];
+    }
 }

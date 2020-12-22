@@ -8,7 +8,7 @@ use Sfneal\Models\Traits\CacheableAll;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Scopes\UserActiveScope;
 
-// todo: make use of this once sfneal/files packages in publish
+// todo: make use of this once sfneal/files packages is published
 class Team extends AbstractModel
 {
     use CacheableAll;

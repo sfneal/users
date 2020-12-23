@@ -42,3 +42,7 @@ All notable changes to `users` will be documented in this file
 
 ## 0.3.0 - 2020-12-22
 - add 'textarea' attribute accessor to User model for editing a User's model
+
+
+## 0.3.1 - 2020-12-23
+- cut unused methods from User model

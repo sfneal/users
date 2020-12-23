@@ -86,14 +86,6 @@ class User extends AbstractAuthenticatable
         'bio' => NewlineCast::class,
     ];
 
-//    /**
-//     * @var array Events to be dispatched after certain events
-//     */
-//    protected $dispatchesEvents = [
-//        'updated' => UserUpdatedEvent::class,
-//        'deleted' => DeletedFileModelsParentEvent::class,
-//    ];
-
     /**
      * Query Builder.
      * @param $query
@@ -123,86 +115,6 @@ class User extends AbstractAuthenticatable
     {
         return $this->belongsTo(Role::class, 'role_id', 'role_id');
     }
-
-//    /**
-//     * Tasks belonging to the User.
-//     *
-//     * @return HasMany
-//     */
-//    public function tasks()
-//    {
-//        return $this->hasMany(Task::class, 'user_id', 'id')->orderBy('updated_at', 'desc');
-//    }
-//
-//    /**
-//     * Projects that the User is a team member of.
-//     *
-//     * @return BelongsToMany
-//     */
-//    public function projects()
-//    {
-//        return $this->belongsToMany(Project::class, 'project_user', 'user_id', 'project_id')->with(['status']);
-//    }
-//
-//    /**
-//     * Comment created by the user.
-//     *
-//     * @return HasMany
-//     */
-//    public function comments()
-//    {
-//        return $this->hasMany(ProjectComment::class, 'user_id', 'id')->orderBy('created_at', 'desc');
-//    }
-//
-//    /**
-//     * Documents uploaded by the User.
-//     *
-//     * @return HasMany
-//     */
-//    public function docs()
-//    {
-//        return $this->hasMany(ProjectDocument::class, 'user_id', 'id')->orderBy('created_at', 'desc');
-//    }
-//
-//    /**
-//     * Traffic tracking for a User.
-//     *
-//     * @return HasMany
-//     */
-//    public function traffic()
-//    {
-//        return $this->hasMany(TrackTraffic::class, 'user_id', 'id');
-//    }
-//
-//    /**
-//     * Activity tracking for a User.
-//     *
-//     * @return HasMany
-//     */
-//    public function activity()
-//    {
-//        return $this->hasMany(TrackActivity::class, 'user_id', 'id');
-//    }
-//
-//    /**
-//     * Task Rate History for a User.
-//     *
-//     * @return HasMany
-//     */
-//    public function rateHistory()
-//    {
-//        return $this->hasMany(RateHistory::class, 'user_id', 'id');
-//    }
-//
-//    /**
-//     * The image file.
-//     *
-//     * @return MorphOne|File
-//     */
-//    public function file()
-//    {
-//        return $this->morphOne(File::class, 'fileable');
-//    }
 
     /**
      * User's Notification Subscriptions.
@@ -354,20 +266,6 @@ class User extends AbstractAuthenticatable
             $this->attributes['password'] = bcrypt($value);
         }
     }
-
-//    /**
-//     * Get a User's permitted plan management buckets.
-//     *
-//     * @return array|mixed
-//     */
-//    public function getPermittedBucketsAttribute()
-//    {
-//        if (isset($this->plan_management_buckets)) {
-//            return $this->plan_management_buckets;
-//        } else {
-//            return array_keys(PlanManagement::buckets());
-//        }
-//    }
 
     /**
      * Mutate the 'middle_name' attribute.

@@ -1,7 +1,8 @@
 # Users (authenticatable)
 
+[![Packagist PHP support](https://img.shields.io/packagist/php-v/sfneal/users)](https://packagist.org/packages/sfneal/users)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sfneal/users.svg?style=flat-square)](https://packagist.org/packages/sfneal/users)
-[![Build Status](https://img.shields.io/travis/sfneal/users/master.svg?style=flat-square)](https://travis-ci.org/sfneal/users)
+[![Build Status](https://travis-ci.com/sfneal/users.svg?branch=master&style=flat-square)](https://travis-ci.com/sfneal/users)
 [![Quality Score](https://img.shields.io/scrutinizer/g/sfneal/users.svg?style=flat-square)](https://scrutinizer-ci.com/g/sfneal/users)
 [![Total Downloads](https://img.shields.io/packagist/dt/sfneal/users.svg?style=flat-square)](https://packagist.org/packages/sfneal/users)
 

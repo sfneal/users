@@ -342,6 +342,8 @@ class User extends AbstractAuthenticatable
         return '<a href="'.route('user.show', ['user'=>$this->id]).'">'.$this->name.'</a>';
     }
 
+    // todo: add address accessor method to a sfneal/address trait
+
     /**
      * Retrieve the User's 'address1' attribute.
      *

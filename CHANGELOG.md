@@ -49,4 +49,4 @@ All notable changes to `users` will be documented in this file
 
 
 ## 0.4.0 - 2021-02-01
-- bump min sfneal/casts & sfneal/scopes package versions to 1.0
+- bump min casts, scopes, address, caching, currency & models package versions to 1.0

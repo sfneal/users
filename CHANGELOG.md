@@ -46,3 +46,7 @@ All notable changes to `users` will be documented in this file
 
 ## 0.3.1 - 2020-12-23
 - cut unused methods from User model
+
+
+## 0.4.0 - 2021-02-01
+- bump min sfneal/casts & sfneal/scopes package versions to 1.0

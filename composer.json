@@ -19,13 +19,13 @@
         "php": ">=7.2",
         "sfneal/address": ">=1.0",
         "sfneal/caching": ">=1.0",
-        "sfneal/casts": ">=0.3.2",
+        "sfneal/casts": ">=1.0",
         "sfneal/currency": ">=1.0",
         "sfneal/laravel-helpers": ">=1.0",
         "sfneal/models": ">=1.0",
         "sfneal/post-office": ">=0.4.0",
         "sfneal/queries": ">=0.3.0",
-        "sfneal/scopes": ">=0.3.0"
+        "sfneal/scopes": ">=1.0"
     },
     "require-dev": {
         "phpunit/phpunit": ">=7.0.0"

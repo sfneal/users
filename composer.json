@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.3",
         "sfneal/address": ">=1.0",
         "sfneal/caching": ">=1.0",
         "sfneal/casts": ">=1.0",

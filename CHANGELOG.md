@@ -54,3 +54,8 @@ All notable changes to `users` will be documented in this file
 
 ## 0.4.1 - 2021-02-01
 - cut support for php7.2
+
+
+## 0.5.0 - 2021-02-03
+- cut composer requiring of abandoned sfneal/filters & sfneal/queries packages
+- add sfneal/datum (merged filters & queries) composer requirement

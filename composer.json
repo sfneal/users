@@ -21,10 +21,10 @@
         "sfneal/caching": ">=1.0",
         "sfneal/casts": ">=1.0",
         "sfneal/currency": ">=1.0",
+        "sfneal/datum": ">=0.1.0",
         "sfneal/laravel-helpers": ">=1.0",
         "sfneal/models": ">=1.0",
         "sfneal/post-office": ">=0.4.0",
-        "sfneal/queries": ">=0.3.0",
         "sfneal/scopes": ">=1.0"
     },
     "require-dev": {

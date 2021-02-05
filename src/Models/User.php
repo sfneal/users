@@ -19,6 +19,7 @@ use Vkovic\LaravelCustomCasts\HasCustomCasts;
 class User extends AbstractAuthenticatable
 {
     // todo: refactor status to use Status model?
+    // todo: cust plan_management_buckets filable
     use HasCustomCasts;
 
     /**

@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
 use Sfneal\Casts\NewlineCast;
 use Sfneal\Currency\FormatDollars;
-use Sfneal\LaravelCustomCasts\HasCustomCasts;
 use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Scopes\UserActiveScope;
+use Vkovic\LaravelCustomCasts\HasCustomCasts;
 
 class User extends AbstractAuthenticatable
 {

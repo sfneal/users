@@ -63,3 +63,8 @@ All notable changes to `users` will be documented in this file
 
 ## 0.6.0 - 2021-02-05
 - cut composer requiring of abandoned sfneal/laravel-custom-casts & replaced with vkovic/laravel-custom-casts
+
+
+## 0.6.1 - 2021-02-11
+- bump sfneal/datum package min version to 0.8
+- extensions of AbstractQuery to implementations of Query interface.

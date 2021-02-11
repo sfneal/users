@@ -3,10 +3,10 @@
 namespace Sfneal\Users\Queries;
 
 use Illuminate\Http\Request;
-use Sfneal\Queries\AbstractQuery;
+use Sfneal\Queries\Query;
 use Sfneal\Users\Models\User;
 
-class UserListQuery extends AbstractQuery
+class UserListQuery implements Query
 {
     /**
      * @var Request

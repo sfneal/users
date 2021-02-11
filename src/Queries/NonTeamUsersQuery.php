@@ -3,10 +3,10 @@
 namespace Sfneal\Users\Queries;
 
 use Illuminate\Database\Eloquent\Collection;
-use Sfneal\Queries\AbstractQuery;
+use Sfneal\Queries\Query;
 use Sfneal\Users\Models\User;
 
-class NonTeamUsersQuery extends AbstractQuery
+class NonTeamUsersQuery implements Query
 {
     /**
      * Retrieve a Collection of User's who are NOT team members.

@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Queries;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Queries\Query;
 use Sfneal\Users\Builders\UserBuilder;

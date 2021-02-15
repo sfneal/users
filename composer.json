@@ -21,7 +21,7 @@
         "sfneal/caching": ">=1.0",
         "sfneal/casts": ">=1.1",
         "sfneal/currency": ">=1.0",
-        "sfneal/datum": ">=0.11",
+        "sfneal/datum": ">=1.0",
         "sfneal/laravel-helpers": ">=1.0",
         "sfneal/models": ">=1.0",
         "sfneal/post-office": ">=0.4.0",

@@ -74,3 +74,7 @@ All notable changes to `users` will be documented in this file
 - bump sfneal/datum package min version to 0.11
 - refactor implementations of Query interface to extensions of abstract Query class
 - add implementations of protected builder() method in Query extensions
+
+
+## 0.8.0 (rc) - 2021-02-xx
+- bump sfneal/datum package min version to 1.0 (initial production release)

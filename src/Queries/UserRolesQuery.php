@@ -5,20 +5,31 @@ namespace Sfneal\Users\Queries;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Caching\Traits\Cacheable;
 use Sfneal\Queries\Query;
+use Sfneal\Users\Builders\RoleBuilder;
 use Sfneal\Users\Models\Role;
 
-class UserRolesQuery implements Query
+class UserRolesQuery extends Query
 {
     use Cacheable;
+
+    /**
+     * Retrieve a Query builder.
+     *
+     * @return RoleBuilder
+     */
+    protected function builder(): RoleBuilder
+    {
+        return Role::query();
+    }
 
     /**
      * Execute the Query.
      *
      * @return Collection
      */
-    public function execute()
+    public function execute(): Collection
     {
-        return Role::query()->whereTypeUser()->get();
+        return $this->builder()->whereTypeUser()->get();
     }
 
     /**

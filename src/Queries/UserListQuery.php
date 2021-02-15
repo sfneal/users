@@ -2,11 +2,13 @@
 
 namespace Sfneal\Users\Queries;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Sfneal\Queries\Query;
+use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Models\User;
 
-class UserListQuery implements Query
+class UserListQuery extends Query
 {
     /**
      * @var Request
@@ -24,13 +26,23 @@ class UserListQuery implements Query
     }
 
     /**
+     * Retrieve a Query builder.
+     *
+     * @return UserBuilder
+     */
+    protected function builder(): UserBuilder
+    {
+        return User::query();
+    }
+
+    /**
      * Execute a Team ajax search.
      *
      * @return array
      */
     public function execute(): array
     {
-        return User::query()
+        return $this->builder()
             ->whereNameLike($this->request->input('q'))
             ->whereActive()
             ->selectRawJson()

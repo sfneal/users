@@ -2,14 +2,16 @@
 
 namespace Sfneal\Users\Queries;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Caching\Traits\Cacheable;
 use Sfneal\PostOffice\Notifications\AbstractNotification;
 use Sfneal\Queries\Query;
+use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Builders\UserNotificationBuilder;
 use Sfneal\Users\Models\User;
 
-class UserNotificationSubscriptionQuery implements Query
+class UserNotificationSubscriptionQuery extends Query
 {
     use Cacheable;
 
@@ -29,6 +31,16 @@ class UserNotificationSubscriptionQuery implements Query
     }
 
     /**
+     * Retrieve a Query builder.
+     *
+     * @return UserBuilder
+     */
+    protected function builder(): UserBuilder
+    {
+        return User::query();
+    }
+
+    /**
      * Retrieve a Collection of User's that are subscribed to a Notification.
      *
      *  - only return user 'Stephen Neal' if environment is not 'production'
@@ -39,7 +51,7 @@ class UserNotificationSubscriptionQuery implements Query
     {
         // Production environment
         if (env('APP_ENV') == 'production') {
-            return User::query()
+            return $this->builder()
                 ->whereHas('notificationSubscriptions', function (UserNotificationBuilder $builder) {
                     $builder->whereType($this->notification);
                 })
@@ -48,7 +60,7 @@ class UserNotificationSubscriptionQuery implements Query
 
         // Development environment
         else {
-            return User::query()
+            return $this->builder()
                 ->whereUser(38)
                 ->get();
         }

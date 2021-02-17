@@ -20,6 +20,8 @@ class User extends AbstractAuthenticatable
 {
     // todo: refactor status to use Status model?
     // todo: cust plan_management_buckets filable
+    // todo: add email footer attribute
+    // todo: add constants for things like company name, address, phone number (FooterViewModel)
     use HasCustomCasts;
 
     /**

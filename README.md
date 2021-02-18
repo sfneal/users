@@ -16,6 +16,22 @@ You can install the package via composer:
 composer require sfneal/users
 ```
 
+In order to autoload to the auth helper functions add the following path to the autoload.files section in your composer.json.
+
+```json
+"autoload": {
+    "files": [
+        "vendor/sfneal/users/src/helpers/auth.php"
+    ]
+},
+```
+
+To modify the user config file (like adding organization constants) publish the ServiceProvider with the following command.
+
+``` php
+php artisan vendor:publish --provider="Sfneal\Users\Providers\UsersServiceProvider"
+```
+
 ## Usage
 
 ``` php

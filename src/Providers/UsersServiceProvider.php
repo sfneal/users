@@ -15,7 +15,7 @@ class UsersServiceProvider extends ServiceProvider
     {
         // Publish config file
         $this->publishes([
-            __DIR__ . '/../../config/users.php' => config_path('users.php'),
+            __DIR__.'/../../config/users.php' => config_path('users.php'),
         ], 'config');
     }
 
@@ -27,6 +27,6 @@ class UsersServiceProvider extends ServiceProvider
     public function register()
     {
         // Load config file
-        $this->mergeConfigFrom(__DIR__ . '/../../config/users.php', 'users');
+        $this->mergeConfigFrom(__DIR__.'/../../config/users.php', 'users');
     }
 }

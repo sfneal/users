@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Sfneal\Users\Services;
-
 
 use Sfneal\Actions\AbstractService;
 
 class OrganizationService extends AbstractService
 {
     /**
-     * Retrieve the Organization's name
+     * Retrieve the Organization's name.
      *
      * @return string|null
      */
@@ -19,7 +17,7 @@ class OrganizationService extends AbstractService
     }
 
     /**
-     * Retrieve the Organization's logo
+     * Retrieve the Organization's logo.
      *
      * @return string|null
      */
@@ -29,7 +27,7 @@ class OrganizationService extends AbstractService
     }
 
     /**
-     * Retrieve an OrganizationAddressService instance for accessing the address
+     * Retrieve an OrganizationAddressService instance for accessing the address.
      *
      * @return OrganizationAddressService
      */
@@ -39,7 +37,7 @@ class OrganizationService extends AbstractService
     }
 
     /**
-     * Retrieve the Organization's phone number
+     * Retrieve the Organization's phone number.
      *
      * @param bool $href
      * @return string|null
@@ -48,7 +46,7 @@ class OrganizationService extends AbstractService
     {
         // Return a phone href
         if ($href) {
-            return 'tel:+' . str_replace('-', '', config('users.org.phone'));
+            return 'tel:+'.str_replace('-', '', config('users.org.phone'));
         }
 
         // Only return the phone number
@@ -56,7 +54,7 @@ class OrganizationService extends AbstractService
     }
 
     /**
-     * Retrieve the Organization's email address
+     * Retrieve the Organization's email address.
      *
      * @param bool $href
      * @return string|null
@@ -65,7 +63,7 @@ class OrganizationService extends AbstractService
     {
         // Return a phone href
         if ($href) {
-            return 'mailto:' . config('users.org.email');
+            return 'mailto:'.config('users.org.email');
         }
 
         // Only return the phone number

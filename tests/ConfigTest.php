@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests;
-
 
 use Sfneal\Users\Services\OrganizationService;
 

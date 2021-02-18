@@ -14,13 +14,12 @@ use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Scopes\UserActiveScope;
+use Sfneal\Users\Services\OrganizationService;
 use Vkovic\LaravelCustomCasts\HasCustomCasts;
 
 class User extends AbstractAuthenticatable
 {
     // todo: refactor status to use Status model?
-    // todo: cust plan_management_buckets filable
-    // todo: add email footer attribute
     use HasCustomCasts;
 
     /**
@@ -66,7 +65,6 @@ class User extends AbstractAuthenticatable
         'password',
         'status',
         'rate',
-        'plan_management_buckets',
     ];
 
     /**
@@ -444,5 +442,21 @@ class User extends AbstractAuthenticatable
     public function getTextareaAttribute()
     {
         return $this->attributes['bio'];
+    }
+
+    /**
+     * Retrieve a User's custom email footer.
+     *
+     * @return string
+     */
+    public function getEmailFooterAttribute(): string
+    {
+        $footer = "{$this->name}";
+        $footer .= $this->title ? "\n{$this->title}" : '';
+        $footer .= "\n" . OrganizationService::name() ?? '';
+        $footer .= "\n" . ($this->phone_work ?? OrganizationService::phone()) ?? '';
+        $footer .= $this->email ? "\n{$this->email}" : '';
+
+        return $footer;
     }
 }

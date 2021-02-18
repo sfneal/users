@@ -82,3 +82,7 @@ All notable changes to `users` will be documented in this file
 - make OrganizationService for accessing org constants (name, address, phone, etc)
 - add config tests to the test suite
 - cut autoloading of auth.php helper functions
+
+## 0.8.1 - 2021-02-18
+- add 'email_footer' attribute accessor to User model for retrieving a custom email footer for any User
+- cut 'plan_management_buckets' attribute from filables.

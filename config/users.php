@@ -12,7 +12,8 @@ return [
     |
     */
 
-    'organization' => [
+    // Organization
+    'org' => [
         // Organization's name
         'name' => null,
 

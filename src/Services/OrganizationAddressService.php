@@ -1,25 +1,23 @@
 <?php
 
-
 namespace Sfneal\Users\Services;
-
 
 use Sfneal\Actions\AbstractService;
 
 class OrganizationAddressService extends AbstractService
 {
     /**
-     * Retrieve an Organization's full address
+     * Retrieve an Organization's full address.
      *
      * @return string|null
      */
     public static function full(): ?string
     {
-        return self::street() . ', ' . self::city() . ', ' . self::state() . ' ' . self::zip();
+        return self::street().', '.self::city().', '.self::state().' '.self::zip();
     }
 
     /**
-     * Retrieve an Organization's street address
+     * Retrieve an Organization's street address.
      *
      * @return string|null
      */
@@ -29,7 +27,7 @@ class OrganizationAddressService extends AbstractService
     }
 
     /**
-     * Retrieve an Organization's city name
+     * Retrieve an Organization's city name.
      *
      * @return string|null
      */
@@ -39,7 +37,7 @@ class OrganizationAddressService extends AbstractService
     }
 
     /**
-     * Retrieve an Organization's state abbreviation
+     * Retrieve an Organization's state abbreviation.
      *
      * @return string|null
      */
@@ -49,7 +47,7 @@ class OrganizationAddressService extends AbstractService
     }
 
     /**
-     * Retrieve an Organization's zip code
+     * Retrieve an Organization's zip code.
      *
      * @return string|null
      */

@@ -76,5 +76,8 @@ All notable changes to `users` will be documented in this file
 - add implementations of protected builder() method in Query extensions
 
 
-## 0.8.0 (rc) - 2021-02-xx
+## 0.8.0 - 2021-02-18
 - bump sfneal/datum package min version to 1.0 (initial production release)
+- make ServiceProvider that publishes a config file with organization constants
+- make OrganizationService for accessing org constants (name, address, phone, etc)
+- add config tests to the test suite

@@ -453,8 +453,8 @@ class User extends AbstractAuthenticatable
     {
         $footer = "{$this->name}";
         $footer .= $this->title ? "\n{$this->title}" : '';
-        $footer .= "\n" . OrganizationService::name() ?? '';
-        $footer .= "\n" . ($this->phone_work ?? OrganizationService::phone()) ?? '';
+        $footer .= "\n".OrganizationService::name() ?? '';
+        $footer .= "\n".($this->phone_work ?? OrganizationService::phone()) ?? '';
         $footer .= $this->email ? "\n{$this->email}" : '';
 
         return $footer;

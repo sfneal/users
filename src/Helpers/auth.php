@@ -2,8 +2,6 @@
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
-// todo: remove autoloading from composer.json
-
 /**
  * Retrieve the active User.
  *

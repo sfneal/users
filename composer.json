@@ -30,6 +30,13 @@
     "require-dev": {
         "phpunit/phpunit": ">=7.0.0"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sfneal\\Users\\Providers\\UsersServiceProvider"
+            ]
+        }
+    },
     "autoload": {
         "psr-4": {
             "Sfneal\\Users\\": "src"

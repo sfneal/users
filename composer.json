@@ -40,15 +40,15 @@
     "autoload": {
         "psr-4": {
             "Sfneal\\Users\\": "src"
-        },
-        "files": [
-            "src/Helpers/auth.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Sfneal\\Users\\Tests\\": "tests"
-        }
+        },
+        "files": [
+            "src/Helpers/auth.php"
+        ]
     },
     "scripts": {
         "test": "vendor/bin/phpunit",

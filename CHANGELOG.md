@@ -81,3 +81,4 @@ All notable changes to `users` will be documented in this file
 - make ServiceProvider that publishes a config file with organization constants
 - make OrganizationService for accessing org constants (name, address, phone, etc)
 - add config tests to the test suite
+- cut autoloading of auth.php helper functions

@@ -6,6 +6,8 @@ use Sfneal\Users\Services\OrganizationService;
 
 class ConfigTest extends TestCase
 {
+    // todo: add 'full' method test and test scenarios with null config values
+
     /** @test */
     public function org_name()
     {

@@ -4,13 +4,15 @@
 namespace Sfneal\Users\Tests;
 
 
+use Sfneal\Users\Services\OrganizationService;
+
 class ConfigTest extends TestCase
 {
     /** @test */
     public function org_name()
     {
         $expected = 'HPA Design, inc.';
-        $output = config('users.org.name');
+        $output = OrganizationService::name();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
@@ -20,7 +22,7 @@ class ConfigTest extends TestCase
     public function org_address_street()
     {
         $expected = '35 Main Street';
-        $output = config('users.org.address.street');
+        $output = OrganizationService::address()->street();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
@@ -30,7 +32,7 @@ class ConfigTest extends TestCase
     public function org_address_city()
     {
         $expected = 'Milford';
-        $output = config('users.org.address.city');
+        $output = OrganizationService::address()->city();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
@@ -40,7 +42,7 @@ class ConfigTest extends TestCase
     public function org_address_state()
     {
         $expected = 'MA';
-        $output = config('users.org.address.state');
+        $output = OrganizationService::address()->state();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
@@ -50,7 +52,7 @@ class ConfigTest extends TestCase
     public function org_address_zip()
     {
         $expected = '01575';
-        $output = config('users.org.address.zip');
+        $output = OrganizationService::address()->zip();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
@@ -60,7 +62,7 @@ class ConfigTest extends TestCase
     public function org_phone()
     {
         $expected = '508-384-8838';
-        $output = config('users.org.phone');
+        $output = OrganizationService::phone();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
@@ -70,11 +72,29 @@ class ConfigTest extends TestCase
     public function org_email()
     {
         $expected = 'contact@hpadesign.com';
-        $output = config('users.org.email');
+        $output = OrganizationService::email();
 
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
     }
 
+    /** @test */
+    public function org_phone_href()
+    {
+        $expected = 'tel:+5083848838';
+        $output = OrganizationService::phone(true);
 
+        $this->assertIsString($output);
+        $this->assertEquals($expected, $output);
+    }
+
+    /** @test */
+    public function org_email_href()
+    {
+        $expected = 'mailto:contact@hpadesign.com';
+        $output = OrganizationService::email(true);
+
+        $this->assertIsString($output);
+        $this->assertEquals($expected, $output);
+    }
 }

@@ -175,7 +175,18 @@ class User extends AbstractAuthenticatable
      */
     public function isAdmin(): bool
     {
-        return $this->isRoleId(3);
+        // User is considered an 'admin' if he/she is a 'web developer'
+        return $this->isRoleId(3) || $this->isRoleId(4);
+    }
+
+    /**
+     * Determine if a User has a 'web developer' role.
+     *
+     * @return bool
+     */
+    public function isWebDeveloper(): bool
+    {
+        return $this->isRoleId(4);
     }
 
     /**

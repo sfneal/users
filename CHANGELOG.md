@@ -87,3 +87,8 @@ All notable changes to `users` will be documented in this file
 ## 0.8.1 - 2021-02-18
 - add 'email_footer' attribute accessor to User model for retrieving a custom email footer for any User
 - cut 'plan_management_buckets' attribute from fillables.
+
+
+## 0.8.2 - 2021-03-01
+ - add `isWebDeveloper()` method to User model for checking User roles
+ - fix `isAdmin()` method to return true if the user has a 'web developer' role

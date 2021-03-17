@@ -50,4 +50,17 @@ class RoleBuilder extends QueryBuilder
         $this->where('name', $operator, ucwords($name), $boolean);
         return $this;
     }
+
+    /**
+     * Scope query results to Role's that do NOT have a particular role 'name'.
+     *
+     * @param string $name
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereNotName(string $name, string $boolean = 'and'): self
+    {
+        $this->whereName($name, '!=', $boolean);
+        return $this;
+    }
 }

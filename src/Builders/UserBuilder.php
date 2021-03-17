@@ -164,6 +164,33 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
+     * Scope query results to User's with a particular 'role_id'.
+     *
+     * @param int $role_id
+     * @param string $operator
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereRole(int $role_id, string $operator = '=', string $boolean = 'and'): self
+    {
+        $this->where('role_id', $operator, $role_id, $boolean);
+        return $this;
+    }
+
+    /**
+     * Add a `whereRole()` clause to query using the 'or' boolean.
+     *
+     * @param int $role_id
+     * @param string $operator
+     * @return $this
+     */
+    public function orWhereRole(int $role_id, string $operator = '='): self
+    {
+        $this->whereRole($role_id, $operator, 'or');
+        return $this;
+    }
+
+    /**
      * Inactive Users.
      *
      * @return $this

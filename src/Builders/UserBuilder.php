@@ -2,6 +2,7 @@
 
 namespace Sfneal\Users\Builders;
 
+use Closure;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
@@ -263,7 +264,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      */
     public function whereRoleName(string $role_name, string $operator = '>=', int $count = 1): self
     {
-        $this->whereHas('role', function (RoleBuilder $builder) use ($role_name) {
+        $this->whereHasRole(function (RoleBuilder $builder) use ($role_name) {
             $builder->whereName($role_name);
         }, $operator, $count);
 
@@ -280,7 +281,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      */
     public function whereRoleNameNot(string $role_name, string $operator = '>=', int $count = 1): self
     {
-        $this->whereHas('role', function (RoleBuilder $builder) use ($role_name) {
+        $this->whereHasRole(function (RoleBuilder $builder) use ($role_name) {
             $builder->whereNameNot($role_name);
         }, $operator, $count);
 
@@ -297,7 +298,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      */
     public function whereRoleNameIn(array $role_names, string $operator = '>=', int $count = 1): self
     {
-        $this->whereHas('role', function (RoleBuilder $builder) use ($role_names) {
+        $this->whereHasRole(function (RoleBuilder $builder) use ($role_names) {
             $builder->whereNameIn($role_names);
         }, $operator, $count);
 
@@ -314,9 +315,24 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      */
     public function whereRoleNameNotIn(array $role_names, string $operator = '>=', int $count = 1): self
     {
-        $this->whereHas('role', function (RoleBuilder $builder) use ($role_names) {
+        $this->whereHasRole(function (RoleBuilder $builder) use ($role_names) {
             $builder->whereNameNotIn($role_names);
         }, $operator, $count);
+
+        return $this;
+    }
+
+    /**
+     * Scope query results to User's that have roles.
+     *
+     * @param Closure|null $callback
+     * @param string $operator
+     * @param int $count
+     * @return $this
+     */
+    public function whereHasRole(Closure $callback = null, $operator = '>=', $count = 1): self
+    {
+        $this->whereHas('role', $callback, $operator, $count);
 
         return $this;
     }

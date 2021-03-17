@@ -288,6 +288,40 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
+     * Scope query results to User's with role names that are in the array of $role_names.
+     *
+     * @param array $role_names
+     * @param string $operator
+     * @param int $count
+     * @return $this
+     */
+    public function whereRoleNameIn(array $role_names, string $operator = '>=', int $count = 1): self
+    {
+        $this->whereHas('role', function (RoleBuilder $builder) use ($role_names) {
+            $builder->whereNameIn($role_names);
+        }, $operator, $count);
+
+        return $this;
+    }
+
+    /**
+     * Scope query results to User's with role names that are NOT in the array of $role_names.
+     *
+     * @param array $role_names
+     * @param string $operator
+     * @param int $count
+     * @return $this
+     */
+    public function whereRoleNameNotIn(array $role_names, string $operator = '>=', int $count = 1): self
+    {
+        $this->whereHas('role', function (RoleBuilder $builder) use ($role_names) {
+            $builder->whereNameNotIn($role_names);
+        }, $operator, $count);
+
+        return $this;
+    }
+
+    /**
      * Inactive Users.
      *
      * @return $this

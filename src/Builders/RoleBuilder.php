@@ -65,4 +65,33 @@ class RoleBuilder extends QueryBuilder
 
         return $this;
     }
+
+    /**
+     * Scope query results to Role's with names that are in the array of $names.
+     *
+     * @param array $names
+     * @param string $boolean
+     * @param bool $not
+     * @return $this
+     */
+    public function whereNameIn(array $names, string $boolean = 'and', bool $not = false): self
+    {
+        $this->whereIn('name', $names, $boolean, $not);
+
+        return $this;
+    }
+
+    /**
+     * Scope query results to Role's with names that are NOT in the array of $names.
+     *
+     * @param array $names
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereNameNotIn(array $names, string $boolean = 'and'): self
+    {
+        $this->whereIn('name', $names, $boolean, true);
+
+        return $this;
+    }
 }

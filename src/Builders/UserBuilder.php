@@ -12,6 +12,8 @@ use Sfneal\Users\Scopes\UserActiveScope;
 
 class UserBuilder extends QueryBuilder implements WhereUserInterface
 {
+    // todo: improve type hinting after tests are improved
+
     /**
      * @var string MySQL select objects to be queried in a raw json return
      */

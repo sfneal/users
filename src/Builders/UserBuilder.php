@@ -203,7 +203,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param string $boolean
      * @return $this
      */
-    public function whereNotRole(int $role_id, string $boolean = 'and'): self
+    public function whereRoleNot(int $role_id, string $boolean = 'and'): self
     {
         $this->where('role_id', '!=', $role_id, $boolean);
 
@@ -278,10 +278,10 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param int $count
      * @return $this
      */
-    public function whereNotRoleName(string $role_name, string $operator = '>=', int $count = 1): self
+    public function whereRoleNameNot(string $role_name, string $operator = '>=', int $count = 1): self
     {
         $this->whereHas('role', function (RoleBuilder $builder) use ($role_name) {
-            $builder->whereNotName($role_name);
+            $builder->whereNameNot($role_name);
         }, $operator, $count);
 
         return $this;

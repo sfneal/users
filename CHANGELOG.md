@@ -90,5 +90,10 @@ All notable changes to `users` will be documented in this file
 
 
 ## 0.8.2 - 2021-03-01
- - add `isWebDeveloper()` method to User model for checking User roles
- - fix `isAdmin()` method to return true if the user has a 'web developer' role
+- add `isWebDeveloper()` method to User model for checking User roles
+- fix `isAdmin()` method to return true if the user has a 'web developer' role
+
+
+## 0.8.3 - 2021-03-17
+- add `whereNotRole()`, `whereRoleIn()`, `whereRoleNotIn()`, `whereRole()` & `orWhereRole()` methods to UserBuilder
+- add`whereName()` method to RoleBuilder

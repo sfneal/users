@@ -95,7 +95,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param string $boolean
      * @return $this
      */
-    public function whereNotUser(int $user_id, string $boolean = 'and')
+    public function whereUserNot(int $user_id, string $boolean = 'and')
     {
         $this->whereUser($user_id, '!=', $boolean);
 
@@ -103,7 +103,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
-     * Scope query to activity that was performed by any of the specified users.
+     * Scope query to User's that have an 'id' found in the array of $user_ids.
      *
      * @param array $user_ids
      * @param string $boolean
@@ -113,6 +113,20 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function whereUserIn(array $user_ids, string $boolean = 'and', bool $not = false)
     {
         $this->whereIn('id', $user_ids, $boolean, $not);
+
+        return $this;
+    }
+
+    /**
+     * Scope query to User's that does NOT have 'id' found in the array of $user_ids.
+     *
+     * @param array $user_ids
+     * @param string $boolean
+     * @return $this|WhereUserInterface
+     */
+    public function whereUserNotIn(array $user_ids, string $boolean = 'and')
+    {
+        $this->whereUserIn($user_ids, $boolean, true);
 
         return $this;
     }

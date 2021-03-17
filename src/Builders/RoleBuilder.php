@@ -48,6 +48,7 @@ class RoleBuilder extends QueryBuilder
     public function whereName(string $name, string $operator = '=', string $boolean = 'and'): self
     {
         $this->where('name', $operator, ucwords($name), $boolean);
+
         return $this;
     }
 }

@@ -76,12 +76,27 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * Find a User.
      *
      * @param int $user_id
-     *
+     * @param string $operator
+     * @param string $boolean
      * @return $this
      */
-    public function whereUser(int $user_id)
+    public function whereUser(int $user_id, string $operator = '=', string $boolean = 'and')
     {
-        $this->where('id', '=', $user_id);
+        $this->where('id', $operator, $user_id, $operator);
+
+        return $this;
+    }
+
+    /**
+     * Exclude a User.
+     *
+     * @param int $user_id
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereNotUser(int $user_id, string $boolean = 'and')
+    {
+        $this->whereUser($user_id, '!=', $boolean);
 
         return $this;
     }
@@ -90,12 +105,13 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * Scope query to activity that was performed by any of the specified users.
      *
      * @param array $user_ids
-     *
+     * @param string $boolean
+     * @param bool $not
      * @return $this|WhereUserInterface
      */
-    public function whereUserIn(array $user_ids)
+    public function whereUserIn(array $user_ids, string $boolean = 'and', bool $not = false)
     {
-        $this->whereIn('id', $user_ids);
+        $this->whereIn('id', $user_ids, $boolean, $not);
 
         return $this;
     }

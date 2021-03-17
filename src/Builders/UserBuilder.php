@@ -191,6 +191,23 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
+     * Scope query results to User's with a particular role 'name'.
+     *
+     * @param string $role_name
+     * @param string $operator
+     * @param int $count
+     * @return $this
+     */
+    public function whereRoleName(string $role_name, string $operator = '>=', int $count = 1): self
+    {
+        $this->whereHas('role', function (RoleBuilder $builder) use ($role_name) {
+            $builder->whereName($role_name);
+        }, $operator, $count);
+
+        return $this;
+    }
+
+    /**
      * Inactive Users.
      *
      * @return $this

@@ -36,4 +36,18 @@ class RoleBuilder extends QueryBuilder
 
         return $this;
     }
+
+    /**
+     * Scope query results to Role's matching a role 'name'.
+     *
+     * @param string $name
+     * @param string $operator
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereName(string $name, string $operator = '=', string $boolean = 'and'): self
+    {
+        $this->where('name', $operator, ucwords($name), $boolean);
+        return $this;
+    }
 }

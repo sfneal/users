@@ -62,6 +62,7 @@ class RoleBuilder extends QueryBuilder
     public function whereNotName(string $name, string $boolean = 'and'): self
     {
         $this->whereName($name, '!=', $boolean);
+
         return $this;
     }
 }

@@ -178,6 +178,46 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
+     * Scope query results to User's without a particular 'role_id'.
+     *
+     * @param int $role_id
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereNotRole(int $role_id, string $boolean = 'and'): self
+    {
+        $this->where('role_id', '!=', $role_id, $boolean);
+        return $this;
+    }
+
+    /**
+     * Scope query results to User's with a 'role_id' found in the array of $role_ids.
+     *
+     * @param array $role_ids
+     * @param string $boolean
+     * @param bool $not
+     * @return $this
+     */
+    public function whereRoleIn(array $role_ids, string $boolean = 'and', bool $not = false): self
+    {
+        $this->whereIn('role_id', $role_ids, $boolean, $not);
+        return $this;
+    }
+
+    /**
+     * Scope query results to User's with a 'role_id' that is NOT found in the array of $role_ids.
+     *
+     * @param array $role_ids
+     * @param string $boolean
+     * @return $this
+     */
+    public function whereRoleNotIn(array $role_ids, string $boolean = 'and'): self
+    {
+        $this->whereIn('role_id', $role_ids, $boolean, true);
+        return $this;
+    }
+
+    /**
      * Add a `whereRole()` clause to query using the 'or' boolean.
      *
      * @param int $role_id

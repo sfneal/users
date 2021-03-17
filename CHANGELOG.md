@@ -95,5 +95,4 @@ All notable changes to `users` will be documented in this file
 
 
 ## 0.8.3 - 2021-03-17
-- add `whereNotRole()`, `whereRoleIn()`, `whereRoleNotIn()`, `whereRole()` & `orWhereRole()` methods to UserBuilder
-- add`whereName()` method to RoleBuilder
+- add new methods to `UserBuilder` & `RoleBuilder` for scoping query results with 'role' clauses

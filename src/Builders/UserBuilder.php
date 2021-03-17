@@ -176,6 +176,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function whereRole(int $role_id, string $operator = '=', string $boolean = 'and'): self
     {
         $this->where('role_id', $operator, $role_id, $boolean);
+
         return $this;
     }
 
@@ -189,6 +190,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function whereNotRole(int $role_id, string $boolean = 'and'): self
     {
         $this->where('role_id', '!=', $role_id, $boolean);
+
         return $this;
     }
 
@@ -203,6 +205,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function whereRoleIn(array $role_ids, string $boolean = 'and', bool $not = false): self
     {
         $this->whereIn('role_id', $role_ids, $boolean, $not);
+
         return $this;
     }
 
@@ -216,6 +219,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function whereRoleNotIn(array $role_ids, string $boolean = 'and'): self
     {
         $this->whereIn('role_id', $role_ids, $boolean, true);
+
         return $this;
     }
 
@@ -229,6 +233,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function orWhereRole(int $role_id, string $operator = '='): self
     {
         $this->whereRole($role_id, $operator, 'or');
+
         return $this;
     }
 

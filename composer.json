@@ -28,7 +28,8 @@
         "sfneal/scopes": ">=1.0"
     },
     "require-dev": {
-        "orchestra/testbench": ">=6.7.1"
+        "orchestra/testbench": ">=6.7.1",
+        "scrutinizer/ocular": "^1.8"
     },
     "extra": {
         "laravel": {

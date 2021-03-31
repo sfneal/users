@@ -105,4 +105,8 @@ All notable changes to `users` will be documented in this file
 
 ## 0.8.5 - 2021-03-17
 - refactor `whereNotUser()` method to `whereUserNot()`
-- add `whereUserNotIn()` method to UserBuilder.
+- add `whereUserNotIn()` method to UserBuilder
+
+
+## 0.8.6 - 2021-03-31
+- cut use of `AbstractService` extensions

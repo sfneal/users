@@ -2,9 +2,7 @@
 
 namespace Sfneal\Users\Services;
 
-use Sfneal\Actions\AbstractService;
-
-class OrganizationService extends AbstractService
+class OrganizationService
 {
     /**
      * Retrieve the Organization's name.

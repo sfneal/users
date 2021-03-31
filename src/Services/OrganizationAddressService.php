@@ -2,9 +2,7 @@
 
 namespace Sfneal\Users\Services;
 
-use Sfneal\Actions\AbstractService;
-
-class OrganizationAddressService extends AbstractService
+class OrganizationAddressService
 {
     /**
      * Retrieve an Organization's full address.

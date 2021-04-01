@@ -110,3 +110,7 @@ All notable changes to `users` will be documented in this file
 
 ## 0.8.6 - 2021-03-31
 - cut use of `AbstractService` extensions
+
+
+## 0.9.0 - 2021-04-01
+- bump sfneal/currency dependency to 2.0

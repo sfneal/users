@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
 use Sfneal\Casts\NewlineCast;
-use Sfneal\Currency\FormatDollars;
+use Sfneal\Currency\Currency;
 use Sfneal\Models\AbstractAuthenticatable;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
@@ -442,7 +442,7 @@ class User extends AbstractAuthenticatable
      */
     public function getRateFormattedAttribute(): string
     {
-        return (! empty($this->rate)) ? '$'.FormatDollars::execute($this->rate) : '-';
+        return (! empty($this->rate)) ? Currency::dollars($this->rate) : '-';
     }
 
     /**

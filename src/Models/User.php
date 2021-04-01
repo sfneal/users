@@ -442,6 +442,7 @@ class User extends AbstractAuthenticatable
      */
     public function getRateFormattedAttribute(): string
     {
+        // todo: fix this
         return (! empty($this->rate)) ? '$'.FormatDollars::execute($this->rate) : '-';
     }
 

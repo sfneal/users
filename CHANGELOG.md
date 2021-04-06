@@ -114,3 +114,8 @@ All notable changes to `users` will be documented in this file
 
 ## 0.9.0 - 2021-04-01
 - bump sfneal/currency dependency to 2.0
+
+
+## 0.9.1 - 2021-04-06
+- fix sfneal/models version constraint (^1.0)
+- fix sfneal/address version constraint (^1.1.0)

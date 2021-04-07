@@ -3,13 +3,13 @@
 namespace Sfneal\Users\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Sfneal\Models\AbstractModel;
+use Sfneal\Models\Model;
 use Sfneal\Models\Traits\CacheableAll;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Scopes\UserActiveScope;
 
 // todo: make use of this once sfneal/files packages is published
-class Team extends AbstractModel
+class Team extends Model
 {
     use CacheableAll;
 

@@ -4,11 +4,11 @@ namespace Sfneal\Users\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Sfneal\Models\AbstractModel;
+use Sfneal\Models\Model;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\RoleBuilder;
 
-class Role extends AbstractModel
+class Role extends Model
 {
     /**
      * The "booting" method of the model.

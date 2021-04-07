@@ -2,7 +2,7 @@
 
 namespace Sfneal\Users\Builders;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Sfneal\Builders\QueryBuilder;
 use Sfneal\Users\Builders\Interfaces\WhereUserInterface;
 use Sfneal\Users\Builders\Traits\WhereUser;
@@ -13,7 +13,7 @@ class UserNotificationBuilder extends QueryBuilder implements WhereUserInterface
     use WhereUser;
 
     /**
-     * @var Model|UserNotification
+     * @var EloquentModel|UserNotification
      */
     protected $targetModel = UserNotification::class;
 

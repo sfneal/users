@@ -4,7 +4,7 @@ namespace Sfneal\Users\Builders;
 
 use Closure;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Query\Builder;
 use Sfneal\Builders\QueryBuilder;
 use Sfneal\Users\Builders\Interfaces\WhereUserInterface;
@@ -21,7 +21,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     protected $selectRawJson;
 
     /**
-     * @var Model|User
+     * @var EloquentModel|User
      */
     protected $targetModel = User::class;
 

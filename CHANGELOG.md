@@ -119,3 +119,8 @@ All notable changes to `users` will be documented in this file
 ## 0.9.1 - 2021-04-06
 - fix sfneal/models version constraint (^1.0)
 - fix sfneal/address version constraint (^1.1.0)
+
+
+## 0.10.0 - 2021-04-07
+- bump sfneal/models min version to v2.0
+- bump sfneal/caching to latest the version to avoid dependency conflicts

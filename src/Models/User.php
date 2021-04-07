@@ -10,14 +10,14 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
 use Sfneal\Casts\NewlineCast;
 use Sfneal\Currency\Currency;
-use Sfneal\Models\Authenticatable;
+use Sfneal\Models\AuthModel;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Scopes\UserActiveScope;
 use Sfneal\Users\Services\OrganizationService;
 use Vkovic\LaravelCustomCasts\HasCustomCasts;
 
-class User extends Authenticatable
+class User extends AuthModel
 {
     // todo: refactor status to use Status model?
     use HasCustomCasts;

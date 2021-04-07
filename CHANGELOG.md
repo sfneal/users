@@ -124,3 +124,8 @@ All notable changes to `users` will be documented in this file
 ## 0.10.0 - 2021-04-07
 - bump sfneal/models min version to v2.0
 - bump sfneal/caching to latest the version to avoid dependency conflicts
+
+
+## 0.10.1 - 2021-04-07
+- bump sfneal/models min version to v2.1
+- refactor use of `Authenticatable` to `AuthModel`

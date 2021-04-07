@@ -4,11 +4,11 @@ namespace Sfneal\Users\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Sfneal\Models\AbstractModel;
+use Sfneal\Models\Model;
 use Sfneal\Scopes\CreatedOrderScope;
 use Sfneal\Users\Builders\UserNotificationBuilder;
 
-class UserNotification extends AbstractModel
+class UserNotification extends Model
 {
     /**
      * The "booting" method of the model.

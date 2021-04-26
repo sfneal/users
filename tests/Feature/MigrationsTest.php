@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests\Feature;
-
 
 use Sfneal\Testing\Utils\Traits\ModelAttributeAssertions;
 use Sfneal\Users\Models\Role;

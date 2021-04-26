@@ -2,6 +2,8 @@
 
 namespace Sfneal\Users\Models;
 
+use Database\Factories\TeamFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sfneal\Models\Model;
 use Sfneal\Models\Traits\CacheableAll;
@@ -12,6 +14,7 @@ use Sfneal\Users\Scopes\UserActiveScope;
 class Team extends Model
 {
     use CacheableAll;
+    use HasFactory;
 
     /**
      * The "booting" method of the model.
@@ -43,6 +46,16 @@ class Team extends Model
         'user',
         'user.file',
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return TeamFactory
+     */
+    protected static function newFactory(): TeamFactory
+    {
+        return new TeamFactory();
+    }
 
     /**
      * Team member's 'user' relationship.

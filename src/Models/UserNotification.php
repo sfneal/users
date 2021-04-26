@@ -2,6 +2,7 @@
 
 namespace Sfneal\Users\Models;
 
+use Database\Factories\UserNotificationFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sfneal\Models\Model;
@@ -32,6 +33,16 @@ class UserNotification extends Model
         'user_id',
         'type',
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return UserNotificationFactory
+     */
+    protected static function newFactory(): UserNotificationFactory
+    {
+        return new UserNotificationFactory();
+    }
 
     /**
      * Query Builder.

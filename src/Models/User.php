@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Models;
 
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -21,6 +23,7 @@ class User extends AuthModel
 {
     // todo: refactor status to use Status model?
     use HasCustomCasts;
+    use HasFactory;
 
     /**
      * The "booting" method of the model.
@@ -85,6 +88,16 @@ class User extends AuthModel
     protected $casts = [
         'bio' => NewlineCast::class,
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return UserFactory
+     */
+    protected static function newFactory(): UserFactory
+    {
+        return new UserFactory();
+    }
 
     /**
      * Query Builder.

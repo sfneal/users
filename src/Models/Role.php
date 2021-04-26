@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Models;
 
+use Database\Factories\RoleFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Sfneal\Models\Model;
 use Sfneal\Scopes\OrderScope;
@@ -10,6 +12,8 @@ use Sfneal\Users\Builders\RoleBuilder;
 
 class Role extends Model
 {
+    use HasFactory;
+
     /**
      * The "booting" method of the model.
      *
@@ -40,6 +44,16 @@ class Role extends Model
         'class',
         'order',
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return RoleFactory
+     */
+    protected static function newFactory(): RoleFactory
+    {
+        return new RoleFactory();
+    }
 
     /**
      * Query Builder.

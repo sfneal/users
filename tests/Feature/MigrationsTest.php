@@ -8,6 +8,7 @@ use Sfneal\Testing\Utils\Traits\ModelAttributeAssertions;
 use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\Team;
 use Sfneal\Users\Models\User;
+use Sfneal\Users\Models\UserNotification;
 use Sfneal\Users\Tests\TestCase;
 
 class MigrationsTest extends TestCase
@@ -64,5 +65,18 @@ class MigrationsTest extends TestCase
         unset($data['password']);
 
         $this->modelAttributeAssertions($data, $foundModel, 'assertSame');
+    }
+
+    /** @test */
+    public function user_notification_table_is_accessible()
+    {
+        $data = [
+            'user_id' => rand(1, 999),
+            'type' => 'Domain\Clients\Notifications\NewInquiryNotification',
+        ];
+        $createdModel = UserNotification::query()->create($data);
+        $foundModel = UserNotification::query()->find($createdModel->getKey());
+
+        $this->modelAttributeAssertions($data, $foundModel);
     }
 }

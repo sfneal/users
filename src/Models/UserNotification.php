@@ -34,6 +34,15 @@ class UserNotification extends Model
     ];
 
     /**
+     * The attributes that should type cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'user_id' => 'int',
+    ];
+
+    /**
      * Create a new factory instance for the model.
      *
      * @return UserNotificationFactory

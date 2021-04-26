@@ -1,8 +1,9 @@
 <?php
 
-namespace Sfneal\Users\Tests;
+namespace Sfneal\Users\Tests\Feature;
 
 use Sfneal\Users\Services\OrganizationService;
+use Sfneal\Users\Tests\TestCase;
 
 class ConfigTest extends TestCase
 {

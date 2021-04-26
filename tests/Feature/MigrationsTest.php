@@ -29,7 +29,6 @@ class MigrationsTest extends TestCase
         $foundModel = Role::query()->find($createdModel->getKey());
 
         // Assert model has expected values
-        $this->assertSame($foundModel, $createdModel);
         $this->modelAttributeAssertions($data, $foundModel);
     }
 }

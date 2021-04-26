@@ -24,7 +24,6 @@ class UserNotification extends Model
         static::addGlobalScope(new CreatedOrderScope());
     }
 
-    protected $connection = 'mysql';
     protected $table = 'user_notification';
     protected $primaryKey = 'user_notification_id';
 

@@ -27,7 +27,6 @@ class Role extends Model
         static::addGlobalScope(new OrderScope('order', 'asc'));
     }
 
-    protected $connection = 'mysql';
     protected $table = 'role';
     protected $primaryKey = 'role_id';
 
@@ -43,6 +42,15 @@ class Role extends Model
         'description',
         'class',
         'order',
+    ];
+
+    /**
+     * The attributes that should type cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'order' => 'int',
     ];
 
     /**

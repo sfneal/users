@@ -29,7 +29,6 @@ class Team extends Model
         static::addGlobalScope(new OrderScope('order', 'asc'));
     }
 
-    protected $connection = 'mysql';
     protected $table = 'team';
     protected $primaryKey = 'team_id';
 

@@ -42,7 +42,6 @@ class User extends AuthModel
     protected $dates = ['deleted_at'];
     protected $table = 'user';
     protected $primaryKey = 'id';
-    protected $connection = 'mysql';
 
     /**
      * The attributes that are mass assignable.

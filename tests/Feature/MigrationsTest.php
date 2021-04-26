@@ -27,7 +27,7 @@ class MigrationsTest extends TestCase
         $createdModel = Role::query()->create($data);
         $foundModel = Role::query()->find($createdModel->getKey());
 
-        $this->modelAttributeAssertions($data, $foundModel);
+        $this->assertModelAttributesSame($data, $foundModel);
     }
 
     /** @test */
@@ -40,7 +40,7 @@ class MigrationsTest extends TestCase
         $createdModel = Team::query()->create($data);
         $foundModel = Team::query()->find($createdModel->getKey());
 
-        $this->modelAttributeAssertions($data, $foundModel);
+        $this->assertModelAttributesSame($data, $foundModel);
     }
 
     /** @test */
@@ -62,9 +62,7 @@ class MigrationsTest extends TestCase
         $createdModel = User::query()->create($data);
         $foundModel = User::query()->find($createdModel->getKey());
 
-        unset($data['password']);
-
-        $this->modelAttributeAssertions($data, $foundModel, 'assertSame');
+        $this->assertModelAttributesSame($data, $foundModel, ['password']);
     }
 
     /** @test */
@@ -77,6 +75,6 @@ class MigrationsTest extends TestCase
         $createdModel = UserNotification::query()->create($data);
         $foundModel = UserNotification::query()->find($createdModel->getKey());
 
-        $this->modelAttributeAssertions($data, $foundModel);
+        $this->assertModelAttributesSame($data, $foundModel);
     }
 }

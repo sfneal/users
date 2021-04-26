@@ -24,6 +24,22 @@ class TestCase extends OrchestraTestCase
         $app['config']->set('users.org.address.zip', '01575');
         $app['config']->set('users.org.phone', '508-384-8838');
         $app['config']->set('users.org.email', 'contact@hpadesign.com');
+
+        // Migrate 'role' table
+        include_once __DIR__.'/../database/migrations/create_role_table.php.stub';
+        (new \CreateRoleTable())->up();
+
+        // Migrate 'team' table
+        include_once __DIR__.'/../database/migrations/create_team_table.php.stub';
+        (new \CreateTeamTable())->up();
+
+        // Migrate 'user' table
+        include_once __DIR__.'/../database/migrations/create_user_table.php.stub';
+        (new \CreateUserTable())->up();
+
+        // Migrate 'user_notification' table
+        include_once __DIR__.'/../database/migrations/create_user_notification_table.php.stub';
+        (new \CreateUserNotificationTable())->up();
     }
 
     /**

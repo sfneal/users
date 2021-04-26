@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests\Feature\Builders;
-
 
 class UserBuilderTest extends BuilderTestCase
 {

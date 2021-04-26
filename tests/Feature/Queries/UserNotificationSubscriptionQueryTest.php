@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests\Feature\Queries;
-
 
 class UserNotificationSubscriptionQueryTest extends QueriesTestCase
 {

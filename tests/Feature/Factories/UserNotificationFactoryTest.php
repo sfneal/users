@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests\Feature\Factories;
-
 
 class UserNotificationFactoryTest extends FactoriesTestCase
 {

@@ -29,7 +29,8 @@
     },
     "require-dev": {
         "orchestra/testbench": ">=6.7.1",
-        "scrutinizer/ocular": "^1.8"
+        "scrutinizer/ocular": "^1.8",
+        "sfneal/mock-models": ">=0.3.1"
     },
     "extra": {
         "laravel": {

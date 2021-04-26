@@ -3,11 +3,27 @@
 namespace Sfneal\Users\Tests;
 
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Sfneal\Users\Providers\UsersServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
+    use RefreshDatabase;
+
+    /**
+     * Register package service providers.
+     *
+     * @param Application $app
+     * @return array|string
+     */
+    protected function getPackageProviders($app)
+    {
+        return [
+            UsersServiceProvider::class,
+        ];
+    }
+
     /**
      * Define environment setup.
      *
@@ -40,18 +56,5 @@ class TestCase extends OrchestraTestCase
         // Migrate 'user_notification' table
         include_once __DIR__.'/../database/migrations/create_user_notification_table.php.stub';
         (new \CreateUserNotificationTable())->up();
-    }
-
-    /**
-     * Register package service providers.
-     *
-     * @param Application $app
-     * @return array|string
-     */
-    protected function getPackageProviders($app)
-    {
-        return [
-            UsersServiceProvider::class,
-        ];
     }
 }

@@ -4,15 +4,32 @@
 namespace Sfneal\Users\Tests\Feature;
 
 
+use Sfneal\Testing\Utils\Traits\ModelAttributeAssertions;
+use Sfneal\Users\Models\Role;
 use Sfneal\Users\Tests\TestCase;
 
 class MigrationsTest extends TestCase
 {
-    // todo: create tests
+    use ModelAttributeAssertions;
 
     /** @test */
-    public function true_is_true()
+    public function role_table_is_accessible()
     {
-        $this->assertTrue(true);
+        $data = [
+            'type' => 'user',
+            'name' => 'Employee',
+            'description' => "Here's an example description",
+            'order' => 4,
+        ];
+
+        // Create the `TrackAction`
+        $createdModel = Role::query()->create($data);
+
+        // Retrieve the `TrackAction`
+        $foundModel = Role::query()->find($createdModel->getKey());
+
+        // Assert model has expected values
+        $this->assertSame($foundModel, $createdModel);
+        $this->modelAttributeAssertions($data, $foundModel);
     }
 }

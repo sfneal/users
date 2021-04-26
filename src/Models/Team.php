@@ -47,6 +47,17 @@ class Team extends Model
     ];
 
     /**
+     * The attributes that should type cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'team_id' => 'int',
+        'user_id' => 'int',
+        'order' => 'int',
+    ];
+
+    /**
      * Create a new factory instance for the model.
      *
      * @return TeamFactory

@@ -85,7 +85,10 @@ class User extends AuthModel
      * @var array
      */
     protected $casts = [
+        'role_id' => 'int',
         'bio' => NewlineCast::class,
+        'rate' => 'int',
+        'status' => 'int',
     ];
 
     /**

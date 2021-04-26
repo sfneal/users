@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Database\Factories;
-
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,8 +17,8 @@ class UserNotificationFactory extends Factory
             'user_id' => $this->faker->randomNumber(3),
             'type' => $this->faker->randomElement([
                 'Domain\Clients\Notifications\NewInquiryNotification',
-                'Domain\Plans\Notifications\BucketChangedNotification'
-            ])
+                'Domain\Plans\Notifications\BucketChangedNotification',
+            ]),
         ];
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests\Feature\Queries;
-
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;

@@ -12,7 +12,7 @@ class BuilderTestCase extends TestCase
     /**
      * @var Model
      */
-    protected $modelClass = Model::class;
+    protected $modelClass;
 
     /**
      * Setup the test environment.
@@ -23,8 +23,10 @@ class BuilderTestCase extends TestCase
     {
         parent::setUp();
 
-        $this->modelClass::factory()
-            ->count(200)
-            ->create();
+        if (isset($this->modelClass)) {
+            $this->modelClass::factory()
+                ->count(200)
+                ->create();
+        }
     }
 }

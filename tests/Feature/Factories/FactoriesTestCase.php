@@ -12,7 +12,7 @@ class FactoriesTestCase extends TestCase
     /**
      * @var Model
      */
-    public $modelClass = Model::class;
+    public $modelClass;
 
     /**
      * @var Model
@@ -29,6 +29,8 @@ class FactoriesTestCase extends TestCase
         parent::setUp();
 
         // Create models from the factory
-        $this->model = $this->modelClass::factory()->create();
+        if (isset($this->modelClass)) {
+            $this->model = $this->modelClass::factory()->create();
+        }
     }
 }

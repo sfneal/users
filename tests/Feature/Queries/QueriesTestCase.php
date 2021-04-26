@@ -18,7 +18,7 @@ class QueriesTestCase extends TestCase implements RequestCreator
     /**
      * @var Model
      */
-    public $modelClass = Model::class;
+    public $modelClass;
 
     /**
      * @var Collection
@@ -40,7 +40,9 @@ class QueriesTestCase extends TestCase implements RequestCreator
         parent::setUp();
 
         // Retrieve the People model from an Address model
-        $this->models = $this->modelClass::factory()->count($this->count)->create();
+        if (isset($this->modelClass)) {
+            $this->models = $this->modelClass::factory()->count($this->count)->create();
+        }
     }
 
     /**

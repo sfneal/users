@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Sfneal\Users\Tests\Feature\Factories;
-
 
 use Sfneal\Models\Model;
 use Sfneal\Users\Tests\TestCase;

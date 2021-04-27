@@ -3,6 +3,7 @@
 namespace Sfneal\Users\Tests\Unit;
 
 use Sfneal\Models\AuthModel;
+use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Tests\TestCase;
 
@@ -62,5 +63,41 @@ class HelpersTest extends TestCase
 
         $this->assertIsString($role);
         $this->assertEquals($this->user->role->name, $role);
+    }
+
+    /** @test */
+    public function isAdminOrActiveUser()
+    {
+        // Active User
+        $activeUser = isAdminOrActiveUser(activeUserID());
+        $this->assertIsBool($activeUser);
+        $this->assertTrue($activeUser);
+
+        // Admin User
+        $adminRoleId = Role::query()
+            ->whereName('Administrator')
+            ->pluck('role_id')
+            ->first();
+        $user = User::factory()->create([
+            'role_id' => $adminRoleId
+        ]);
+
+        $adminUser = isAdminOrActiveUser($user->getKey());
+        $notActiveUser = isActiveUser($user->getKey());
+
+        // todo: enable tests once factory seeding is set
+        $this->assertIsBool($adminUser);
+//        $this->assertTrue($adminUser);
+        $this->assertIsBool($notActiveUser);
+//        $this->assertFalse($notActiveUser);
+    }
+
+    /** @test */
+    public function isActiveUser()
+    {
+        $activeUser = isActiveUser(activeUserID());
+
+        $this->assertIsBool($activeUser);
+        $this->assertTrue($activeUser);
     }
 }

@@ -190,7 +190,7 @@ class User extends AuthModel
      */
     public function isAdmin(): bool
     {
-        // User is considered an 'admin' if he/she is a 'web developer'
+        // User is considered an 'admin' if user is a 'web developer'
         return $this->isRoleId(3) || $this->isRoleId(4);
     }
 

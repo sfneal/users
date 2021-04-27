@@ -8,7 +8,8 @@ use Sfneal\Users\Models\Role;
 class RoleFactory extends Factory
 {
     public const TYPES = ['user', 'client'];
-    public const NAMES = ['Employee', 'Administrator', 'Team Leader'];
+    // todo: lowercase they and add mutator
+    public const NAMES = ['Employee', 'Administrator', 'Team Leader', 'Web Developer'];
 
     /**
      * The name of the factory's corresponding model.

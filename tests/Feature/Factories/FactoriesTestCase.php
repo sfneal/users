@@ -32,8 +32,8 @@ class FactoriesTestCase extends TestCase
             $this->model = $this->modelClass::query()->find(
                 (new RandomModelAttributeQuery(
                     $this->modelClass,
-                    $this->modelClass::getPrimaryKeyName())
-                )->execute()
+                    $this->modelClass::getPrimaryKeyName()
+                ))->execute()
             );
         }
     }

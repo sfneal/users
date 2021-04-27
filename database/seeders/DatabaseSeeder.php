@@ -20,17 +20,29 @@ class DatabaseSeeder extends Seeder
     {
         foreach (RoleFactory::NAMES as $roleName) {
             Role::factory()
-                ->has(
-                    User::factory()
-                        ->count(20)
-                        ->has(Team::factory(), 'team')
-                        ->has(UserNotification::factory(), 'notificationSubscriptions'),
-                    'users'
-                )
+                ->has(User::factory()->count(20), 'users')
                 ->create([
                     'type' => 'user',
                     'name' => $roleName,
                 ]);
         }
+
+        User::query()
+            ->limit(User::query()->count() / 2)
+            ->get()
+            ->each(function (User $user) {
+                Team::factory()
+                    ->create([
+                        'user_id' => $user->getKey()
+                    ]);
+            });
+
+        User::all()->each(function (User $user) {
+            UserNotification::factory()
+                ->count(3)
+                ->create([
+                    'user_id' => $user->getKey()
+                ]);
+        });
     }
 }

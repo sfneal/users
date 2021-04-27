@@ -63,6 +63,7 @@ class HelpersTest extends TestCase
 
         $this->assertIsString($role);
         $this->assertEquals($this->user->role->name, $role);
+        // todo: add test with $role param
     }
 
     /** @test */

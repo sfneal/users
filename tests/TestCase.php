@@ -2,6 +2,7 @@
 
 namespace Sfneal\Users\Tests;
 
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -56,5 +57,17 @@ class TestCase extends OrchestraTestCase
         // Migrate 'user_notification' table
         include_once __DIR__.'/../database/migrations/create_user_notification_table.php.stub';
         (new \CreateUserNotificationTable())->up();
+    }
+
+    /**
+     * Setup the test environment.
+     *
+     * @return void
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed(DatabaseSeeder::class);
     }
 }

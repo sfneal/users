@@ -86,7 +86,7 @@ class HelpersTest extends TestCase
             ->pluck('role_id')
             ->first();
         $user = User::factory()->create([
-            'role_id' => $adminRoleId
+            'role_id' => $adminRoleId,
         ]);
 
         $adminUser = isAdminOrActiveUser($user->getKey());

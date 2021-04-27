@@ -39,7 +39,7 @@ class QueriesTestCase extends TestCase implements RequestCreator
 
         // Retrieve the People model from an Address model
         if (isset($this->modelClass)) {
-            $this->models = $this->modelClass::factory()->count($this->count)->create();
+            $this->models = $this->modelClass::query()->limit($this->count)->get();
         }
     }
 

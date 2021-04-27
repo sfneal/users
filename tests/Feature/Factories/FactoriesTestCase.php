@@ -3,6 +3,7 @@
 namespace Sfneal\Users\Tests\Feature\Factories;
 
 use Sfneal\Models\Model;
+use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Users\Tests\TestCase;
 
 class FactoriesTestCase extends TestCase
@@ -28,7 +29,12 @@ class FactoriesTestCase extends TestCase
 
         // Create models from the factory
         if (isset($this->modelClass)) {
-            $this->model = $this->modelClass::factory()->create();
+            $this->model = $this->modelClass::query()->find(
+                (new RandomModelAttributeQuery(
+                    $this->modelClass,
+                    $this->modelClass::getPrimaryKeyName())
+                )->execute()
+            );
         }
     }
 }

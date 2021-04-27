@@ -3,6 +3,7 @@
 namespace Sfneal\Users\Tests\Unit;
 
 use Sfneal\Models\AuthModel;
+use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Tests\TestCase;
@@ -23,7 +24,12 @@ class HelpersTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = User::factory()->create();
+        $this->user = User::query()->find(
+            (new RandomModelAttributeQuery(
+                User::class,
+                User::getPrimaryKeyName())
+            )->execute()
+        );
 
         $this->actingAs($this->user);
     }

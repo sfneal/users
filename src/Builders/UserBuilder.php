@@ -46,7 +46,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      */
     public function whereUser(int $user_id, string $operator = '=', string $boolean = 'and')
     {
-        $this->where('id', $operator, $user_id, $operator);
+        $this->where('id', $operator, $user_id, $boolean);
 
         return $this;
     }

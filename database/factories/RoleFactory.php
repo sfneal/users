@@ -7,6 +7,9 @@ use Sfneal\Users\Models\Role;
 
 class RoleFactory extends Factory
 {
+    public const TYPES = ['user', 'client'];
+    public const NAMES = ['Employee', 'Administrator', 'Team Leader'];
+
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,8 +25,8 @@ class RoleFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => $this->faker->randomElement(['user', 'client']),
-            'name' => $this->faker->randomElement(['Employee', 'Administrator', 'Team Leader']),
+            'type' => $this->faker->randomElement(self::TYPES),
+            'name' => $this->faker->randomElement(self::NAMES),
             'description' => $this->faker->text(255),
             'order' => $this->faker->randomNumber(2),
         ];

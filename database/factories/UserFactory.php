@@ -73,7 +73,7 @@ class UserFactory extends Factory
      */
     private static function createRoleFactories(): void
     {
-        if (!Role::query()->count()) {
+        if (! Role::query()->count()) {
             Role::factory()
                 ->count(10)
                 ->create();

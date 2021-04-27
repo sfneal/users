@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ->each(function (User $user) {
                 Team::factory()
                     ->create([
-                        'user_id' => $user->getKey()
+                        'user_id' => $user->getKey(),
                     ]);
             });
 
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             UserNotification::factory()
                 ->count(3)
                 ->create([
-                    'user_id' => $user->getKey()
+                    'user_id' => $user->getKey(),
                 ]);
         });
     }

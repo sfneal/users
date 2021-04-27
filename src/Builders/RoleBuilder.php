@@ -6,6 +6,7 @@ use Sfneal\Builders\QueryBuilder;
 
 class RoleBuilder extends QueryBuilder
 {
+    // todo: improve type hinting
     /**
      * Scope Role query to roles of a particular type.
      *

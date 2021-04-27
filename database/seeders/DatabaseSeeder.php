@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+use Database\Factories\RoleFactory;
 use Illuminate\Database\Seeder;
+use Sfneal\Users\Models\Role;
+use Sfneal\Users\Models\Team;
+use Sfneal\Users\Models\User;
+use Sfneal\Users\Models\UserNotification;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +18,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call([
-             RoleSeeder::class,
-             UserSeeder::class,
-             TeamSeeder::class,
-             UserNotificationSeeder::class,
-         ]);
+        foreach (RoleFactory::NAMES as $roleName) {
+            Role::factory()
+                ->has(
+                    User::factory()
+                        ->count(20)
+                        ->has(Team::factory(), 'team')
+                        ->has(UserNotification::factory(), 'notificationSubscriptions'),
+                    'users'
+                )
+                ->create([
+                    'type' => 'user',
+                    'name' => $roleName,
+                ]);
+        }
     }
 }

@@ -60,7 +60,7 @@ class UserNotificationFactory extends Factory
      */
     private static function createUserFactories(): void
     {
-        if (!User::query()->count()) {
+        if (! User::query()->count()) {
             User::factory()
                 ->count(10)
                 ->create();

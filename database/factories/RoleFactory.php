@@ -9,7 +9,7 @@ class RoleFactory extends Factory
 {
     public const TYPES = ['user', 'client'];
     // todo: lowercase they and add mutator
-    public const NAMES = ['Employee', 'Administrator', 'Team Leader', 'Web Developer'];
+    public const NAMES = ['Employee', 'Team Leader', 'Administrator', 'Web Developer'];
 
     /**
      * The name of the factory's corresponding model.

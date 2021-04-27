@@ -40,9 +40,11 @@
         }
     },
     "autoload": {
+        "classmap": [
+            "database"
+        ],
         "psr-4": {
-            "Sfneal\\Users\\": "src",
-            "Database\\Factories\\": "database/factories/"
+            "Sfneal\\Users\\": "src"
         }
     },
     "autoload-dev": {

@@ -37,43 +37,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
-     * Retrieve the User model's 'name' attribute by concatenating first and last name columns.
-     *
-     * @return string
-     */
-    private function concatName(): string
-    {
-        return $this->concatColumns('first_name', 'last_name');
-    }
-
-    /**
-     * Retrieve the User model's 'name' attribute by concatenating nickname and last name columns.
-     *
-     * @return string
-     */
-    private function concatNickname(): string
-    {
-        return $this->concatColumns('nickname', 'last_name');
-    }
-
-    /**
-     * Dynamically set the $selectRawJson.
-     *
-     * @return void
-     */
-    private function setSelectRawJson(): void
-    {
-        $raw = "{$this->tableName}.{$this->primaryKeyName} as id, ";
-        $raw .= $this->ifStatement(
-            "nickname is not null and {$this->tableName}.nickname_preferred=1",
-            $this->concatNickname(),
-            $this->concatName()
-        );
-        $raw .= ' as text';
-        $this->selectRawJson = $raw;
-    }
-
-    /**
      * Find a User.
      *
      * @param int $user_id
@@ -386,5 +349,42 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     public function allWithInactive($columns = ['*'])
     {
         return $this->withInactive()->get($columns);
+    }
+
+    /**
+     * Retrieve the User model's 'name' attribute by concatenating first and last name columns.
+     *
+     * @return string
+     */
+    private function concatName(): string
+    {
+        return $this->concatColumns('first_name', 'last_name');
+    }
+
+    /**
+     * Retrieve the User model's 'name' attribute by concatenating nickname and last name columns.
+     *
+     * @return string
+     */
+    private function concatNickname(): string
+    {
+        return $this->concatColumns('nickname', 'last_name');
+    }
+
+    /**
+     * Dynamically set the $selectRawJson.
+     *
+     * @return void
+     */
+    private function setSelectRawJson(): void
+    {
+        $raw = "{$this->tableName}.{$this->primaryKeyName} as id, ";
+        $raw .= $this->ifStatement(
+            "nickname is not null and {$this->tableName}.nickname_preferred=1",
+            $this->concatNickname(),
+            $this->concatName()
+        );
+        $raw .= ' as text';
+        $this->selectRawJson = $raw;
     }
 }

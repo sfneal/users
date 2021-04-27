@@ -4,6 +4,7 @@ namespace Sfneal\Users\Models;
 
 use Database\Factories\UserNotificationFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sfneal\Models\Model;
 use Sfneal\Scopes\CreatedOrderScope;
@@ -11,6 +12,8 @@ use Sfneal\Users\Builders\UserNotificationBuilder;
 
 class UserNotification extends Model
 {
+    use HasFactory;
+
     /**
      * The "booting" method of the model.
      *

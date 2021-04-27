@@ -2,13 +2,22 @@
 
 namespace Sfneal\Users\Tests\Feature\Factories;
 
-class TeamFactoryTest extends FactoriesTestCase
+use Sfneal\Testing\Utils\Interfaces\Factory\FillablesTest;
+use Sfneal\Users\Models\Team;
+
+class TeamFactoryTest extends FactoriesTestCase implements FillablesTest
 {
-    // todo: create tests
+    /**
+     * @var Team
+     */
+    public $modelClass = Team::class;
 
     /** @test */
-    public function true_is_true()
+    public function fillables_are_correct_types()
     {
-        $this->assertTrue(true);
+        $this->assertIsInt($this->model->user_id);
+        $this->assertTrue(strlen((string) $this->model->user_id) <= 3);
+        $this->assertIsInt($this->model->order);
+        $this->assertTrue(strlen((string) $this->model->order) <= 2);
     }
 }

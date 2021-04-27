@@ -13,6 +13,11 @@ class BuilderTestCase extends TestCase
     protected $modelClass;
 
     /**
+     * @var int
+     */
+    protected $count = 200;
+
+    /**
      * Setup the test environment.
      *
      * @return void
@@ -23,7 +28,7 @@ class BuilderTestCase extends TestCase
 
         if (isset($this->modelClass)) {
             $this->modelClass::factory()
-                ->count(200)
+                ->count($this->count)
                 ->create();
         }
     }

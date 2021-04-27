@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Sfneal\Queries\RandomModelAttributeQuery;
+use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\User;
 
 class UserFactory extends Factory
@@ -22,7 +24,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'role_id' => $this->faker->randomNumber(3),
+            'role_id' => (new RandomModelAttributeQuery(Role::class, 'role_id'))->execute(),
             'first_name' => $this->faker->firstName,
             'middle_name' => $this->faker->randomElement([$this->faker->randomLetter, null]),
             'last_name' => $this->faker->lastName,

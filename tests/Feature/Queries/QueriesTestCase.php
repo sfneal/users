@@ -52,6 +52,7 @@ class QueriesTestCase extends TestCase implements RequestCreator
      */
     protected function executeAssertions(Collection $records, Builder $builder, string $queryBuilder)
     {
+        // todo: create sfneal/mock-models CollectionBuilderAssertions?
         $this->assertInstanceOf($queryBuilder, $builder);
         $this->assertEquals($records->count(), $builder->count());
         $this->assertEquals($records, $builder->get());

@@ -21,7 +21,7 @@ class TeamSeeder extends Seeder
             ->each(function (User $user) {
                 Team::factory()
                     ->create([
-                        'user_id' => $user->getKey()
+                        'user_id' => $user->getKey(),
                     ]);
             });
     }

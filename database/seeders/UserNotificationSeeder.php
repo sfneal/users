@@ -19,7 +19,7 @@ class UserNotificationSeeder extends Seeder
             UserNotification::factory()
                 ->count(3)
                 ->create([
-                    'user_id' => $user->getKey()
+                    'user_id' => $user->getKey(),
                 ]);
         });
     }

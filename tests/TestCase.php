@@ -6,6 +6,7 @@ use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Sfneal\Helpers\Redis\Providers\RedisHelpersServiceProvider;
 use Sfneal\Users\Providers\UsersServiceProvider;
 
 class TestCase extends OrchestraTestCase
@@ -36,6 +37,7 @@ class TestCase extends OrchestraTestCase
     {
         return [
             UsersServiceProvider::class,
+            RedisHelpersServiceProvider::class,
         ];
     }
 

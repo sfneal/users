@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Database\Factories\RoleFactory;
 use Illuminate\Database\Seeder;
 use Sfneal\Users\Models\Role;
-use Sfneal\Users\Models\User;
 
 class RoleSeeder extends Seeder
 {
@@ -18,7 +17,6 @@ class RoleSeeder extends Seeder
     {
         foreach (RoleFactory::NAMES as $roleName) {
             Role::factory()
-                ->has(User::factory()->count(20), 'users')
                 ->create([
                     'type' => 'user',
                     'name' => $roleName,

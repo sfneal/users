@@ -13,6 +13,20 @@ class TestCase extends OrchestraTestCase
     use RefreshDatabase;
 
     /**
+     * Indicates whether the default seeder should run before each test.
+     *
+     * @var bool
+     */
+    protected $seed = true;
+
+    /**
+     * Run a specific seeder before each test.
+     *
+     * @var string
+     */
+    protected $seeder = DatabaseSeeder::class;
+
+    /**
      * Register package service providers.
      *
      * @param Application $app
@@ -57,17 +71,5 @@ class TestCase extends OrchestraTestCase
         // Migrate 'user_notification' table
         include_once __DIR__.'/../database/migrations/create_user_notification_table.php.stub';
         (new \CreateUserNotificationTable())->up();
-    }
-
-    /**
-     * Setup the test environment.
-     *
-     * @return void
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed(DatabaseSeeder::class);
     }
 }

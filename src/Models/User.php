@@ -324,7 +324,7 @@ class User extends AuthModel
      */
     public function setFirstNameAttribute(string $value = null)
     {
-        if (!is_null($value)) {
+        if (! is_null($value)) {
             $this->attributes['first_name'] = trim($value);
         }
     }
@@ -336,7 +336,7 @@ class User extends AuthModel
      */
     public function setLastNameAttribute(string $value = null)
     {
-        if (!is_null($value)) {
+        if (! is_null($value)) {
             $this->attributes['last_name'] = trim($value);
         }
     }

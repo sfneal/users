@@ -93,6 +93,13 @@ class User extends AuthModel
     ];
 
     /**
+     * @var array Attributes that should be appended to collections
+     */
+    protected $appends = [
+        'name',
+    ];
+
+    /**
      * Create a new factory instance for the model.
      *
      * @return UserFactory

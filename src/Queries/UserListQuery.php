@@ -9,6 +9,8 @@ use Sfneal\Users\Models\User;
 
 class UserListQuery extends Query
 {
+    // todo: refactor to use param instead of $request?
+
     /**
      * @var Request
      */

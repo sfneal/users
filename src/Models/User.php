@@ -318,6 +318,52 @@ class User extends AuthModel
     }
 
     /**
+     * Mutate the 'first_name' attribute.
+     *
+     * @param string|null $value
+     */
+    public function setFirstNameAttribute(string $value = null)
+    {
+        if (!is_null($value)) {
+            $this->attributes['first_name'] = trim($value);
+        }
+    }
+
+    /**
+     * Mutate the 'last_name' attribute.
+     *
+     * @param string|null $value
+     */
+    public function setLastNameAttribute(string $value = null)
+    {
+        if (!is_null($value)) {
+            $this->attributes['last_name'] = trim($value);
+        }
+    }
+
+    /**
+     * Access the 'first_name' attribute.
+     *
+     * @param string|null $value
+     * @return string
+     */
+    public function getFirstNameAttribute(string $value = null): string
+    {
+        return trim($value);
+    }
+
+    /**
+     * Access the 'last_name' attribute.
+     *
+     * @param string|null $value
+     * @return string
+     */
+    public function getLastNameAttribute(string $value = null): string
+    {
+        return trim($value);
+    }
+
+    /**
      * Retrieve the User's name (first & last).
      *
      * @return string

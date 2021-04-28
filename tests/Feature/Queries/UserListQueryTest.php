@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Tests\Feature\Queries;
 
-class UserListQueryTest extends QueriesTestCase
+use Sfneal\Users\Tests\TestCase;
+
+class UserListQueryTest extends TestCase
 {
     // todo: create tests
 

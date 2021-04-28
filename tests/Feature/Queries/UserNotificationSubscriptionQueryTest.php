@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Tests\Feature\Queries;
 
-class UserNotificationSubscriptionQueryTest extends QueriesTestCase
+use Sfneal\Users\Tests\TestCase;
+
+class UserNotificationSubscriptionQueryTest extends TestCase
 {
     // todo: create tests
 

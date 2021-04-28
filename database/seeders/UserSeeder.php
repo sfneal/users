@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         Role::all()->each(function (Role $role) {
             User::factory()
-                ->count(10)
+                ->count(5)
                 ->for($role)
                 ->create();
         });

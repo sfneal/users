@@ -7,6 +7,8 @@ use Sfneal\Users\Tests\TestCase;
 
 class OrganizationServiceTest extends TestCase
 {
+    // todo: add 'full' method test and test scenarios with null config values
+
     /**
      * Indicates whether the default seeder should run before each test.
      *

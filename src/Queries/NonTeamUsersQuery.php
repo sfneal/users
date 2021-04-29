@@ -24,9 +24,8 @@ class NonTeamUsersQuery extends Query
      *
      * @return Collection
      */
-    public function execute()
+    public function execute(): Collection
     {
-        // todo: improve type hinting
         return $this->builder()
             ->doesntHave('team')
             ->orderBy('last_name', 'asc')

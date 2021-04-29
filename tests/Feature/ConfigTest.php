@@ -6,7 +6,6 @@ use Sfneal\Users\Tests\TestCase;
 
 class ConfigTest extends TestCase
 {
-    // todo: add 'full' method test and test scenarios with null config values
     // todo: add notification test
 
     /**

@@ -70,7 +70,7 @@ class Role extends Model
      *
      * @return RoleBuilder
      */
-    public function newEloquentBuilder($query)
+    public function newEloquentBuilder($query): RoleBuilder
     {
         return new RoleBuilder($query);
     }

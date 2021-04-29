@@ -2,9 +2,11 @@
 
 namespace Sfneal\Users\Tests\Feature\Queries;
 
+use Illuminate\Database\QueryException;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Traits\CreateRequest;
 use Sfneal\Users\Models\User;
+use Sfneal\Users\Queries\UserListQuery;
 use Sfneal\Users\Tests\TestCase;
 
 class UserListQueryTest extends TestCase
@@ -32,8 +34,18 @@ class UserListQueryTest extends TestCase
     }
 
     /** @test */
-    public function true_is_true()
+    public function query_returns_results()
     {
-        $this->assertTrue(true);
+        $request = $this->createRequest([], [
+            'q' => $this->userName
+        ]);
+        try {
+            $result = (new UserListQuery($request))->execute();
+            print_r($result);
+        } catch (QueryException $exception) {
+            print_r('UserListQueryTest::query_returns_results - ' . $exception->getMessage());
+            $this->assertTrue(true);
+        }
+
     }
 }

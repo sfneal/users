@@ -41,9 +41,9 @@ class UserListQueryTest extends TestCase
         ]);
         try {
             $result = (new UserListQuery($request))->execute();
-            print_r($result);
+//            print_r($result);
         } catch (QueryException $exception) {
-            print_r('UserListQueryTest::query_returns_results - '.$exception->getMessage());
+//            print_r('UserListQueryTest::query_returns_results - '.$exception->getMessage());
             $this->assertTrue(true);
         }
     }

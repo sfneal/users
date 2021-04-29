@@ -12,6 +12,7 @@ use Sfneal\Users\Models\User;
 
 class UserNotificationSubscriptionQuery extends Query
 {
+    // todo: improve type hinting
     use Cacheable;
 
     /**
@@ -44,7 +45,7 @@ class UserNotificationSubscriptionQuery extends Query
      *
      *  - only return user 'Stephen Neal' if environment is not 'production'
      *
-     * @return Collection|int|mixed
+     * @return Collection
      */
     public function execute()
     {

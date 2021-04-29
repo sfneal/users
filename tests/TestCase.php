@@ -6,6 +6,7 @@ use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Sfneal\Address\Providers\AddressServiceProvider;
 use Sfneal\Helpers\Redis\Providers\RedisHelpersServiceProvider;
 use Sfneal\Users\Providers\UsersServiceProvider;
 
@@ -38,6 +39,7 @@ class TestCase extends OrchestraTestCase
         return [
             UsersServiceProvider::class,
             RedisHelpersServiceProvider::class,
+            AddressServiceProvider::class,
         ];
     }
 
@@ -73,5 +75,9 @@ class TestCase extends OrchestraTestCase
         // Migrate 'user_notification' table
         include_once __DIR__.'/../database/migrations/create_user_notification_table.php.stub';
         (new \CreateUserNotificationTable())->up();
+
+        // Migrate 'address' table
+        include_once __DIR__.'/../vendor/sfneal/address/database/migrations/create_address_table.php.stub';
+        (new \CreateAddressTable())->up();
     }
 }

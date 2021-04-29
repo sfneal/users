@@ -6,8 +6,6 @@ use Sfneal\Builders\QueryBuilder;
 
 class RoleBuilder extends QueryBuilder
 {
-    // todo: improve type hinting
-
     /**
      * Scope Role query to roles of a particular type.
      *
@@ -17,7 +15,7 @@ class RoleBuilder extends QueryBuilder
      *
      * @return $this
      */
-    public function whereType(string $type, string $operator = '=', string $boolean = 'and')
+    public function whereType(string $type, string $operator = '=', string $boolean = 'and'): self
     {
         $this->where('type', $operator, $type, $boolean);
 
@@ -32,7 +30,7 @@ class RoleBuilder extends QueryBuilder
      *
      * @return $this
      */
-    public function whereTypeUser(string $operator = '=', string $boolean = 'and')
+    public function whereTypeUser(string $operator = '=', string $boolean = 'and'): self
     {
         $this->whereType('user', $operator, $boolean);
 

@@ -163,7 +163,7 @@ class User extends AuthModel
     /**
      * User's address.
      *
-     * @return MorphOne|Address
+     * @return MorphOne
      */
     public function address()
     {

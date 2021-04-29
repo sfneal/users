@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
 use Sfneal\Casts\NewlineCast;
 use Sfneal\Currency\Currency;
+use Sfneal\Helpers\Strings\StringHelpers;
 use Sfneal\Models\AuthModel;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
@@ -259,7 +260,7 @@ class User extends AuthModel
      */
     public function getInitialsAttribute()
     {
-        return implodeFiltered('', collect([
+        return StringHelpers::implodeFiltered('', collect([
             $this->first_name,
             $this->middle_name,
             $this->last_name,

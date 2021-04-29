@@ -49,6 +49,6 @@ return [
     |
     */
     'notifications' => [
-        'dev_user_id' => null
+        'dev_user_id' => null,
     ],
 ];

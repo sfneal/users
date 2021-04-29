@@ -13,6 +13,13 @@ class MigrationsTest extends TestCase
 {
     use ModelAttributeAssertions;
 
+    /**
+     * Indicates whether the default seeder should run before each test.
+     *
+     * @var bool
+     */
+    protected $seed = false;
+
     /** @test */
     public function role_table_is_accessible()
     {

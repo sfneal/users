@@ -344,7 +344,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return Collection
      */
-    public function allWithInactive($columns = ['*']): self
+    public function allWithInactive($columns = ['*']): Collection
     {
         return $this->withInactive()->get($columns);
     }

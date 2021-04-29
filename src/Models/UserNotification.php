@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Models;
 
+use Database\Factories\UserNotificationFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sfneal\Models\Model;
 use Sfneal\Scopes\CreatedOrderScope;
@@ -10,6 +12,8 @@ use Sfneal\Users\Builders\UserNotificationBuilder;
 
 class UserNotification extends Model
 {
+    use HasFactory;
+
     /**
      * The "booting" method of the model.
      *
@@ -23,7 +27,6 @@ class UserNotification extends Model
         static::addGlobalScope(new CreatedOrderScope());
     }
 
-    protected $connection = 'mysql';
     protected $table = 'user_notification';
     protected $primaryKey = 'user_notification_id';
 
@@ -32,6 +35,25 @@ class UserNotification extends Model
         'user_id',
         'type',
     ];
+
+    /**
+     * The attributes that should type cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'user_id' => 'int',
+    ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return UserNotificationFactory
+     */
+    protected static function newFactory(): UserNotificationFactory
+    {
+        return new UserNotificationFactory();
+    }
 
     /**
      * Query Builder.

@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Sfneal Users options
+    | Organization
     |--------------------------------------------------------------------------
     |
     | Set an organization's name & logo as constants that can be accessed from
@@ -11,8 +11,6 @@ return [
     | assembling dynamic email footers.
     |
     */
-
-    // Organization
     'org' => [
         // Organization's name
         'name' => null,
@@ -35,4 +33,22 @@ return [
         'email' => null,
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Notifications
+    |--------------------------------------------------------------------------
+    |
+    | It's often useful to prevent User's from receiving notifications sent
+    | from a non-production version of your application (development).  This
+    | option allows you redirect notifications that would normally be sent to
+    | user's to a developer.
+    |
+    | When 'notifications.dev_user_id' is not set to an integer or array of integer,
+    | UserNotification subscriptions behave as they would in a 'production'
+    | environment.
+    |
+    */
+    'notifications' => [
+        'dev_user_id' => null,
+    ],
 ];

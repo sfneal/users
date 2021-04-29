@@ -1,12 +1,20 @@
 <?php
 
-namespace Sfneal\Users\Tests;
+namespace Sfneal\Users\Tests\Unit;
 
 use Sfneal\Users\Services\OrganizationService;
+use Sfneal\Users\Tests\TestCase;
 
-class ConfigTest extends TestCase
+class OrganizationServiceTest extends TestCase
 {
     // todo: add 'full' method test and test scenarios with null config values
+
+    /**
+     * Indicates whether the default seeder should run before each test.
+     *
+     * @var bool
+     */
+    protected $seed = false;
 
     /** @test */
     public function org_name()

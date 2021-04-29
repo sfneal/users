@@ -13,8 +13,6 @@ use Sfneal\Users\Scopes\UserActiveScope;
 
 class UserBuilder extends QueryBuilder implements WhereUserInterface
 {
-    // todo: improve type hinting after tests are improved
-
     /**
      * @var string MySQL select objects to be queried in a raw json return
      */
@@ -37,43 +35,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     }
 
     /**
-     * Retrieve the User model's 'name' attribute by concatenating first and last name columns.
-     *
-     * @return string
-     */
-    private function concatName(): string
-    {
-        return $this->concatColumns('first_name', 'last_name');
-    }
-
-    /**
-     * Retrieve the User model's 'name' attribute by concatenating nickname and last name columns.
-     *
-     * @return string
-     */
-    private function concatNickname(): string
-    {
-        return $this->concatColumns('nickname', 'last_name');
-    }
-
-    /**
-     * Dynamically set the $selectRawJson.
-     *
-     * @return void
-     */
-    private function setSelectRawJson(): void
-    {
-        $raw = "{$this->tableName}.{$this->primaryKeyName} as id, ";
-        $raw .= $this->ifStatement(
-            "nickname is not null and {$this->tableName}.nickname_preferred=1",
-            $this->concatNickname(),
-            $this->concatName()
-        );
-        $raw .= ' as text';
-        $this->selectRawJson = $raw;
-    }
-
-    /**
      * Find a User.
      *
      * @param int $user_id
@@ -81,9 +42,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param string $boolean
      * @return $this
      */
-    public function whereUser(int $user_id, string $operator = '=', string $boolean = 'and')
+    public function whereUser(int $user_id, string $operator = '=', string $boolean = 'and'): self
     {
-        $this->where('id', $operator, $user_id, $operator);
+        $this->where('id', $operator, $user_id, $boolean);
 
         return $this;
     }
@@ -95,7 +56,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param string $boolean
      * @return $this
      */
-    public function whereUserNot(int $user_id, string $boolean = 'and')
+    public function whereUserNot(int $user_id, string $boolean = 'and'): self
     {
         $this->whereUser($user_id, '!=', $boolean);
 
@@ -110,7 +71,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param bool $not
      * @return $this|WhereUserInterface
      */
-    public function whereUserIn(array $user_ids, string $boolean = 'and', bool $not = false)
+    public function whereUserIn(array $user_ids, string $boolean = 'and', bool $not = false): self
     {
         $this->whereIn('id', $user_ids, $boolean, $not);
 
@@ -124,7 +85,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param string $boolean
      * @return $this|WhereUserInterface
      */
-    public function whereUserNotIn(array $user_ids, string $boolean = 'and')
+    public function whereUserNotIn(array $user_ids, string $boolean = 'and'): self
     {
         $this->whereUserIn($user_ids, $boolean, true);
 
@@ -138,7 +99,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    public function whereUsername($value)
+    public function whereUsername($value): self
     {
         $this->where('username', '=', $value);
 
@@ -152,7 +113,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    public function whereNameLike(string $name)
+    public function whereNameLike(string $name): self
     {
         // Full name like $name
         $this->whereNameLikeRaw($name);
@@ -174,7 +135,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    private function whereNameLikeRaw(string $name, string $column = null)
+    private function whereNameLikeRaw(string $name, string $column = null): self
     {
         // Use concatName method if no $column was provided
         $this->whereRaw(($column ?? $this->concatName())." LIKE '%{$name}%'");
@@ -189,7 +150,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    public function whereActive($value = 1)
+    public function whereActive($value = 1): self
     {
         $this->where('status', '=', $value);
 
@@ -356,7 +317,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    public function whereInactive()
+    public function whereInactive(): self
     {
         $this->withInactive();
         $this->whereActive(0);
@@ -369,7 +330,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    public function withInactive()
+    public function withInactive(): self
     {
         $this->withoutGlobalScope(UserActiveScope::class);
 
@@ -383,8 +344,45 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return Collection
      */
-    public function allWithInactive($columns = ['*'])
+    public function allWithInactive($columns = ['*']): self
     {
         return $this->withInactive()->get($columns);
+    }
+
+    /**
+     * Retrieve the User model's 'name' attribute by concatenating first and last name columns.
+     *
+     * @return string
+     */
+    private function concatName(): string
+    {
+        return $this->concatColumns('first_name', 'last_name');
+    }
+
+    /**
+     * Retrieve the User model's 'name' attribute by concatenating nickname and last name columns.
+     *
+     * @return string
+     */
+    private function concatNickname(): string
+    {
+        return $this->concatColumns('nickname', 'last_name');
+    }
+
+    /**
+     * Dynamically set the $selectRawJson.
+     *
+     * @return void
+     */
+    private function setSelectRawJson(): void
+    {
+        $raw = "{$this->tableName}.{$this->primaryKeyName} as id, ";
+        $raw .= $this->ifStatement(
+            "nickname is not null and {$this->tableName}.nickname_preferred=1",
+            $this->concatNickname(),
+            $this->concatName()
+        );
+        $raw .= ' as text';
+        $this->selectRawJson = $raw;
     }
 }

@@ -15,7 +15,7 @@ class RoleBuilder extends QueryBuilder
      *
      * @return $this
      */
-    public function whereType(string $type, string $operator = '=', string $boolean = 'and')
+    public function whereType(string $type, string $operator = '=', string $boolean = 'and'): self
     {
         $this->where('type', $operator, $type, $boolean);
 
@@ -30,7 +30,7 @@ class RoleBuilder extends QueryBuilder
      *
      * @return $this
      */
-    public function whereTypeUser(string $operator = '=', string $boolean = 'and')
+    public function whereTypeUser(string $operator = '=', string $boolean = 'and'): self
     {
         $this->whereType('user', $operator, $boolean);
 

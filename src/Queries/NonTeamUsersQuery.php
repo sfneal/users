@@ -24,7 +24,7 @@ class NonTeamUsersQuery extends Query
      *
      * @return Collection
      */
-    public function execute()
+    public function execute(): Collection
     {
         return $this->builder()
             ->doesntHave('team')

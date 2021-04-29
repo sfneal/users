@@ -1,0 +1,56 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateUserTable extends Migration
+{
+    private const TABLE_NAME = 'user';
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create(self::TABLE_NAME, function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('role_id');
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->string('nickname')->nullable();
+            $table->integer('nickname_preferred')->default(0);
+
+            $table->string('title')->nullable();
+            $table->string('suffix')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('rate')->nullable();
+            $table->string('phone_work')->nullable();
+            $table->string('phone_mobile')->nullable();
+            $table->string('fax')->nullable();
+            $table->string('website')->nullable();
+            $table->string('bio', 255)->nullable();
+
+            $table->string('username');
+            $table->string('password');
+            $table->integer('status')->default(1);
+            $table->text('remember_token')->nullable();
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists(self::TABLE_NAME);
+    }
+}

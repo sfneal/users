@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Models;
 
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -10,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
 use Sfneal\Casts\NewlineCast;
 use Sfneal\Currency\Currency;
+use Sfneal\Helpers\Strings\StringHelpers;
 use Sfneal\Models\AuthModel;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
@@ -21,6 +24,7 @@ class User extends AuthModel
 {
     // todo: refactor status to use Status model?
     use HasCustomCasts;
+    use HasFactory;
 
     /**
      * The "booting" method of the model.
@@ -39,7 +43,6 @@ class User extends AuthModel
     protected $dates = ['deleted_at'];
     protected $table = 'user';
     protected $primaryKey = 'id';
-    protected $connection = 'mysql';
 
     /**
      * The attributes that are mass assignable.
@@ -83,8 +86,29 @@ class User extends AuthModel
      * @var array
      */
     protected $casts = [
+        'role_id' => 'int',
+        'nickname_preferred' => 'int',
         'bio' => NewlineCast::class,
+        'status' => 'int',
+        'rate' => 'int',
     ];
+
+    /**
+     * @var array Attributes that should be appended to collections
+     */
+    protected $appends = [
+        'name',
+    ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return UserFactory
+     */
+    protected static function newFactory(): UserFactory
+    {
+        return new UserFactory();
+    }
 
     /**
      * Query Builder.
@@ -139,7 +163,7 @@ class User extends AuthModel
     /**
      * User's address.
      *
-     * @return MorphOne|Address
+     * @return MorphOne
      */
     public function address()
     {
@@ -175,7 +199,7 @@ class User extends AuthModel
      */
     public function isAdmin(): bool
     {
-        // User is considered an 'admin' if he/she is a 'web developer'
+        // User is considered an 'admin' if user is a 'web developer'
         return $this->isRoleId(3) || $this->isRoleId(4);
     }
 
@@ -236,7 +260,7 @@ class User extends AuthModel
      */
     public function getInitialsAttribute()
     {
-        return implodeFiltered('', collect([
+        return StringHelpers::implodeFiltered('', collect([
             $this->first_name,
             $this->middle_name,
             $this->last_name,
@@ -292,6 +316,52 @@ class User extends AuthModel
             // Append '.' to the middle name if's a single letter
             $this->attributes['middle_name'] = strlen($middle_name) == 1 ? "{$middle_name}." : $middle_name;
         }
+    }
+
+    /**
+     * Mutate the 'first_name' attribute.
+     *
+     * @param string|null $value
+     */
+    public function setFirstNameAttribute(string $value = null)
+    {
+        if (! is_null($value)) {
+            $this->attributes['first_name'] = trim($value);
+        }
+    }
+
+    /**
+     * Mutate the 'last_name' attribute.
+     *
+     * @param string|null $value
+     */
+    public function setLastNameAttribute(string $value = null)
+    {
+        if (! is_null($value)) {
+            $this->attributes['last_name'] = trim($value);
+        }
+    }
+
+    /**
+     * Access the 'first_name' attribute.
+     *
+     * @param string|null $value
+     * @return string
+     */
+    public function getFirstNameAttribute(string $value = null): string
+    {
+        return trim($value);
+    }
+
+    /**
+     * Access the 'last_name' attribute.
+     *
+     * @param string|null $value
+     * @return string
+     */
+    public function getLastNameAttribute(string $value = null): string
+    {
+        return trim($value);
     }
 
     /**

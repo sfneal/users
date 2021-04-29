@@ -66,5 +66,16 @@ function activeUserRole($role = null)
  */
 function isAdminOrActiveUser(int $user_id): bool
 {
-    return activeUser()->isAdmin() || activeUserID() == $user_id;
+    return activeUser()->isAdmin() || isActiveUser($user_id);
+}
+
+/**
+ * Determine if a $user_id is the active user.
+ *
+ * @param int $user_id
+ * @return bool
+ */
+function isActiveUser(int $user_id): bool
+{
+    return activeUserID() == $user_id;
 }

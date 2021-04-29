@@ -129,3 +129,9 @@ All notable changes to `users` will be documented in this file
 ## 0.10.1 - 2021-04-07
 - bump sfneal/models min version to v2.1
 - refactor use of `Authenticatable` to `AuthModel`
+
+
+## 0.11.0 - 2021-04-29
+- add test suite for testing builders, factories, queries, config, migrations, helper functions, etc
+- bump sfneal/datum min version to v1.4.1
+- bump sfneal/mock-models min version to v0.5

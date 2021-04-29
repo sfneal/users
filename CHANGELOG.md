@@ -140,3 +140,8 @@ All notable changes to `users` will be documented in this file
 ## 0.11.1 - 2021-04-29
 - fix issue with `UserBuilder::allWithInactive()` methods return type hinting
 - add`allWithInactive()` test method to `UserBuilderTest`
+
+
+## 0.11.2 - 2021-04-29
+- fix 'user' table migration 'bio' column definition to use `mediumText()` instead of `text()`
+- add phpunit min version

@@ -37,15 +37,14 @@ class UserListQueryTest extends TestCase
     public function query_returns_results()
     {
         $request = $this->createRequest([], [
-            'q' => $this->userName
+            'q' => $this->userName,
         ]);
         try {
             $result = (new UserListQuery($request))->execute();
             print_r($result);
         } catch (QueryException $exception) {
-            print_r('UserListQueryTest::query_returns_results - ' . $exception->getMessage());
+            print_r('UserListQueryTest::query_returns_results - '.$exception->getMessage());
             $this->assertTrue(true);
         }
-
     }
 }

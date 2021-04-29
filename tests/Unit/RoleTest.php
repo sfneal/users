@@ -43,7 +43,7 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $desc = 'Morale is not tangible thing';
         $role->update([
             'name' => $name,
-            'description' => $desc
+            'description' => $desc,
         ]);
 
         // Find the update Role

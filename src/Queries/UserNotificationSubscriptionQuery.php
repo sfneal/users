@@ -4,6 +4,7 @@ namespace Sfneal\Users\Queries;
 
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Caching\Traits\Cacheable;
+use Sfneal\Helpers\Laravel\AppInfo;
 use Sfneal\Helpers\Laravel\LaravelHelpers;
 use Sfneal\PostOffice\Notifications\AbstractNotification;
 use Sfneal\Queries\Query;
@@ -13,7 +14,6 @@ use Sfneal\Users\Models\User;
 
 class UserNotificationSubscriptionQuery extends Query
 {
-    // todo: improve type hinting
     use Cacheable;
 
     /**
@@ -28,6 +28,7 @@ class UserNotificationSubscriptionQuery extends Query
      */
     public function __construct(AbstractNotification $notification)
     {
+        // todo: refactor param to string?
         $this->notification = LaravelHelpers::getClassName($notification);
     }
 
@@ -48,21 +49,21 @@ class UserNotificationSubscriptionQuery extends Query
      *
      * @return Collection
      */
-    public function execute()
+    public function execute(): Collection
     {
-        // Production environment
-        if (env('APP_ENV') == 'production') {
+        // Check if environment is NOT 'production' & and dev user_id is set
+        if (! AppInfo::isEnvProduction() && ! is_null(config('users.notifications.dev_user_id'))) {
+            return $this->builder()
+                ->whereUser(config('users.notifications.dev_user_id'))
+                ->get();
+        }
+
+        // Retrieve User's notification subscriptions
+        else {
             return $this->builder()
                 ->whereHas('notificationSubscriptions', function (UserNotificationBuilder $builder) {
                     $builder->whereType($this->notification);
                 })
-                ->get();
-        }
-
-        // Development environment
-        else {
-            return $this->builder()
-                ->whereUser(38)
                 ->get();
         }
     }

@@ -40,7 +40,7 @@ class UserNotificationTest extends TestCase implements CrudModelTest, ModelBuild
 
         $type = 'Domain\Plans\Notifications\BucketChangedNotification';
         $notification->update([
-            'type' => $type
+            'type' => $type,
         ]);
 
         $updated = UserNotification::query()->find($notification->getKey());

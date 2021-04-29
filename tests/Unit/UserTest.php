@@ -19,7 +19,6 @@ use Sfneal\Users\Tests\TestCase;
 
 class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, ModelFactoryTest, ModelRelationshipsTest
 {
-
     /** @test */
     public function records_can_be_created()
     {
@@ -46,7 +45,7 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $names = [
             'first' => 'Louis',
             'middle' => 'J',
-            'last' => 'Gomez'
+            'last' => 'Gomez',
         ];
         $user->update([
             'role_id' => $role_id,
@@ -54,7 +53,7 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
             'middle_name' => $names['middle'],
             'last_name' => $names['last'],
             'nickname' => null,
-            'nickname_preferred' => 0
+            'nickname_preferred' => 0,
         ]);
 
         $updatedUser = User::query()->find($user_id);
@@ -65,10 +64,10 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $this->assertEquals($user->created_at, $updatedUser->created_at);
         $this->assertEquals($user->updated_at, $updatedUser->updated_at);
         $this->assertSame($names['first'], $updatedUser->first_name);
-        $this->assertSame($names['middle'] . '.', $updatedUser->middle_name);
+        $this->assertSame($names['middle'].'.', $updatedUser->middle_name);
         $this->assertSame($names['last'], $updatedUser->last_name);
-        $this->assertSame("Louis J. Gomez", $updatedUser->name_full);
-        $this->assertSame("LJG", $updatedUser->initials);
+        $this->assertSame('Louis J. Gomez', $updatedUser->name_full);
+        $this->assertSame('LJG', $updatedUser->initials);
 
         $this->assertTrue($updatedUser->isRoleId($role_id));
         $this->assertTrue($updatedUser->isRole('Administrator'));

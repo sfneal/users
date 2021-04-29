@@ -32,7 +32,7 @@ class CreateUserTable extends Migration
             $table->string('phone_mobile')->nullable();
             $table->string('fax')->nullable();
             $table->string('website')->nullable();
-            $table->text('bio')->nullable();
+            $table->string('bio', 255)->nullable();
 
             $table->string('username');
             $table->string('password');

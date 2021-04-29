@@ -30,7 +30,7 @@
     "require-dev": {
         "orchestra/testbench": ">=6.7.1",
         "scrutinizer/ocular": "^1.8",
-        "sfneal/mock-models": ">=0.4"
+        "sfneal/mock-models": ">=0.5"
     },
     "extra": {
         "laravel": {

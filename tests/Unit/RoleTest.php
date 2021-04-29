@@ -6,12 +6,15 @@ use Database\Factories\RoleFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
+use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
+use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
+use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
 use Sfneal\Users\Builders\RoleBuilder;
 use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Tests\TestCase;
 
-class RoleTest extends TestCase implements CrudModelTest
+class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, ModelFactoryTest, ModelRelationshipsTest
 {
     /** @test */
     public function records_can_be_created()

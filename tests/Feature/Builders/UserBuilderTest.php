@@ -236,4 +236,17 @@ class UserBuilderTest extends BuilderTestCase
             $this->assertSame(0, $model->status);
         });
     }
+
+    /** @test */
+    public function allWithInactive()
+    {
+        $models = $this->modelClass::query()->allWithInactive();
+
+        $this->assertEquals($this->modelClass::query()->withInactive()->get(), $models);
+        $this->assertNotEquals($this->modelClass::query()->get(), $models);
+        $models->each(function (User $model) {
+            $this->assertNotNull($model->status);
+            $this->assertIsInt($model->status);
+        });
+    }
 }

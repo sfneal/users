@@ -135,3 +135,8 @@ All notable changes to `users` will be documented in this file
 - add test suite for testing builders, factories, queries, config, migrations, helper functions, etc
 - bump sfneal/datum min version to v1.4.1
 - bump sfneal/mock-models min version to v0.5
+
+
+## 0.11.1 - 2021-04-29
+- fix issue with `UserBuilder::allWithInactive()` methods return type hinting
+- add`allWithInactive()` test method to `UserBuilderTest`

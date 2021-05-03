@@ -148,4 +148,4 @@ All notable changes to `users` will be documented in this file
 
 
 ## 0.11.3 - 2021-05-03
-- fix user migration's 'role_id' to be nullable to allow use of `UserFactroy` with creating a 'role' relationship
+- fix user migration's 'role_id' column to be nullable to allow use of `UserFactory` with creating a 'role' relationship

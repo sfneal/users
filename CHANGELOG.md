@@ -145,3 +145,7 @@ All notable changes to `users` will be documented in this file
 ## 0.11.2 - 2021-04-29
 - fix 'user' table migration 'bio' column definition to use `mediumText()` instead of `text()`
 - add phpunit min version
+
+
+## 0.11.3 - 2021-05-03
+- fix user migration's 'role_id' column to be nullable to allow use of `UserFactory` with creating a 'role' relationship

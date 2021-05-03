@@ -17,7 +17,7 @@ class CreateUserTable extends Migration
     {
         Schema::create(self::TABLE_NAME, function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('role_id');
+            $table->integer('role_id')->nullable();
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');

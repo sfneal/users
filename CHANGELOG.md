@@ -149,3 +149,7 @@ All notable changes to `users` will be documented in this file
 
 ## 0.11.3 - 2021-05-03
 - fix user migration's 'role_id' column to be nullable to allow use of `UserFactory` with creating a 'role' relationship
+
+
+## 0.11.4 - 2021-05-03
+- bump sfneal/laravel-helpers min version to v2.0 to enable use of `AppInfo` when installing using '--prefer-lowest' flag

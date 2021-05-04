@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Caching\Traits\Cacheable;
 use Sfneal\Helpers\Laravel\AppInfo;
 use Sfneal\Helpers\Laravel\LaravelHelpers;
-use Sfneal\PostOffice\Notifications\AbstractNotification;
+use Sfneal\PostOffice\Notifications\Notification;
 use Sfneal\Queries\Query;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Builders\UserNotificationBuilder;
@@ -24,9 +24,9 @@ class UserNotificationSubscriptionQuery extends Query
     /**
      * UserNotificationSubscriptionQuery constructor.
      *
-     * @param AbstractNotification $notification
+     * @param Notification $notification
      */
-    public function __construct(AbstractNotification $notification)
+    public function __construct(Notification $notification)
     {
         // todo: refactor param to string?
         $this->notification = LaravelHelpers::getClassName($notification);

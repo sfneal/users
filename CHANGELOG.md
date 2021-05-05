@@ -155,3 +155,8 @@ All notable changes to `users` will be documented in this file
 - bump sfneal/laravel-helpers min version to v2.0 to enable use of `AppInfo` when installing using '--prefer-lowest' flag
 - bump sfneal/post-office min version to v0.8
 - refactor import of Sfneal\PostOffice\Notifications `AbstractNotification` to `Notification`
+
+
+## 1.0.0 - 2021-05-05
+- initial production release
+- bump sfneal/post-office min version to v1.0

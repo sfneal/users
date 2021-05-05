@@ -92,11 +92,10 @@ class HelpersTest extends TestCase
         $adminUser = isAdminOrActiveUser($user->getKey());
         $notActiveUser = isActiveUser($user->getKey());
 
-        // todo: enable tests once factory seeding is set
         $this->assertIsBool($adminUser);
-//        $this->assertTrue($adminUser);
+        $this->assertTrue($adminUser);
         $this->assertIsBool($notActiveUser);
-//        $this->assertFalse($notActiveUser);
+        $this->assertFalse($notActiveUser);
     }
 
     /** @test */

@@ -85,18 +85,20 @@ class HelpersTest extends TestCase
             ->whereName('Administrator')
             ->pluck('role_id')
             ->first();
-        $user = User::factory()->create([
+        $this->user->update([
+            'role_id' => $adminRoleId,
+        ]);
+        $nonActiveUser = User::factory()->create([
             'role_id' => $adminRoleId,
         ]);
 
-        $adminUser = isAdminOrActiveUser($user->getKey());
-        $notActiveUser = isActiveUser($user->getKey());
+        $adminUser = isAdminOrActiveUser($this->user->getKey());
+        $notActiveUser = isActiveUser($nonActiveUser->getKey());
 
-        // todo: enable tests once factory seeding is set
         $this->assertIsBool($adminUser);
-//        $this->assertTrue($adminUser);
+        $this->assertTrue($adminUser);
         $this->assertIsBool($notActiveUser);
-//        $this->assertFalse($notActiveUser);
+        $this->assertFalse($notActiveUser);
     }
 
     /** @test */

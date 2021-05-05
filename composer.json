@@ -24,7 +24,7 @@
         "sfneal/datum": ">=1.4.1",
         "sfneal/laravel-helpers": ">=2.0",
         "sfneal/models": "^2.1",
-        "sfneal/post-office": ">=0.8",
+        "sfneal/post-office": ">=1.0",
         "sfneal/scopes": ">=1.0"
     },
     "require-dev": {

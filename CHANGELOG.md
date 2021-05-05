@@ -160,3 +160,4 @@ All notable changes to `users` will be documented in this file
 ## 1.0.0 - 2021-05-05
 - initial production release
 - bump sfneal/post-office min version to v1.0
+- fix issues with `HelpersTest::isAdminOrActiveUser()` test method

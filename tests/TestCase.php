@@ -25,7 +25,7 @@ class TestCase extends OrchestraTestCase
      *
      * @var string
      */
-    protected $seeder = \UsersDatabaseSeeder::class;
+    protected $seeder = \DatabaseSeeder::class;
 
     /**
      * Register package service providers.

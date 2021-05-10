@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+
 use Illuminate\Database\Seeder;
 use Sfneal\Users\Models\Team;
 use Sfneal\Users\Models\User;

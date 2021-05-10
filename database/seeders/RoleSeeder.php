@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+
 use Database\Factories\RoleFactory;
 use Illuminate\Database\Seeder;
 use Sfneal\Users\Models\Role;

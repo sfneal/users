@@ -21,13 +21,6 @@ class TestCase extends OrchestraTestCase
     protected $seed = true;
 
     /**
-     * Run a specific seeder before each test.
-     *
-     * @var string
-     */
-    protected $seeder = \DatabaseSeeder::class;
-
-    /**
      * Register package service providers.
      *
      * @param Application $app

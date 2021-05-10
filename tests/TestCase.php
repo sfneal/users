@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Tests;
 
-use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -26,7 +25,7 @@ class TestCase extends OrchestraTestCase
      *
      * @var string
      */
-    protected $seeder = DatabaseSeeder::class;
+    protected $seeder = \DatabaseSeeder::class;
 
     /**
      * Register package service providers.

@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Sfneal\Address\Models\Address;
 use Sfneal\Users\Models\Role;

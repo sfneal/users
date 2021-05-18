@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Sfneal\Users\Tests\Database\Seeders;
 
+use Database\Seeders\RoleSeeder;
 use Illuminate\Database\Seeder;
 use Sfneal\Helpers\Laravel\AppInfo;
 

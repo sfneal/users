@@ -19,11 +19,9 @@ class DatabaseSeeder extends Seeder
             exit('You just tried to run a testing database seeder in production?!?!?!?');
         }
 
-        $this->call([
-            RoleSeeder::class,
-            UserSeeder::class,
-            TeamSeeder::class,
-            UserNotificationSeeder::class,
-        ]);
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(TeamSeeder::class);
+        $this->call(UserNotificationSeeder::class);
     }
 }

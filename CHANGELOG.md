@@ -161,3 +161,8 @@ All notable changes to `users` will be documented in this file
 - initial production release
 - bump sfneal/post-office min version to v1.0
 - fix issues with `HelpersTest::isAdminOrActiveUser()` test method
+
+
+## 1.0.1 - 2021-05-18
+- fix issue with `DatabaseSeeder` causing ambiguous class resolutions
+- refactor all the seeders to tests namespace except `RoleSeeder` which can be used in production

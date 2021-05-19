@@ -2,31 +2,29 @@
 
 namespace Sfneal\Users\Tests;
 
-use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Sfneal\Address\Providers\AddressServiceProvider;
 use Sfneal\Helpers\Redis\Providers\RedisHelpersServiceProvider;
 use Sfneal\Users\Providers\UsersServiceProvider;
+use Sfneal\Users\Tests\Database\Seeders\DatabaseSeeder;
 
 class TestCase extends OrchestraTestCase
 {
     use RefreshDatabase;
 
     /**
-     * Indicates whether the default seeder should run before each test.
+     * Setup the test environment.
      *
-     * @var bool
+     * @return void
      */
-    protected $seed = true;
+    public function setUp(): void
+    {
+        parent::setUp();
 
-    /**
-     * Run a specific seeder before each test.
-     *
-     * @var string
-     */
-    protected $seeder = DatabaseSeeder::class;
+        $this->seed(DatabaseSeeder::class);
+    }
 
     /**
      * Register package service providers.

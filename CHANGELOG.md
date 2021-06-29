@@ -166,3 +166,7 @@ All notable changes to `users` will be documented in this file
 ## 1.0.1 - 2021-05-18
 - fix issue with `DatabaseSeeder` causing ambiguous class resolutions
 - refactor all the seeders to tests namespace except `RoleSeeder` which can be used in production
+
+
+## 1.0.2 - 2021-06-29
+- fix issue with `User` & `Role` models declarations of static `boot()` methods

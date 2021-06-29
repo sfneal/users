@@ -31,7 +31,7 @@ class User extends AuthModel
      *
      * @return void
      */
-    public static function boot()
+    protected static function boot()
     {
         parent::boot();
 

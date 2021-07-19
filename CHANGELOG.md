@@ -170,3 +170,7 @@ All notable changes to `users` will be documented in this file
 
 ## 1.0.2 - 2021-06-29
 - fix issue with `User` & `Role` models declarations of static `boot()` methods
+
+
+## 1.1.0 - 2021-07-19
+- cut `User` model's 'password' attribute mutator that was causing already hashed passwords to be hashed again 

@@ -291,18 +291,6 @@ class User extends AuthModel
     }
 
     /**
-     * Set the 'password' attribute.
-     *
-     * @param $value
-     */
-    public function setPasswordAttribute($value)
-    {
-        if (! empty($value)) {
-            $this->attributes['password'] = bcrypt($value);
-        }
-    }
-
-    /**
      * Mutate the 'middle_name' attribute.
      *
      * @param string|null $value

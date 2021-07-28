@@ -1,6 +1,6 @@
 <?php
 
-namespace Sfneal\Users\Tests\Database\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Sfneal\Users\Models\Team;

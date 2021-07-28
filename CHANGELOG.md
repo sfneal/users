@@ -178,3 +178,4 @@ All notable changes to `users` will be documented in this file
 
 ## 1.1.1 - 2021-07-27
 - optimize database factory & seeder autoloading 
+- optimize testing seeders to be autoloaded to `Database\Seeders` namespace

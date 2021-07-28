@@ -49,7 +49,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sfneal\\Users\\Tests\\": "tests"
+            "Sfneal\\Users\\Tests\\": "tests",
+            "Database\\Seeders\\": "tests/Database/Seeders/"
         },
         "files": [
             "src/Helpers/auth.php"

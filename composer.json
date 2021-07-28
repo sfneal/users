@@ -41,16 +41,16 @@
         }
     },
     "autoload": {
-        "classmap": [
-            "database"
-        ],
         "psr-4": {
-            "Sfneal\\Users\\": "src"
+            "Sfneal\\Users\\": "src",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sfneal\\Users\\Tests\\": "tests"
+            "Sfneal\\Users\\Tests\\": "tests",
+            "Database\\Seeders\\": "tests/Database/Seeders/"
         },
         "files": [
             "src/Helpers/auth.php"

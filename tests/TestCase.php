@@ -8,23 +8,17 @@ use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Sfneal\Address\Providers\AddressServiceProvider;
 use Sfneal\Helpers\Redis\Providers\RedisHelpersServiceProvider;
 use Sfneal\Users\Providers\UsersServiceProvider;
-use Sfneal\Users\Tests\Database\Seeders\DatabaseSeeder;
 
 class TestCase extends OrchestraTestCase
 {
     use RefreshDatabase;
 
     /**
-     * Setup the test environment.
+     * Indicates whether the default seeder should run before each test.
      *
-     * @return void
+     * @var bool
      */
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed(DatabaseSeeder::class);
-    }
+    protected $seed = true;
 
     /**
      * Register package service providers.

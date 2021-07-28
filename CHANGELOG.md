@@ -173,4 +173,9 @@ All notable changes to `users` will be documented in this file
 
 
 ## 1.1.0 - 2021-07-19
-- cut `User` model's 'password' attribute mutator that was causing already hashed passwords to be hashed again 
+- cut `User` model's 'password' attribute mutator that was causing already hashed passwords to be hashed again
+
+
+## 1.1.1 - 2021-07-28
+- optimize database factory & seeder autoloading 
+- optimize testing seeders to be autoloaded to `Database\Seeders` namespace

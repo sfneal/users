@@ -179,3 +179,7 @@ All notable changes to `users` will be documented in this file
 ## 1.1.1 - 2021-07-28
 - optimize database factory & seeder autoloading 
 - optimize testing seeders to be autoloaded to `Database\Seeders` namespace
+
+
+## 1.1.2 - 2021-08-03
+- fix min sfneal/address version to v1.2.2 to fix issues with previously fixed `AddressFactory` issue

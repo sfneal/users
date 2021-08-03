@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "sfneal/address": "^1.2",
+        "sfneal/address": "^1.2.2",
         "sfneal/caching": ">=1.0",
         "sfneal/casts": ">=1.1",
         "sfneal/currency": "^2.0",

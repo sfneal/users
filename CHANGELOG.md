@@ -183,3 +183,8 @@ All notable changes to `users` will be documented in this file
 
 ## 1.1.2 - 2021-08-03
 - fix min sfneal/address version to v1.2.2 to fix issues with previously fixed `AddressFactory` issue
+
+
+## 1.1.3 - 2021-08-04
+- bump sfneal/mock-models min dev requirements to v0.9
+- refactor import of `ModelAttributeAssertions` to `AssertModelAttributes`

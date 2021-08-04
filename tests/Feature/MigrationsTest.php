@@ -2,7 +2,7 @@
 
 namespace Sfneal\Users\Tests\Feature;
 
-use Sfneal\Testing\Utils\Traits\ModelAttributeAssertions;
+use Sfneal\Testing\Utils\Traits\AssertModelAttributes;
 use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\Team;
 use Sfneal\Users\Models\User;
@@ -11,7 +11,7 @@ use Sfneal\Users\Tests\TestCase;
 
 class MigrationsTest extends TestCase
 {
-    use ModelAttributeAssertions;
+    use AssertModelAttributes;
 
     /**
      * Indicates whether the default seeder should run before each test.

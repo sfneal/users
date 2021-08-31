@@ -75,6 +75,6 @@ class UserNotificationSubscriptionQuery extends Query
      */
     public function cacheKey(): string
     {
-        return "user:notification:subscription#{$this->notification}";
+        return "user:notification:subscription:{$this->notification}";
     }
 }

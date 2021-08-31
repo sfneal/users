@@ -40,7 +40,7 @@ class UserRolesQuery extends Query
      */
     public function cacheKey(): string
     {
-        return Role::getTableName().':types#user';
+        return Role::getTableName().':types:user';
     }
 
     /**

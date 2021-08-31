@@ -192,3 +192,8 @@ All notable changes to `users` will be documented in this file
 
 # 1.1.4 - 2021-08-18
 - fix sfneal/address min version to v1.2 since broken v1.2.0 & v1.2.1 versions have been removed 
+
+
+# 1.1.5 - 2021-08-31
+- add support for sfneal/caching v2.0
+- fix use of '#' cache key id suffix delimiter with ':'

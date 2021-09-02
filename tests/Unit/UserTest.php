@@ -140,7 +140,7 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
             'name_suffix' => false,
             'list_name' => false,
 
-//            'city_state' => false,
+            'city_state' => false,
             'address_1' => false,
             'address_2' => false,
             'city' => false,

@@ -197,3 +197,10 @@ All notable changes to `users` will be documented in this file
 # 1.1.5 - 2021-08-31
 - add support for sfneal/caching v2.0
 - fix use of '#' cache key id suffix delimiter with ':'
+
+
+# 1.2.0 - 2021-09-02
+- bump sfneal/address & sfneal/models to latest versions to support use of `Address` accessor traits
+- add use of `AddressAccessors` trait in `User` model for providing access to related `Address` model attributes
+- add `accessors_are_accessible()` test method to `UserTest` for testing attribute accessors
+- fix composer package constraints to be more explicit

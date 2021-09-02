@@ -4,7 +4,6 @@ namespace Sfneal\Users\Tests\Unit;
 
 use Database\Factories\UserNotificationFactory;
 use Sfneal\Queries\RandomModelAttributeQuery;
-use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
 use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
 use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
 use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
@@ -13,10 +12,13 @@ use Sfneal\Users\Models\User;
 use Sfneal\Users\Models\UserNotification;
 use Sfneal\Users\Tests\TestCase;
 
-class UserNotificationTest extends TestCase implements CrudModelTest, ModelBuilderTest, ModelFactoryTest, ModelRelationshipsTest
+class UserNotificationTest extends TestCase implements ModelBuilderTest, ModelFactoryTest, ModelRelationshipsTest
 {
-    /** @test */
-    public function records_can_be_created()
+    /**
+     * @test
+     * @dataProvider randomUserProvider
+     */
+    public function records_can_be_created(User $user)
     {
         $user_id = (new RandomModelAttributeQuery(User::class, 'id'))->execute();
         $user = User::query()->find($user_id);

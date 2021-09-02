@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Sfneal\Address\Providers\AddressServiceProvider;
 use Sfneal\Helpers\Redis\Providers\RedisHelpersServiceProvider;
+use Sfneal\Queries\RandomModelAttributeQuery;
+use Sfneal\Users\Models\User;
 use Sfneal\Users\Providers\UsersServiceProvider;
 
 class TestCase extends OrchestraTestCase
@@ -71,5 +73,27 @@ class TestCase extends OrchestraTestCase
         // Migrate 'address' table
         include_once __DIR__.'/../vendor/sfneal/address/database/migrations/create_address_table.php.stub';
         (new \CreateAddressTable())->up();
+    }
+
+    /**
+     * Return an array of random User models for use in test.
+     *
+     * @return array
+     */
+    public function randomUserProvider(): array
+    {
+        $getRandomUser = function() {
+            return User::query()->find(
+                (new RandomModelAttributeQuery(User::class, 'id'))->execute()
+            );
+        };
+
+        return [
+            [$getRandomUser()]
+            [$getRandomUser()]
+            [$getRandomUser()]
+            [$getRandomUser()]
+            [$getRandomUser()]
+        ];
     }
 }

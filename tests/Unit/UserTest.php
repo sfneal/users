@@ -6,7 +6,6 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Address\Models\Address;
 use Sfneal\Queries\RandomModelAttributeQuery;
-use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
 use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
 use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
 use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
@@ -17,7 +16,7 @@ use Sfneal\Users\Models\User;
 use Sfneal\Users\Models\UserNotification;
 use Sfneal\Users\Tests\TestCase;
 
-class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, ModelFactoryTest, ModelRelationshipsTest
+class UserTest extends TestCase implements ModelBuilderTest, ModelFactoryTest, ModelRelationshipsTest
 {
     /** @test */
     public function records_can_be_created()
@@ -35,12 +34,12 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $this->assertInstanceOf(Role::class, $user->role);
     }
 
-    /** @test */
-    public function records_can_be_updated()
+    /**
+     * @test
+     * @dataProvider randomUserProvider
+     */
+    public function records_can_be_updated(User $user)
     {
-        $user_id = (new RandomModelAttributeQuery(User::class, 'id'))->execute();
-        $user = User::query()->find($user_id);
-
         $role_id = 3;
         $names = [
             'first' => 'Louis',
@@ -56,7 +55,7 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
             'nickname_preferred' => 0,
         ]);
 
-        $updatedUser = User::query()->find($user_id);
+        $updatedUser = User::query()->find($user->getKey());
 
         $this->assertNotNull($updatedUser);
         $this->assertInstanceOf(User::class, $updatedUser);
@@ -79,17 +78,17 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $this->assertFalse($updatedUser->isNicknamePreferred());
     }
 
-    /** @test */
-    public function records_can_be_deleted()
+    /**
+     * @test
+     * @dataProvider randomUserProvider
+     */
+    public function records_can_be_deleted(User $user)
     {
-        $user_id = (new RandomModelAttributeQuery(User::class, 'id'))->execute();
-        $user = User::query()->find($user_id);
-
         $user->delete();
 
         $this->assertInstanceOf(User::class, $user);
         $this->assertTrue($user->wasDeleted());
-        $this->assertNull(User::query()->find($user_id));
+        $this->assertNull(User::query()->find($user->getKey()));
     }
 
     /** @test */
@@ -125,13 +124,12 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         });
     }
 
-    /** @test */
-    public function accessors_are_accessible()
+    /**
+     * @test
+     * @dataProvider randomUserProvider
+     */
+    public function accessors_are_accessible(User $user)
     {
-        // todo: add provider
-        $user_id = (new RandomModelAttributeQuery(User::class, 'id'))->execute();
-        $user = User::query()->find($user_id);
-
         $attributes = [
             'first_name' => true,
             'last_name' => true,

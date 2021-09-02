@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Sfneal\Address\Models\Address;
+use Sfneal\Address\Models\Traits\AddressAccessors;
 use Sfneal\Casts\NewlineCast;
 use Sfneal\Currency\Currency;
 use Sfneal\Helpers\Strings\StringHelpers;
@@ -23,6 +24,7 @@ use Vkovic\LaravelCustomCasts\HasCustomCasts;
 class User extends AuthModel
 {
     // todo: refactor status to use Status model?
+    use AddressAccessors;
     use HasCustomCasts;
     use HasFactory;
 
@@ -399,68 +401,6 @@ class User extends AuthModel
     public function getNameLinkAttribute()
     {
         return '<a href="'.route('user.show', ['user'=>$this->id]).'">'.$this->name.'</a>';
-    }
-
-    /**
-     * Get the 'city_state' attribute.
-     *
-     * @return string
-     */
-    public function getCityStateAttribute()
-    {
-        return $this->address->city_state ?? null;
-    }
-
-    // todo: add address accessor method to a sfneal/address trait
-
-    /**
-     * Retrieve the User's 'address1' attribute.
-     *
-     * @return mixed
-     */
-    public function getAddress1Attribute()
-    {
-        return $this->address->address_1 ?? null;
-    }
-
-    /**
-     * Retrieve the User's 'address2' attribute.
-     *
-     * @return mixed
-     */
-    public function getAddress2Attribute()
-    {
-        return $this->address->address_2 ?? null;
-    }
-
-    /**
-     * Retrieve the User's 'city' attribute.
-     *
-     * @return mixed
-     */
-    public function getCityAttribute()
-    {
-        return $this->address->city ?? null;
-    }
-
-    /**
-     * Retrieve the User's 'state' attribute.
-     *
-     * @return mixed
-     */
-    public function getStateAttribute()
-    {
-        return $this->address->state ?? null;
-    }
-
-    /**
-     * Retrieve the User's 'zip' attribute.
-     *
-     * @return mixed
-     */
-    public function getZipAttribute()
-    {
-        return $this->address->zip ?? null;
     }
 
     /**

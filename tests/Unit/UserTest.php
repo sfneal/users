@@ -167,9 +167,7 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
                 $this->assertNotNull($user->{$method}($user->{$attribute}), "The $method '{$method}()' returned null.");
                 $this->assertIsString($user->{$method}($user->{$attribute}), "The $method '{$method}()' is not a string.");
                 $this->assertEquals($user->{$attribute}, $user->{$method}($user->{$attribute}), "The attribute '{$attribute}' & the method '{$method}()' returned different values");
-            }
-
-            else {
+            } else {
                 $this->assertNotNull($user->{$method}(), "The $method '{$method}()' returned null.");
                 $this->assertIsString($user->{$method}(), "The $method '{$method}()' is not a string.");
                 $this->assertEquals($user->{$attribute}, $user->{$method}(), "The attribute '{$attribute}' & the method '{$method}()' returned different values");

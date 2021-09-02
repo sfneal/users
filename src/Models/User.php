@@ -281,16 +281,6 @@ class User extends AuthModel
     }
 
     /**
-     * Get the 'city_state' attribute.
-     *
-     * @return string
-     */
-    public function getCityStateAttribute()
-    {
-        return $this->address->city_state ?? null;
-    }
-
-    /**
      * Mutate the 'middle_name' attribute.
      *
      * @param string|null $value
@@ -409,6 +399,16 @@ class User extends AuthModel
     public function getNameLinkAttribute()
     {
         return '<a href="'.route('user.show', ['user'=>$this->id]).'">'.$this->name.'</a>';
+    }
+
+    /**
+     * Get the 'city_state' attribute.
+     *
+     * @return string
+     */
+    public function getCityStateAttribute()
+    {
+        return $this->address->city_state ?? null;
     }
 
     // todo: add address accessor method to a sfneal/address trait

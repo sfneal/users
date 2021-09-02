@@ -124,4 +124,56 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
             $this->assertInstanceOf(UserNotification::class, $notification);
         });
     }
+
+    /** @test */
+    public function accessors_are_accessible()
+    {
+        // todo: add provider
+        $user_id = (new RandomModelAttributeQuery(User::class, 'id'))->execute();
+        $user = User::query()->find($user_id);
+
+        $attributes = [
+            'first_name' => true,
+            'last_name' => true,
+            'name' => false,
+            'name_full' => false,
+            'name_suffix' => false,
+            'list_name' => false,
+
+//            'city_state' => false,
+            'address_1' => false,
+            'address_2' => false,
+            'city' => false,
+            'state' => false,
+            'zip' => false,
+
+            'email_link' => false,
+            'phone_work_link' => false,
+            'phone_mobile_link' => false,
+        ];
+
+        foreach ($attributes as $attribute => $override) {
+            $parts = array_map(function (string $piece) {
+                return ucfirst($piece);
+            }, explode('_', $attribute));
+            array_unshift($parts, 'get');
+            array_push($parts, 'Attribute');
+            $method = implode('', $parts);
+
+            $this->assertNotNull($user->{$attribute}, "The attribute '{$attribute}' returned null.");
+            $this->assertIsString($user->{$attribute}, "The attribute '{$attribute}' is not a string.");
+
+            if ($override) {
+                $this->assertNotNull($user->{$method}($user->{$attribute}), "The $method '{$method}()' returned null.");
+                $this->assertIsString($user->{$method}($user->{$attribute}), "The $method '{$method}()' is not a string.");
+                $this->assertEquals($user->{$attribute}, $user->{$method}($user->{$attribute}), "The attribute '{$attribute}' & the method '{$method}()' returned different values");
+            }
+
+            else {
+                $this->assertNotNull($user->{$method}(), "The $method '{$method}()' returned null.");
+                $this->assertIsString($user->{$method}(), "The $method '{$method}()' is not a string.");
+                $this->assertEquals($user->{$attribute}, $user->{$method}(), "The attribute '{$attribute}' & the method '{$method}()' returned different values");
+            }
+        }
+    }
 }

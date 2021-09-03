@@ -44,6 +44,7 @@ class TestCase extends OrchestraTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('app.debug', true);
+
         $app['config']->set('users.org.name', 'HPA Design, inc.');
         $app['config']->set('users.org.address.street', '35 Main Street');
         $app['config']->set('users.org.address.city', 'Milford');
@@ -51,6 +52,14 @@ class TestCase extends OrchestraTestCase
         $app['config']->set('users.org.address.zip', '01575');
         $app['config']->set('users.org.phone', '508-384-8838');
         $app['config']->set('users.org.email', 'contact@hpadesign.com');
+
+        $app['config']->set('cache.default', 'redis');
+        $app['config']->set('cache.prefix', 'users');
+        $app['config']->set('database.redis.client', env('REDIS_CLIENT', 'mock'));
+        $app['config']->set('database.redis.default.host', env('REDIS_HOST', '127.0.0.1'));
+        $app['config']->set('database.redis.default.port', env('REDIS_PORT', 6379));
+        $app['config']->set('database.redis.default.options.prefix', null);
+        $app['config']->set('cache.stores.redis.connection', 'default');
 
         // Migrate 'role' table
         include_once __DIR__.'/../database/migrations/create_role_table.php.stub';

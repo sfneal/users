@@ -48,7 +48,9 @@ class UserRolesQueryTest extends TestCase
 
         $this->assertTrue($query->isCached());
 
-        $query->invalidateCache();
+        $invalidations = $query->invalidateCache();
         $this->assertFalse($query->isCached());
+        $this->assertIsArray($invalidations);
+        $this->assertArrayHasKey($query->cacheKey(), $invalidations);
     }
 }

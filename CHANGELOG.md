@@ -204,3 +204,9 @@ All notable changes to `users` will be documented in this file
 - add use of `AddressAccessors` trait in `User` model for providing access to related `Address` model attributes
 - add `accessors_are_accessible()` test method to `UserTest` for testing attribute accessors
 - fix composer package constraints to be more explicit
+
+
+# 1.3.0 - 2021-09-03
+- fix issues with use of `invalidateCache()` methods not properly clearing cache
+- add assertions methods `UserRolesQueryTest` to confirm cache was properly cleared
+- bump sfneal/caching min version to v2.1.2 to support latest implementations of cache invalidation

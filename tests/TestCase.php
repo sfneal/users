@@ -3,7 +3,9 @@
 namespace Sfneal\Users\Tests;
 
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Lunaweb\RedisMock\Providers\RedisMockServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Sfneal\Address\Providers\AddressServiceProvider;
 use Sfneal\Helpers\Redis\Providers\RedisHelpersServiceProvider;
@@ -31,6 +33,7 @@ class TestCase extends OrchestraTestCase
         return [
             UsersServiceProvider::class,
             RedisHelpersServiceProvider::class,
+            RedisMockServiceProvider::class,
             AddressServiceProvider::class,
         ];
     }
@@ -43,6 +46,10 @@ class TestCase extends OrchestraTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
+        // make sure, our .env file is loaded
+        $app->useEnvironmentPath(__DIR__.'/..');
+        $app->bootstrapWith([LoadEnvironmentVariables::class]);
+
         $app['config']->set('app.debug', true);
 
         $app['config']->set('users.org.name', 'HPA Design, inc.');

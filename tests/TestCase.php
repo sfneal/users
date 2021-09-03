@@ -82,7 +82,7 @@ class TestCase extends OrchestraTestCase
      */
     public function randomUserProvider(): array
     {
-        $getRandomUser = function() {
+        $getRandomUser = function () {
             return User::query()->find(
                 (new RandomModelAttributeQuery(User::class, 'id'))->execute()
             );
@@ -93,7 +93,7 @@ class TestCase extends OrchestraTestCase
             [$getRandomUser()]
             [$getRandomUser()]
             [$getRandomUser()]
-            [$getRandomUser()]
+            [$getRandomUser()],
         ];
     }
 }

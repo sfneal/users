@@ -3,15 +3,12 @@
 namespace Sfneal\Users\Tests\Feature\Queries;
 
 use Sfneal\Queries\RandomModelAttributeQuery;
-use Sfneal\Testing\Utils\Traits\CreateRequest;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Queries\UserListQuery;
 use Sfneal\Users\Tests\TestCase;
 
 class UserListQueryTest extends TestCase
 {
-    use CreateRequest;
-
     /**
      * @var string
      */

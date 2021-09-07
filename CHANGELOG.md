@@ -215,3 +215,7 @@ All notable changes to `users` will be documented in this file
 # 1.3.1 - 2021-09-07
 - bump min sfneal/models packages version to v2.8.1
 - add assertions to `UserListQueryTest` now that issues with Sqlite concat & if statements has been resolved
+
+
+# 1.4.0 - 2021-09-07
+- refactor `UserListQuery` to accept a name query string as a parameter instead of a Request

@@ -33,11 +33,7 @@ class UserListQueryTest extends TestCase
     /** @test */
     public function query_returns_results()
     {
-        $request = $this->createRequest([], [
-            'q' => $this->userName,
-        ]);
-
-        $result = (new UserListQuery($request))->execute();
+        $result = (new UserListQuery($this->userName))->execute();
         $items = $result['items'];
         $count = $result['total_count'];
 

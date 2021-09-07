@@ -23,7 +23,7 @@
         "sfneal/currency": "^2.0",
         "sfneal/datum": "^1.4.1",
         "sfneal/laravel-helpers": "^2.0",
-        "sfneal/models": "^2.7",
+        "sfneal/models": "^2.8.1",
         "sfneal/post-office": "^1.0",
         "sfneal/scopes": "^1.0"
     },

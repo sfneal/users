@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Tests\Feature\Queries;
 
-use Illuminate\Database\QueryException;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Traits\CreateRequest;
 use Sfneal\Users\Models\User;
@@ -11,8 +10,6 @@ use Sfneal\Users\Tests\TestCase;
 
 class UserListQueryTest extends TestCase
 {
-    // todo: fix issue with sql 'concat' method not being available
-
     use CreateRequest;
 
     /**
@@ -39,12 +36,23 @@ class UserListQueryTest extends TestCase
         $request = $this->createRequest([], [
             'q' => $this->userName,
         ]);
-        try {
-            $result = (new UserListQuery($request))->execute();
-//            print_r($result);
-        } catch (QueryException $exception) {
-//            print_r('UserListQueryTest::query_returns_results - '.$exception->getMessage());
-            $this->assertTrue(true);
+
+        $result = (new UserListQuery($request))->execute();
+        $items = $result['items'];
+        $count = $result['total_count'];
+
+        $this->assertIsArray($result);
+        $this->assertIsArray($items);
+        $this->assertCount(1, $items);
+
+        $this->assertIsInt($count);
+        $this->assertEquals(1, $count);
+
+        foreach ($items as $item) {
+            $this->assertIsInt($item['id']);
+            $this->assertIsString($item['text']);
+
+            $this->assertEquals($this->userName, $item['text']);
         }
     }
 }

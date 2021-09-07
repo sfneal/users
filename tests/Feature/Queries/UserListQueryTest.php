@@ -48,8 +48,7 @@ class UserListQueryTest extends TestCase
         $this->assertIsInt($count);
         $this->assertEquals(1, $count);
 
-        foreach ($items as $item)
-        {
+        foreach ($items as $item) {
             $this->assertIsInt($item['id']);
             $this->assertIsString($item['text']);
 

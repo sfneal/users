@@ -2,28 +2,25 @@
 
 namespace Sfneal\Users\Queries;
 
-use Illuminate\Http\Request;
 use Sfneal\Queries\Query;
 use Sfneal\Users\Builders\UserBuilder;
 use Sfneal\Users\Models\User;
 
 class UserListQuery extends Query
 {
-    // todo: refactor to use param instead of $request?
-
     /**
-     * @var Request
+     * @var string Query string containing portions of a User's name
      */
-    private $request;
+    private $nameQuery;
 
     /**
      * TeamListQuery constructor.
      *
-     * @param Request $request
+     * @param string $nameQuery
      */
-    public function __construct(Request $request)
+    public function __construct(string $nameQuery)
     {
-        $this->request = $request;
+        $this->nameQuery = $nameQuery;
     }
 
     /**
@@ -44,7 +41,7 @@ class UserListQuery extends Query
     public function execute(): array
     {
         return $this->builder()
-            ->whereNameLike($this->request->input('q'))
+            ->whereNameLike($this->nameQuery)
             ->whereActive()
             ->selectRawJson()
             ->countAndPaginate();

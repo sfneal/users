@@ -3,15 +3,12 @@
 namespace Sfneal\Users\Tests\Feature\Queries;
 
 use Sfneal\Queries\RandomModelAttributeQuery;
-use Sfneal\Testing\Utils\Traits\CreateRequest;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Queries\UserListQuery;
 use Sfneal\Users\Tests\TestCase;
 
 class UserListQueryTest extends TestCase
 {
-    use CreateRequest;
-
     /**
      * @var string
      */
@@ -33,11 +30,7 @@ class UserListQueryTest extends TestCase
     /** @test */
     public function query_returns_results()
     {
-        $request = $this->createRequest([], [
-            'q' => $this->userName,
-        ]);
-
-        $result = (new UserListQuery($request))->execute();
+        $result = (new UserListQuery($this->userName))->execute();
         $items = $result['items'];
         $count = $result['total_count'];
 

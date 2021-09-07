@@ -34,7 +34,10 @@ class HelpersTest extends TestCase
         $this->actingAs($this->user);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function activeUser()
     {
         $user = activeUser();
@@ -44,7 +47,10 @@ class HelpersTest extends TestCase
         $this->assertEquals($this->user, $user);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function activeUserID()
     {
         $user_id = activeUserID();
@@ -53,7 +59,10 @@ class HelpersTest extends TestCase
         $this->assertEquals($this->user->getKey(), $user_id);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function activeUserName()
     {
         $user_name = activeUserName();
@@ -62,7 +71,10 @@ class HelpersTest extends TestCase
         $this->assertEquals($this->user->name, $user_name);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function activeUserRole()
     {
         $role = activeUserRole();
@@ -72,7 +84,10 @@ class HelpersTest extends TestCase
         // todo: add test with $role param
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function isAdminOrActiveUser()
     {
         // Active User
@@ -101,7 +116,10 @@ class HelpersTest extends TestCase
         $this->assertFalse($notActiveUser);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function isActiveUser()
     {
         $activeUser = isActiveUser(activeUserID());

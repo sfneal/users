@@ -88,4 +88,22 @@ class TestCase extends OrchestraTestCase
         include_once __DIR__.'/../vendor/sfneal/address/database/migrations/create_address_table.php.stub';
         (new \CreateAddressTable())->up();
     }
+
+    /**
+     * A data provider that doesn't return parameters but forces a test method to be run five times.
+     *
+     *  - useful when a dataProvider requires a query for a random attribute
+     *
+     * @return array[]
+     */
+    public function runTestFiveTimesProvider(): array
+    {
+        return [
+            [],
+            [],
+            [],
+            [],
+            [],
+        ];
+    }
 }

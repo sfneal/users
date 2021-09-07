@@ -218,4 +218,4 @@ All notable changes to `users` will be documented in this file
 
 
 # 1.4.0 - 2021-09-07
-- refactor `UserListQuery` to accept a name query string as a parameter instead of a Request
+- refactor `UserListQuery` to accept a name query string as a parameter instead of a Request #43

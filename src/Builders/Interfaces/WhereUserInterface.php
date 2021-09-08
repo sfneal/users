@@ -7,7 +7,7 @@ interface WhereUserInterface
     /**
      * Scope query results to particular users.
      *
-     * @param int $user_id
+     * @param  int  $user_id
      *
      * @return $this
      */
@@ -16,7 +16,7 @@ interface WhereUserInterface
     /**
      * Scope query to activity that was performed by any of the specified users.
      *
-     * @param array $user_ids
+     * @param  array  $user_ids
      *
      * @return $this
      */

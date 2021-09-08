@@ -27,7 +27,10 @@ class UserListQueryTest extends TestCase
         )->name;
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function query_returns_results()
     {
         $result = (new UserListQuery($this->userName))->execute();

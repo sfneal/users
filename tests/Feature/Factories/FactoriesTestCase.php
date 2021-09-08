@@ -6,7 +6,7 @@ use Sfneal\Models\Model;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Users\Tests\TestCase;
 
-class FactoriesTestCase extends TestCase
+abstract class FactoriesTestCase extends TestCase
 {
     // todo: add `ModelRelationshipsTest` implementations
 

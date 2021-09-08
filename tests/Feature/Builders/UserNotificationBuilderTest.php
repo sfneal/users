@@ -12,7 +12,10 @@ class UserNotificationBuilderTest extends BuilderTestCase
      */
     protected $modelClass = UserNotification::class;
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereType()
     {
         $attribute = 'type';

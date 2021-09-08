@@ -12,8 +12,8 @@ class UserActiveScope implements Scope
     /**
      * Order results by creation time (newest to oldest).
      *
-     * @param Builder|UserBuilder $builder
-     * @param EloquentModel       $model
+     * @param  Builder|UserBuilder  $builder
+     * @param  EloquentModel  $model
      *
      * @return void
      */

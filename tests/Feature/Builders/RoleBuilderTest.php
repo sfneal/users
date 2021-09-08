@@ -12,7 +12,10 @@ class RoleBuilderTest extends BuilderTestCase
      */
     protected $modelClass = Role::class;
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereType()
     {
         $attribute = 'type';
@@ -32,7 +35,10 @@ class RoleBuilderTest extends BuilderTestCase
         $this->assertContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereName()
     {
         $attribute = 'name';
@@ -42,7 +48,10 @@ class RoleBuilderTest extends BuilderTestCase
         $this->assertContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereNameNot()
     {
         $attribute = 'name';
@@ -52,7 +61,10 @@ class RoleBuilderTest extends BuilderTestCase
         $this->assertNotContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereNameIn()
     {
         $attribute = 'name';
@@ -64,7 +76,10 @@ class RoleBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereNameNotIn()
     {
         $attribute = 'name';

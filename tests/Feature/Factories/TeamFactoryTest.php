@@ -12,7 +12,10 @@ class TeamFactoryTest extends FactoriesTestCase implements FillablesTest
      */
     public $modelClass = Team::class;
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function fillables_are_correct_types()
     {
         $this->assertIsInt($this->model->user_id);

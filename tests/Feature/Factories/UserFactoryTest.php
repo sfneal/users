@@ -13,7 +13,10 @@ class UserFactoryTest extends FactoriesTestCase implements FillablesTest
      */
     public $modelClass = User::class;
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function fillables_are_correct_types()
     {
         $this->assertIsInt($this->model->role_id);

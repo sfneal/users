@@ -18,7 +18,10 @@ class UserBuilderTest extends BuilderTestCase
      */
     protected $modelClass = User::class;
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereUser()
     {
         $attribute = 'id';
@@ -28,7 +31,10 @@ class UserBuilderTest extends BuilderTestCase
         $this->assertContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereUserNot()
     {
         $attribute = 'id';
@@ -38,7 +44,10 @@ class UserBuilderTest extends BuilderTestCase
         $this->assertNotContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereUserIn()
     {
         $attribute = 'id';
@@ -50,7 +59,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereUserNotIn()
     {
         $attribute = 'id';
@@ -62,7 +74,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereUsername()
     {
         $attribute = 'username';
@@ -72,7 +87,10 @@ class UserBuilderTest extends BuilderTestCase
         $this->assertContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRole()
     {
         $attribute = 'role_id';
@@ -82,7 +100,10 @@ class UserBuilderTest extends BuilderTestCase
         $this->assertContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleNot()
     {
         $attribute = 'role_id';
@@ -92,7 +113,10 @@ class UserBuilderTest extends BuilderTestCase
         $this->assertNotContains($value, $model->pluck($attribute));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleIn()
     {
         $attribute = 'role_id';
@@ -104,7 +128,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleNotIn()
     {
         $attribute = 'role_id';
@@ -116,7 +143,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function orWhereRole()
     {
         $attribute = 'role_id';
@@ -132,7 +162,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleName()
     {
         $attribute = 'name';
@@ -148,7 +181,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleNameNot()
     {
         $attribute = 'name';
@@ -164,7 +200,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleNameIn()
     {
         $attribute = 'name';
@@ -180,7 +219,10 @@ class UserBuilderTest extends BuilderTestCase
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function whereRoleNameNotIn()
     {
         $attribute = 'name';

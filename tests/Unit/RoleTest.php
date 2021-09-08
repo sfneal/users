@@ -31,7 +31,10 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         });
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function records_can_be_updated()
     {
         // Find a random Role
@@ -58,7 +61,10 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $this->assertSame($desc, $updatedRole->description);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function records_can_be_deleted()
     {
         // Find a random Role
@@ -90,7 +96,10 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         $this->assertInstanceOf(RoleFactory::class, $factory);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function relationships_are_accessible()
     {
         $role_id = (new RandomModelAttributeQuery(Role::class, 'role_id'))->execute();

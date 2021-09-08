@@ -14,7 +14,10 @@ class UserNotificationFactoryTest extends FactoriesTestCase implements Fillables
      */
     public $modelClass = UserNotification::class;
 
-    /** @test */
+    /**
+     * @test
+     * @dataProvider runTestFiveTimesProvider
+     */
     public function fillables_are_correct_types()
     {
         $this->assertIsInt($this->model->user_id);

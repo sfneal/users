@@ -99,7 +99,7 @@ class Role extends Model
     /**
      * Retrieve the 'class' attribute with a default value.
      *
-     * @param null $value
+     * @param  null  $value
      *
      * @return string
      */

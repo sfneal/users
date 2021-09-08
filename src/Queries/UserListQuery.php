@@ -16,7 +16,7 @@ class UserListQuery extends Query
     /**
      * TeamListQuery constructor.
      *
-     * @param string $nameQuery
+     * @param  string  $nameQuery
      */
     public function __construct(string $nameQuery)
     {

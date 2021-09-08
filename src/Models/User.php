@@ -175,7 +175,7 @@ class User extends AuthModel
     /**
      * Determine if a User has a particular 'role_id'.
      *
-     * @param int $role_id
+     * @param  int  $role_id
      * @return bool
      */
     public function isRoleId(int $role_id): bool
@@ -186,7 +186,7 @@ class User extends AuthModel
     /**
      * Determine if a User has a particular 'role name'.
      *
-     * @param string $role
+     * @param  string  $role
      * @return bool
      */
     public function isRole(string $role): bool
@@ -274,7 +274,7 @@ class User extends AuthModel
     /**
      * Get the AWS S3 file upload directory for an Inquiry model by retrieving the table name and primary key.
      *
-     * @param string $base_dir
+     * @param  string  $base_dir
      * @return string
      */
     public function getUploadDirectory($base_dir = 'images'): string
@@ -285,7 +285,7 @@ class User extends AuthModel
     /**
      * Mutate the 'middle_name' attribute.
      *
-     * @param string|null $value
+     * @param  string|null  $value
      */
     public function setMiddleNameAttribute(string $value = null)
     {
@@ -301,7 +301,7 @@ class User extends AuthModel
     /**
      * Mutate the 'first_name' attribute.
      *
-     * @param string|null $value
+     * @param  string|null  $value
      */
     public function setFirstNameAttribute(string $value = null)
     {
@@ -313,7 +313,7 @@ class User extends AuthModel
     /**
      * Mutate the 'last_name' attribute.
      *
-     * @param string|null $value
+     * @param  string|null  $value
      */
     public function setLastNameAttribute(string $value = null)
     {
@@ -325,7 +325,7 @@ class User extends AuthModel
     /**
      * Access the 'first_name' attribute.
      *
-     * @param string|null $value
+     * @param  string|null  $value
      * @return string
      */
     public function getFirstNameAttribute(string $value = null): string
@@ -336,7 +336,7 @@ class User extends AuthModel
     /**
      * Access the 'last_name' attribute.
      *
-     * @param string|null $value
+     * @param  string|null  $value
      * @return string
      */
     public function getLastNameAttribute(string $value = null): string

@@ -20,9 +20,9 @@ class UserNotificationBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope Query to UserNotification's of a certain 'type'.
      *
-     * @param string $type
-     * @param string $operator
-     * @param string $boolean
+     * @param  string  $type
+     * @param  string  $operator
+     * @param  string  $boolean
      *
      * @return $this
      */

@@ -9,9 +9,9 @@ class RoleBuilder extends QueryBuilder
     /**
      * Scope Role query to roles of a particular type.
      *
-     * @param string $type
-     * @param string $operator
-     * @param string $boolean
+     * @param  string  $type
+     * @param  string  $operator
+     * @param  string  $boolean
      *
      * @return $this
      */
@@ -25,8 +25,8 @@ class RoleBuilder extends QueryBuilder
     /**
      * Scope Role query to only 'user' type roles.
      *
-     * @param string $operator
-     * @param string $boolean
+     * @param  string  $operator
+     * @param  string  $boolean
      *
      * @return $this
      */
@@ -40,9 +40,9 @@ class RoleBuilder extends QueryBuilder
     /**
      * Scope query results to Role's matching a role 'name'.
      *
-     * @param string $name
-     * @param string $operator
-     * @param string $boolean
+     * @param  string  $name
+     * @param  string  $operator
+     * @param  string  $boolean
      * @return $this
      */
     public function whereName(string $name, string $operator = '=', string $boolean = 'and'): self
@@ -55,8 +55,8 @@ class RoleBuilder extends QueryBuilder
     /**
      * Scope query results to Role's that do NOT have a particular role 'name'.
      *
-     * @param string $name
-     * @param string $boolean
+     * @param  string  $name
+     * @param  string  $boolean
      * @return $this
      */
     public function whereNameNot(string $name, string $boolean = 'and'): self
@@ -69,9 +69,9 @@ class RoleBuilder extends QueryBuilder
     /**
      * Scope query results to Role's with names that are in the array of $names.
      *
-     * @param array $names
-     * @param string $boolean
-     * @param bool $not
+     * @param  array  $names
+     * @param  string  $boolean
+     * @param  bool  $not
      * @return $this
      */
     public function whereNameIn(array $names, string $boolean = 'and', bool $not = false): self
@@ -84,8 +84,8 @@ class RoleBuilder extends QueryBuilder
     /**
      * Scope query results to Role's with names that are NOT in the array of $names.
      *
-     * @param array $names
-     * @param string $boolean
+     * @param  array  $names
+     * @param  string  $boolean
      * @return $this
      */
     public function whereNameNotIn(array $names, string $boolean = 'and'): self

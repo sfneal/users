@@ -26,7 +26,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * UserBuilder constructor.
      *
-     * @param Builder $query
+     * @param  Builder  $query
      */
     public function __construct(Builder $query)
     {
@@ -37,9 +37,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Find a User.
      *
-     * @param int $user_id
-     * @param string $operator
-     * @param string $boolean
+     * @param  int  $user_id
+     * @param  string  $operator
+     * @param  string  $boolean
      * @return $this
      */
     public function whereUser(int $user_id, string $operator = '=', string $boolean = 'and'): self
@@ -52,8 +52,8 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Exclude a User.
      *
-     * @param int $user_id
-     * @param string $boolean
+     * @param  int  $user_id
+     * @param  string  $boolean
      * @return $this
      */
     public function whereUserNot(int $user_id, string $boolean = 'and'): self
@@ -66,9 +66,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query to User's that have an 'id' found in the array of $user_ids.
      *
-     * @param array $user_ids
-     * @param string $boolean
-     * @param bool $not
+     * @param  array  $user_ids
+     * @param  string  $boolean
+     * @param  bool  $not
      * @return $this|WhereUserInterface
      */
     public function whereUserIn(array $user_ids, string $boolean = 'and', bool $not = false): self
@@ -81,8 +81,8 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query to User's that does NOT have 'id' found in the array of $user_ids.
      *
-     * @param array $user_ids
-     * @param string $boolean
+     * @param  array  $user_ids
+     * @param  string  $boolean
      * @return $this|WhereUserInterface
      */
     public function whereUserNotIn(array $user_ids, string $boolean = 'and'): self
@@ -109,7 +109,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope a query to User's with names starting with a particular string.
      *
-     * @param string $name
+     * @param  string  $name
      *
      * @return $this
      */
@@ -130,8 +130,8 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Add a whereNameLike scope with custom columns (like concatenated).
      *
-     * @param string      $name
-     * @param string|null $column
+     * @param  string  $name
+     * @param  string|null  $column
      *
      * @return $this
      */
@@ -146,7 +146,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Active Users.
      *
-     * @param int $value
+     * @param  int  $value
      *
      * @return $this
      */
@@ -160,9 +160,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's with a particular 'role_id'.
      *
-     * @param int $role_id
-     * @param string $operator
-     * @param string $boolean
+     * @param  int  $role_id
+     * @param  string  $operator
+     * @param  string  $boolean
      * @return $this
      */
     public function whereRole(int $role_id, string $operator = '=', string $boolean = 'and'): self
@@ -175,8 +175,8 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's without a particular 'role_id'.
      *
-     * @param int $role_id
-     * @param string $boolean
+     * @param  int  $role_id
+     * @param  string  $boolean
      * @return $this
      */
     public function whereRoleNot(int $role_id, string $boolean = 'and'): self
@@ -189,9 +189,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's with a 'role_id' found in the array of $role_ids.
      *
-     * @param array $role_ids
-     * @param string $boolean
-     * @param bool $not
+     * @param  array  $role_ids
+     * @param  string  $boolean
+     * @param  bool  $not
      * @return $this
      */
     public function whereRoleIn(array $role_ids, string $boolean = 'and', bool $not = false): self
@@ -204,8 +204,8 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's with a 'role_id' that is NOT found in the array of $role_ids.
      *
-     * @param array $role_ids
-     * @param string $boolean
+     * @param  array  $role_ids
+     * @param  string  $boolean
      * @return $this
      */
     public function whereRoleNotIn(array $role_ids, string $boolean = 'and'): self
@@ -218,8 +218,8 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Add a `whereRole()` clause to query using the 'or' boolean.
      *
-     * @param int $role_id
-     * @param string $operator
+     * @param  int  $role_id
+     * @param  string  $operator
      * @return $this
      */
     public function orWhereRole(int $role_id, string $operator = '='): self
@@ -232,9 +232,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's with a particular role 'name'.
      *
-     * @param string $role_name
-     * @param string $operator
-     * @param int $count
+     * @param  string  $role_name
+     * @param  string  $operator
+     * @param  int  $count
      * @return $this
      */
     public function whereRoleName(string $role_name, string $operator = '>=', int $count = 1): self
@@ -249,9 +249,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to Role's that do NOT have a particular role 'name'.
      *
-     * @param string $role_name
-     * @param string $operator
-     * @param int $count
+     * @param  string  $role_name
+     * @param  string  $operator
+     * @param  int  $count
      * @return $this
      */
     public function whereRoleNameNot(string $role_name, string $operator = '>=', int $count = 1): self
@@ -266,9 +266,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's with role names that are in the array of $role_names.
      *
-     * @param array $role_names
-     * @param string $operator
-     * @param int $count
+     * @param  array  $role_names
+     * @param  string  $operator
+     * @param  int  $count
      * @return $this
      */
     public function whereRoleNameIn(array $role_names, string $operator = '>=', int $count = 1): self
@@ -283,9 +283,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's with role names that are NOT in the array of $role_names.
      *
-     * @param array $role_names
-     * @param string $operator
-     * @param int $count
+     * @param  array  $role_names
+     * @param  string  $operator
+     * @param  int  $count
      * @return $this
      */
     public function whereRoleNameNotIn(array $role_names, string $operator = '>=', int $count = 1): self
@@ -300,9 +300,9 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope query results to User's that have roles.
      *
-     * @param Closure|null $callback
-     * @param string $operator
-     * @param int $count
+     * @param  Closure|null  $callback
+     * @param  string  $operator
+     * @param  int  $count
      * @return $this
      */
     public function whereHasRole(Closure $callback = null, $operator = '>=', $count = 1): self
@@ -340,7 +340,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Retrieve all Users regardless of 'active status'.
      *
-     * @param array $columns
+     * @param  array  $columns
      *
      * @return Collection
      */

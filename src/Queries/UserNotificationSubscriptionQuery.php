@@ -24,7 +24,7 @@ class UserNotificationSubscriptionQuery extends Query
     /**
      * UserNotificationSubscriptionQuery constructor.
      *
-     * @param Notification $notification
+     * @param  Notification  $notification
      */
     public function __construct(Notification $notification)
     {

@@ -37,7 +37,7 @@ class OrganizationService
     /**
      * Retrieve the Organization's phone number.
      *
-     * @param bool $href
+     * @param  bool  $href
      * @return string|null
      */
     public static function phone(bool $href = false): ?string
@@ -54,7 +54,7 @@ class OrganizationService
     /**
      * Retrieve the Organization's email address.
      *
-     * @param bool $href
+     * @param  bool  $href
      * @return string|null
      */
     public static function email(bool $href = false): ?string

@@ -138,7 +138,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     private function whereNameLikeRaw(string $name, string $column = null): self
     {
         // Use concatName method if no $column was provided
-        $this->whereRaw(($column ?? $this->concatName())." LIKE '%{$name}%'");
+        $this->whereRaw(($column ?? $this->concatName()).' LIKE "%'.$name.'%"');
 
         return $this;
     }

@@ -150,7 +150,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return $this
      */
-    public function whereActive($value = 1): self
+    public function whereActive(int $value = 1): self
     {
         $this->where('status', '=', $value);
 
@@ -344,7 +344,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @return Collection
      */
-    public function allWithInactive($columns = ['*']): Collection
+    public function allWithInactive(array $columns = ['*']): Collection
     {
         return $this->withInactive()->get($columns);
     }

@@ -219,3 +219,8 @@ All notable changes to `users` will be documented in this file
 
 # 1.4.0 - 2021-09-07
 - refactor `UserListQuery` to accept a name query string as a parameter instead of a Request #43
+
+ 
+# 1.4.1 - 2021-09-08
+- fix issue with `UserBuilder::whereNameLikeRaw()` method causing errors when wrapping names with apostrophes (like "O'hare") #56
+- add use of `runTestFiveTimesProvider()` data provider for getting test methods that use random attributes to run multiple times #48

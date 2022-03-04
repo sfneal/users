@@ -10,7 +10,6 @@ trait WhereUser
      * Scope query to activity that was performed by a particular user.
      *
      * @param  int  $user_id
-     *
      * @return $this|WhereUserInterface
      */
     public function whereUser(int $user_id)
@@ -24,7 +23,6 @@ trait WhereUser
      * Scope query to activity that was performed by any of the specified users.
      *
      * @param  array  $user_ids
-     *
      * @return $this|WhereUserInterface
      */
     public function whereUserIn(array $user_ids)

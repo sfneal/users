@@ -96,7 +96,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * Scope results to User's with a certain username.
      *
      * @param $value
-     *
      * @return $this
      */
     public function whereUsername($value): self
@@ -110,7 +109,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * Scope a query to User's with names starting with a particular string.
      *
      * @param  string  $name
-     *
      * @return $this
      */
     public function whereNameLike(string $name): self
@@ -132,7 +130,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      *
      * @param  string  $name
      * @param  string|null  $column
-     *
      * @return $this
      */
     private function whereNameLikeRaw(string $name, string $column = null): self
@@ -147,7 +144,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * Active Users.
      *
      * @param  int  $value
-     *
      * @return $this
      */
     public function whereActive(int $value = 1): self
@@ -341,7 +337,6 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * Retrieve all Users regardless of 'active status'.
      *
      * @param  array  $columns
-     *
      * @return Collection
      */
     public function allWithInactive(array $columns = ['*']): Collection

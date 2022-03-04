@@ -224,3 +224,8 @@ All notable changes to `users` will be documented in this file
 # 1.4.1 - 2021-09-08
 - fix issue with `UserBuilder::whereNameLikeRaw()` method causing errors when wrapping names with apostrophes (like "O'hare") #56
 - add use of `runTestFiveTimesProvider()` data provider for forcing test methods that use random attributes to run multiple times #48
+
+
+# 1.4.2 - 2022-03-04
+- add support for sfneal/caching v3.0
+- add use of GitHub actions/workflows

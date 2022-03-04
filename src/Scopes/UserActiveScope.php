@@ -14,7 +14,6 @@ class UserActiveScope implements Scope
      *
      * @param  Builder|UserBuilder  $builder
      * @param  EloquentModel  $model
-     *
      * @return void
      */
     public function apply(Builder $builder, EloquentModel $model)

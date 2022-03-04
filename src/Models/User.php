@@ -114,6 +114,7 @@ class User extends AuthModel
 
     /**
      * Query Builder.
+     *
      * @param $query
      * @return UserBuilder
      */

@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+    users:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: "stephenneal/users:${TAG}"
+        env_file: .env.docker
+        container_name: users
+        tty: true
+        volumes:
+            - users:/var/www
+        depends_on:
+            - users-cache
+        networks:
+            - users-network
+
+    users-cache:
+        container_name: users-cache
+        image: redis:6-alpine
+        command: ["redis-server", "--appendonly yes", "--port 9576"]
+        ports:
+            - "9576:9576"
+        volumes:
+            - users-cache:/data
+        networks:
+            - users-network
+
+
+# Networks
+networks:
+    users-network:
+        driver: bridge
+
+# Volumes
+volumes:
+    users:
+    users-cache:

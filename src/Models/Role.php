@@ -67,7 +67,6 @@ class Role extends Model
      * Query Builder.
      *
      * @param $query
-     *
      * @return RoleBuilder
      */
     public function newEloquentBuilder($query): RoleBuilder
@@ -100,7 +99,6 @@ class Role extends Model
      * Retrieve the 'class' attribute with a default value.
      *
      * @param  null  $value
-     *
      * @return string
      */
     public function getClassAttribute($value = null): string

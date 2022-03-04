@@ -12,7 +12,6 @@ class RoleBuilder extends QueryBuilder
      * @param  string  $type
      * @param  string  $operator
      * @param  string  $boolean
-     *
      * @return $this
      */
     public function whereType(string $type, string $operator = '=', string $boolean = 'and'): self
@@ -27,7 +26,6 @@ class RoleBuilder extends QueryBuilder
      *
      * @param  string  $operator
      * @param  string  $boolean
-     *
      * @return $this
      */
     public function whereTypeUser(string $operator = '=', string $boolean = 'and'): self

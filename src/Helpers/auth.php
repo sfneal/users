@@ -36,7 +36,6 @@ function activeUserName()
  * Check if the active user has a particular role or retrieve the active user's role name.
  *
  * @param  string|int|null  $role
- *
  * @return string|bool|null
  */
 function activeUserRole($role = null)
@@ -61,7 +60,6 @@ function activeUserRole($role = null)
  * Determine if a User is an admin or is the active user.
  *
  * @param  int  $user_id
- *
  * @return bool
  */
 function isAdminOrActiveUser(int $user_id): bool

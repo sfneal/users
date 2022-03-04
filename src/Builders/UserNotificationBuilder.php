@@ -23,7 +23,6 @@ class UserNotificationBuilder extends QueryBuilder implements WhereUserInterface
      * @param  string  $type
      * @param  string  $operator
      * @param  string  $boolean
-     *
      * @return $this
      */
     public function whereType(string $type, string $operator = '=', string $boolean = 'and')

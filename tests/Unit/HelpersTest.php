@@ -36,6 +36,7 @@ class HelpersTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function activeUser()
@@ -49,6 +50,7 @@ class HelpersTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function activeUserID()
@@ -61,6 +63,7 @@ class HelpersTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function activeUserName()
@@ -73,6 +76,7 @@ class HelpersTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function activeUserRole()
@@ -86,6 +90,7 @@ class HelpersTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function isAdminOrActiveUser()
@@ -118,6 +123,7 @@ class HelpersTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function isActiveUser()

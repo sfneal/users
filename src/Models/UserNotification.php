@@ -58,7 +58,7 @@ class UserNotification extends Model
     /**
      * Query Builder.
      *
-     * @param $query
+     * @param  $query
      * @return UserNotificationBuilder
      */
     public function newEloquentBuilder($query)

@@ -115,7 +115,7 @@ class User extends AuthModel
     /**
      * Query Builder.
      *
-     * @param $query
+     * @param  $query
      * @return UserBuilder
      */
     public function newEloquentBuilder($query)
@@ -401,7 +401,7 @@ class User extends AuthModel
      */
     public function getNameLinkAttribute()
     {
-        return '<a href="'.route('user.show', ['user'=>$this->id]).'">'.$this->name.'</a>';
+        return '<a href="'.route('user.show', ['user' => $this->id]).'">'.$this->name.'</a>';
     }
 
     /**

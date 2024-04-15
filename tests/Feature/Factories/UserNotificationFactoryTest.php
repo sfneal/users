@@ -16,6 +16,7 @@ class UserNotificationFactoryTest extends FactoriesTestCase implements Fillables
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function fillables_are_correct_types()

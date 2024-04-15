@@ -95,7 +95,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
     /**
      * Scope results to User's with a certain username.
      *
-     * @param $value
+     * @param  $value
      * @return $this
      */
     public function whereUsername($value): self

@@ -29,6 +29,7 @@ class UserListQueryTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function query_returns_results()

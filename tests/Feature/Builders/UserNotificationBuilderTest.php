@@ -14,6 +14,7 @@ class UserNotificationBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereType()

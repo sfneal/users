@@ -20,6 +20,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereUser()
@@ -33,6 +34,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereUserNot()
@@ -46,6 +48,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereUserIn()
@@ -61,6 +64,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereUserNotIn()
@@ -76,6 +80,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereUsername()
@@ -89,6 +94,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRole()
@@ -102,6 +108,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleNot()
@@ -115,6 +122,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleIn()
@@ -130,6 +138,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleNotIn()
@@ -145,6 +154,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function orWhereRole()
@@ -164,6 +174,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleName()
@@ -183,6 +194,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleNameNot()
@@ -202,6 +214,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleNameIn()
@@ -221,6 +234,7 @@ class UserBuilderTest extends BuilderTestCase
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function whereRoleNameNotIn()

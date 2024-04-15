@@ -15,6 +15,7 @@ class RoleFactoryTest extends FactoriesTestCase implements FillablesTest
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function fillables_are_correct_types()

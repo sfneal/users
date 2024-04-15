@@ -33,6 +33,7 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function records_can_be_updated()
@@ -63,6 +64,7 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function records_can_be_deleted()
@@ -98,6 +100,7 @@ class RoleTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
 
     /**
      * @test
+     *
      * @dataProvider runTestFiveTimesProvider
      */
     public function relationships_are_accessible()

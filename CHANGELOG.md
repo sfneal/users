@@ -232,5 +232,6 @@ All notable changes to `users` will be documented in this file
 
 
 # 2.0.0 - 2024-04-15
+- cut support for PHP 7.4
 - add support for PHP 8.2
 - add new GH actions

@@ -96,7 +96,7 @@ class TestCase extends OrchestraTestCase
      *
      * @return array[]
      */
-    public function runTestFiveTimesProvider(): array
+    public static function runTestFiveTimesProvider(): array
     {
         return [
             [],

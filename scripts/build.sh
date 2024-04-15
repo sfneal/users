@@ -29,15 +29,15 @@ TAG="$PHP_COMPOSER_TAG-$BRANCH"
 
 # Add '--lowest' tag suffix when installing the lowest allowable versions
 if [ -n "$COMPOSER_FLAGS" ]; then
-    TAG="${TAG}-${COMPOSER_FLAGS:8}"
+    TAG="latest-${COMPOSER_FLAGS:8}"
 fi
 
 # Export $TAG as a global variable, exposing to docker-compose.yml
 export TAG
 
 # Build the image
-echo "Building image: stephenneal/users:${TAG}"
-docker build -t stephenneal/users:"${TAG}" \
+echo "Building image: stephenneal/users:latest"
+docker build -t stephenneal/users:"latest" \
     --build-arg php_composer_tag="${PHP_COMPOSER_TAG}" \
     --build-arg composer_flags="${COMPOSER_FLAGS}" \
      .

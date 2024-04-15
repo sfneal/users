@@ -27,7 +27,7 @@ TAG="$PHP_COMPOSER_TAG-$BRANCH"
 
 # Add '--lowest' tag suffix when installing the lowest allowable versions
 if [ -n "$COMPOSER_FLAGS" ]; then
-    TAG="${TAG}-${COMPOSER_FLAGS:8}"
+    TAG="latest-${COMPOSER_FLAGS:8}"
 fi
 
 # Export $TAG as a global variable, exposing to docker-compose.yml
@@ -37,8 +37,8 @@ export TAG
 docker-compose down -v --remove-orphans
 
 # Build the image
-echo "Building image: stephenneal/users:${TAG}"
-docker build -t stephenneal/users:"${TAG}" \
+echo "Building image: stephenneal/users:latest"
+docker build -t stephenneal/users:"latest" \
     --build-arg php_composer_tag="${PHP_COMPOSER_TAG}" \
     --build-arg composer_flags="${COMPOSER_FLAGS}" \
      .
@@ -58,11 +58,11 @@ done
 
 # Confirm it exited with code 0
 if [[ $(docker inspect -f '{{.State.ExitCode}}' users) == 0 ]]; then
-    echo "Success: Tests Passed! - stephenneal/users:${TAG}"
+    echo "Success: Tests Passed! - stephenneal/users:latest"
 else
-    echo "Error: Tests Failed! - stephenneal/users:${TAG}"
+    echo "Error: Tests Failed! - stephenneal/users:latest"
     exit 1
 fi
 
 # Confirm the image exists
-docker image inspect stephenneal/users:"${TAG}" > /dev/null 2>&1
+docker image inspect stephenneal/users:"latest" > /dev/null 2>&1

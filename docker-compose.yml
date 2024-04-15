@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: "stephenneal/users:${TAG}"
+        image: "stephenneal/users:latest"
         env_file: .env.docker
         container_name: users
         tty: true

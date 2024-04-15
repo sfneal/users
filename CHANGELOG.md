@@ -229,3 +229,8 @@ All notable changes to `users` will be documented in this file
 # 1.4.2 - 2022-03-04
 - add support for sfneal/caching v3.0
 - add use of GitHub actions/workflows
+
+
+# 2.0.0 - 2024-04-15
+- add support for PHP 8.2
+- add new GH actions

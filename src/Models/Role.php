@@ -66,7 +66,7 @@ class Role extends Model
     /**
      * Query Builder.
      *
-     * @param $query
+     * @param  $query
      * @return RoleBuilder
      */
     public function newEloquentBuilder($query): RoleBuilder

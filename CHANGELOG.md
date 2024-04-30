@@ -236,3 +236,15 @@ All notable changes to `users` will be documented in this file
 - add support for PHP 8.2
 - add support for PHP 8.3
 - add new GH actions
+
+
+# 2.0.1 - 2024-04-16
+- PHP 8.3 dependency upgrades
+
+
+# 2.0.2 - 2024-04-21
+- bump sfneal/scopes requirement from ^1.0 to ^1.0 || ^2.0
+
+
+# 2.0.3 - 2024-04-30
+- bump sfneal/caching requirement from ^2.1.2|^3.0 to ^2.1.2|^3.0|^4.0

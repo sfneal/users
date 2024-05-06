@@ -254,3 +254,7 @@ All notable changes to `users` will be documented in this file
 - bump sfneal dependencies to the latest versions
 - cut scrutinizer/ocular from composer requirements
 - fix test suite dependencies to prevent raising errors
+
+
+# 2.0.5 - 2024-05-06
+- fix issue with `User::nickname` property

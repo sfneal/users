@@ -100,6 +100,7 @@ class User extends AuthModel
      */
     protected $appends = [
         'name',
+        'name_full',
     ];
 
     /**
@@ -243,7 +244,7 @@ class User extends AuthModel
      */
     public function isActive(): bool
     {
-        return $this->status == 1;
+        return $this->attributes['status'] == 1;
     }
 
     /**
@@ -253,7 +254,7 @@ class User extends AuthModel
      */
     public function isNicknamePreferred(): bool
     {
-        return $this->nickname_preferred == 1;
+        return $this->attributes['nickname_preferred'] == 1;
     }
 
     /**
@@ -264,9 +265,9 @@ class User extends AuthModel
     public function getInitialsAttribute()
     {
         return StringHelpers::implodeFiltered('', collect([
-            $this->first_name,
-            $this->middle_name,
-            $this->last_name,
+            $this->attributes['first_name'],
+            $this->attributes['middle_name'],
+            $this->attributes['last_name'],
         ])->map(function ($name) {
             return substr($name, 0, 1);
         })->toArray());
@@ -353,10 +354,10 @@ class User extends AuthModel
     public function getNameAttribute(): string
     {
         // Use nickname instead of first if it is set & preferred
-        $first = (isset($this->nickname) && $this->isNicknamePreferred()) ? $this->nickname : $this->first_name;
+        $first = (isset($this->attributes['nickname']) && $this->isNicknamePreferred()) ? $this->attributes['nickname'] : $this->attributes['first_name'];
 
         // Return concatenated name
-        return "{$first} {$this->last_name}";
+        return "{$first} {$this->attributes['last_name']}";
     }
 
     /**
@@ -366,12 +367,12 @@ class User extends AuthModel
      */
     public function getNameFullAttribute(): string
     {
-        $name = $this->first_name;
-        if ($this->middle_name) {
-            $name .= ' '.$this->middle_name;
+        $name = $this->attributes['first_name'];
+        if ($this->attributes['middle_name']) {
+            $name .= ' '.$this->attributes['middle_name'];
         }
 
-        return "{$name} {$this->last_name}";
+        return "{$name} {$this->attributes['last_name']}";
     }
 
     /**
@@ -381,7 +382,7 @@ class User extends AuthModel
      */
     public function getNameSuffixAttribute(): string
     {
-        return $this->name_full.($this->suffix ? ", {$this->suffix}" : '');
+        return $this->getNameFullAttribute().($this->attributes['suffix'] ? ", {$this->attributes['suffix']}" : '');
     }
 
     /**
@@ -391,7 +392,7 @@ class User extends AuthModel
      */
     public function getListNameAttribute()
     {
-        return implode(', ', array_reverse(explode(' ', $this->name)));
+        return implode(', ', array_reverse(explode(' ', $this->getNameAttribute())));
     }
 
     /**
@@ -401,7 +402,7 @@ class User extends AuthModel
      */
     public function getNameLinkAttribute()
     {
-        return '<a href="'.route('user.show', ['user' => $this->id]).'">'.$this->name.'</a>';
+        return '<a href="'.route('user.show', ['user' => $this->getKey()]).'">'.$this->getNameAttribute().'</a>';
     }
 
     /**
@@ -411,7 +412,7 @@ class User extends AuthModel
      */
     public function getEmailLinkAttribute(): string
     {
-        return $this->email ? ('mailto:'.$this->email) : '#!';
+        return $this->attributes['email'] ? ('mailto:'.$this->attributes['email']) : '#!';
     }
 
     /**
@@ -421,7 +422,7 @@ class User extends AuthModel
      */
     public function getPhoneWorkLinkAttribute(): string
     {
-        return $this->phone_work ? ('tel:'.$this->phone_work) : '#!';
+        return $this->attributes['phone_work'] ? ('tel:'.$this->attributes['phone_work']) : '#!';
     }
 
     /**
@@ -431,7 +432,7 @@ class User extends AuthModel
      */
     public function getPhoneMobileLinkAttribute(): string
     {
-        return $this->phone_mobile ? ('tel:'.$this->phone_mobile) : '#!';
+        return $this->attributes['phone_mobile'] ? ('tel:'.$this->attributes['phone_mobile']) : '#!';
     }
 
     /**
@@ -441,7 +442,7 @@ class User extends AuthModel
      */
     public function getRateFormattedAttribute(): string
     {
-        return (! empty($this->rate)) ? Currency::dollars($this->rate) : '-';
+        return (! empty($this->attributes['rate'])) ? Currency::dollars($this->attributes['rate']) : '-';
     }
 
     /**
@@ -461,11 +462,11 @@ class User extends AuthModel
      */
     public function getEmailFooterAttribute(): string
     {
-        $footer = "{$this->name}";
-        $footer .= $this->title ? "\n{$this->title}" : '';
+        $footer = "{$this->attributes['name']}";
+        $footer .= $this->attributes['title'] ? "\n{$this->attributes['title']}" : '';
         $footer .= "\n".OrganizationService::name() ?? '';
-        $footer .= "\n".($this->phone_work ?? OrganizationService::phone()) ?? '';
-        $footer .= $this->email ? "\n{$this->email}" : '';
+        $footer .= "\n".($this->attributes['phone_work'] ?? OrganizationService::phone()) ?? '';
+        $footer .= $this->attributes['email'] ? "\n{$this->attributes['email']}" : '';
 
         return $footer;
     }

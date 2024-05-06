@@ -248,3 +248,9 @@ All notable changes to `users` will be documented in this file
 
 # 2.0.3 - 2024-04-30
 - bump sfneal/caching requirement from ^2.1.2|^3.0 to ^2.1.2|^3.0|^4.0
+
+
+# 2.0.4 - 2024-05-06
+- bump sfneal dependencies to the latest versions
+- cut scrutinizer/ocular from composer requirements
+- fix test suite dependencies to prevent raising errors

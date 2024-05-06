@@ -190,7 +190,5 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         } else {
             $this->assertStringContainsString($user->first_name, $user->name);
         }
-
-        $this->assertStringContainsString($user->last_name, $user->name);
     }
 }

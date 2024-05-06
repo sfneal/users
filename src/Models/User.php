@@ -100,6 +100,7 @@ class User extends AuthModel
      */
     protected $appends = [
         'name',
+        'name_full',
     ];
 
     /**
@@ -381,7 +382,7 @@ class User extends AuthModel
      */
     public function getNameSuffixAttribute(): string
     {
-        return $this->attributes['name_full'].($this->attributes['suffix'] ? ", {$this->attributes['suffix']}" : '');
+        return $this->getNameFullAttribute().($this->attributes['suffix'] ? ", {$this->attributes['suffix']}" : '');
     }
 
     /**

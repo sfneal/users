@@ -253,7 +253,7 @@ class User extends AuthModel
      */
     public function isNicknamePreferred(): bool
     {
-        return $this->nickname_preferred == 1;
+        return $this->attributes['nickname_preferred'] == 1;
     }
 
     /**
@@ -353,10 +353,10 @@ class User extends AuthModel
     public function getNameAttribute(): string
     {
         // Use nickname instead of first if it is set & preferred
-        $first = (isset($this->nickname) && $this->isNicknamePreferred()) ? $this->nickname : $this->first_name;
+        $first = (isset($this->attributes['nickname']) && $this->isNicknamePreferred()) ? $this->attributes['nickname'] : $this->attributes['first_name'];
 
         // Return concatenated name
-        return "{$first} {$this->last_name}";
+        return "{$first} {$this->attributes['last_name']}";
     }
 
     /**

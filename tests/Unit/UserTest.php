@@ -174,4 +174,23 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
             }
         }
     }
+
+    /** @test */
+    public function name_can_be_retrieved()
+    {
+        $user_id = (new RandomModelAttributeQuery(User::class, 'id'))->execute();
+
+        /** @var User $user */
+        $user = User::query()->find($user_id);
+
+        $this->assertIsString($user->name);
+
+        if ($user->isNicknamePreferred()) {
+            $this->assertStringContainsString($user->nickname, $user->name);
+        } else {
+            $this->assertStringContainsString($user->first_name, $user->name);
+        }
+
+        $this->assertStringContainsString($user->last_name, $user->name);
+    }
 }

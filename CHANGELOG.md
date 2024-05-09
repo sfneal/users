@@ -258,3 +258,7 @@ All notable changes to `users` will be documented in this file
 
 # 2.0.5 - 2024-05-06
 - fix issue with `User::nickname` property
+
+
+# 2.1.0 - 2024-05-09
+- refactor model factories from `Database\Factories` namespace to `Sfneal\Users\Factories`

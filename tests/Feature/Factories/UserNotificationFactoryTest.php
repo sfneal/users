@@ -2,8 +2,8 @@
 
 namespace Sfneal\Users\Tests\Feature\Factories;
 
-use Database\Factories\UserNotificationFactory;
 use Sfneal\Testing\Utils\Interfaces\Factory\FillablesTest;
+use Sfneal\Users\Factories\UserNotificationFactory;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Models\UserNotification;
 

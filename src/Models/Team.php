@@ -2,12 +2,12 @@
 
 namespace Sfneal\Users\Models;
 
-use Database\Factories\TeamFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Sfneal\Models\Model;
 use Sfneal\Models\Traits\CacheableAll;
 use Sfneal\Scopes\OrderScope;
+use Sfneal\Users\Factories\TeamFactory;
 use Sfneal\Users\Scopes\UserActiveScope;
 
 // todo: make use of this once sfneal/files packages is published

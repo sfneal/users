@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Models;
 
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,6 +16,7 @@ use Sfneal\Helpers\Strings\StringHelpers;
 use Sfneal\Models\AuthModel;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\UserBuilder;
+use Sfneal\Users\Factories\UserFactory;
 use Sfneal\Users\Scopes\UserActiveScope;
 use Sfneal\Users\Services\OrganizationService;
 use Vkovic\LaravelCustomCasts\HasCustomCasts;

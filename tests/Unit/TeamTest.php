@@ -2,13 +2,13 @@
 
 namespace Sfneal\Users\Tests\Unit;
 
-use Database\Factories\TeamFactory;
 use Sfneal\Builders\QueryBuilder;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
 use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
 use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
 use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
+use Sfneal\Users\Factories\TeamFactory;
 use Sfneal\Users\Models\Team;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Tests\TestCase;

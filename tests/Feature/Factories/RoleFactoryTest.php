@@ -2,8 +2,8 @@
 
 namespace Sfneal\Users\Tests\Feature\Factories;
 
-use Database\Factories\RoleFactory;
 use Sfneal\Testing\Utils\Interfaces\Factory\FillablesTest;
+use Sfneal\Users\Factories\RoleFactory;
 use Sfneal\Users\Models\Role;
 
 class RoleFactoryTest extends FactoriesTestCase implements FillablesTest

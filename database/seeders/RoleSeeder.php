@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\RoleFactory;
 use Illuminate\Database\Seeder;
+use Sfneal\Users\Factories\RoleFactory;
 use Sfneal\Users\Models\Role;
 
 class RoleSeeder extends Seeder

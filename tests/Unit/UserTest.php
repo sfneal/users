@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Tests\Unit;
 
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Address\Models\Address;
 use Sfneal\Queries\RandomModelAttributeQuery;
@@ -11,6 +10,7 @@ use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
 use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
 use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
 use Sfneal\Users\Builders\UserBuilder;
+use Sfneal\Users\Factories\UserFactory;
 use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\Team;
 use Sfneal\Users\Models\User;

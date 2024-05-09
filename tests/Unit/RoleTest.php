@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Tests\Unit;
 
-use Database\Factories\RoleFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
@@ -10,6 +9,7 @@ use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
 use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
 use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
 use Sfneal\Users\Builders\RoleBuilder;
+use Sfneal\Users\Factories\RoleFactory;
 use Sfneal\Users\Models\Role;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Tests\TestCase;

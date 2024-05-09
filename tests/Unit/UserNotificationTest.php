@@ -2,13 +2,13 @@
 
 namespace Sfneal\Users\Tests\Unit;
 
-use Database\Factories\UserNotificationFactory;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
 use Sfneal\Testing\Utils\Interfaces\ModelBuilderTest;
 use Sfneal\Testing\Utils\Interfaces\ModelFactoryTest;
 use Sfneal\Testing\Utils\Interfaces\ModelRelationshipsTest;
 use Sfneal\Users\Builders\UserNotificationBuilder;
+use Sfneal\Users\Factories\UserNotificationFactory;
 use Sfneal\Users\Models\User;
 use Sfneal\Users\Models\UserNotification;
 use Sfneal\Users\Tests\TestCase;

@@ -2,13 +2,13 @@
 
 namespace Sfneal\Users\Models;
 
-use Database\Factories\RoleFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Sfneal\Models\Model;
 use Sfneal\Scopes\OrderScope;
 use Sfneal\Users\Builders\RoleBuilder;
+use Sfneal\Users\Factories\RoleFactory;
 
 class Role extends Model
 {

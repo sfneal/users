@@ -368,7 +368,7 @@ class User extends AuthModel
     public function getNameFullAttribute(): string
     {
         $name = $this->attributes['first_name'];
-        if ($this->attributes['middle_name']) {
+        if (in_array('middle_name', $this->attributes) && $this->attributes['middle_name']) {
             $name .= ' '.$this->attributes['middle_name'];
         }
 

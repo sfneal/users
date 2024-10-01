@@ -2,7 +2,9 @@
 
 namespace Sfneal\Users\Tests\Unit;
 
+use Faker\Generator;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Hash;
 use Sfneal\Address\Models\Address;
 use Sfneal\Queries\RandomModelAttributeQuery;
 use Sfneal\Testing\Utils\Interfaces\CrudModelTest;
@@ -190,5 +192,25 @@ class UserTest extends TestCase implements CrudModelTest, ModelBuilderTest, Mode
         } else {
             $this->assertStringContainsString($user->first_name, $user->name);
         }
+    }
+
+    /** @test */
+    public function can_create_user_without_middlename()
+    {
+        $attributes = [
+            'first_name' => 'Stephen',
+            'last_name' => 'Neal',
+            'email' => 'stephen@example.com',
+            'username' => 'stephen@example.com',
+            'password' => Hash::make('password123'),
+        ];
+
+        $user = User::query()->create($attributes);
+
+        $this->assertModelExists($user);
+        $this->assertDatabaseHas(User::getTableName(), $attributes);
+
+        $this->assertIsString($user->name_full);
+        $this->assertEquals('Stephen Neal', $user->name_full);
     }
 }

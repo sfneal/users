@@ -2,7 +2,6 @@
 
 namespace Sfneal\Users\Tests\Unit;
 
-use Faker\Generator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
 use Sfneal\Address\Models\Address;

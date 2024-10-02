@@ -32,7 +32,7 @@ if [ -n "$COMPOSER_FLAGS" ]; then
     TAG="latest-${COMPOSER_FLAGS:8}"
 fi
 
-# Export $TAG as a global variable, exposing to docker-compose.yml
+# Export $TAG as a global variable, exposing to docker compose.yml
 export TAG
 
 # Build the image

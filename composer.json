@@ -23,13 +23,13 @@
         "sfneal/currency": "^2.0",
         "sfneal/datum": "^1.4.1|^2.0",
         "sfneal/laravel-helpers": "^2.0",
-        "sfneal/models": "^2.8.1|^3.0|^4.0",
+        "sfneal/models": "^4.1",
         "sfneal/scopes": "^1.0 || ^2.0"
     },
     "require-dev": {
         "josiasmontag/laravel-redis-mock": ">=1.2.6",
-        "orchestra/testbench": "^7.40|^8.0",
-        "phpunit/phpunit": "^9.6|^10.0",
+        "orchestra/testbench": "^7.40|^8.0|^9.0",
+        "phpunit/phpunit": "^9.6|^10.0|^11.0",
         "sfneal/mock-models": "^0.9 || ^0.11 || ^0.12"
     },
     "extra": {

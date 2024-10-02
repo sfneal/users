@@ -353,8 +353,14 @@ class User extends AuthModel
      */
     public function getNameAttribute(): string
     {
+        if ($this->nameAttributesAreNotAccessible()) {
+            return '';
+        }
+
         // Use nickname instead of first if it is set & preferred
-        $first = (isset($this->attributes['nickname']) && $this->isNicknamePreferred()) ? $this->attributes['nickname'] : $this->attributes['first_name'];
+        $first = (isset($this->attributes['nickname']) && $this->isNicknamePreferred())
+            ? $this->attributes['nickname']
+            : $this->attributes['first_name'];
 
         // Return concatenated name
         return "{$first} {$this->attributes['last_name']}";
@@ -367,12 +373,21 @@ class User extends AuthModel
      */
     public function getNameFullAttribute(): string
     {
+        if ($this->nameAttributesAreNotAccessible()) {
+            return '';
+        }
+
         $name = $this->attributes['first_name'];
         if (array_key_exists('middle_name', $this->attributes) && $this->attributes['middle_name']) {
             $name .= ' '.$this->attributes['middle_name'];
         }
 
         return "{$name} {$this->attributes['last_name']}";
+    }
+
+    private function nameAttributesAreNotAccessible(): bool
+    {
+        return ! isset($this->attributes['first_name']) || ! isset($this->attributes['last_name']);
     }
 
     /**

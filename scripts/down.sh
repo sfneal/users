@@ -18,4 +18,4 @@ PHP_COMPOSER_TAG=${1-$PHP_VERSION}
 TAG="$PHP_COMPOSER_TAG-$BRANCH"
 export TAG
 
-docker-compose down -v --remove-orphans
+docker compose down -v --remove-orphans

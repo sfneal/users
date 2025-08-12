@@ -289,7 +289,7 @@ class User extends AuthModel
      *
      * @param  string|null  $value
      */
-    public function setMiddleNameAttribute(string $value = null)
+    public function setMiddleNameAttribute(?string $value = null)
     {
         if (! is_null($value)) {
             // Remove leading & trailing whitespace
@@ -305,7 +305,7 @@ class User extends AuthModel
      *
      * @param  string|null  $value
      */
-    public function setFirstNameAttribute(string $value = null)
+    public function setFirstNameAttribute(?string $value = null)
     {
         if (! is_null($value)) {
             $this->attributes['first_name'] = trim($value);
@@ -317,7 +317,7 @@ class User extends AuthModel
      *
      * @param  string|null  $value
      */
-    public function setLastNameAttribute(string $value = null)
+    public function setLastNameAttribute(?string $value = null)
     {
         if (! is_null($value)) {
             $this->attributes['last_name'] = trim($value);
@@ -330,7 +330,7 @@ class User extends AuthModel
      * @param  string|null  $value
      * @return string
      */
-    public function getFirstNameAttribute(string $value = null): string
+    public function getFirstNameAttribute(?string $value = null): string
     {
         return trim($value);
     }
@@ -341,7 +341,7 @@ class User extends AuthModel
      * @param  string|null  $value
      * @return string
      */
-    public function getLastNameAttribute(string $value = null): string
+    public function getLastNameAttribute(?string $value = null): string
     {
         return trim($value);
     }

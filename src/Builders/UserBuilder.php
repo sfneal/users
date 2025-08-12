@@ -132,7 +132,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param  string|null  $column
      * @return $this
      */
-    private function whereNameLikeRaw(string $name, string $column = null): self
+    private function whereNameLikeRaw(string $name, ?string $column = null): self
     {
         // Use concatName method if no $column was provided
         $this->whereRaw(($column ?? $this->concatName()).' LIKE "%'.$name.'%"');
@@ -301,7 +301,7 @@ class UserBuilder extends QueryBuilder implements WhereUserInterface
      * @param  int  $count
      * @return $this
      */
-    public function whereHasRole(Closure $callback = null, $operator = '>=', $count = 1): self
+    public function whereHasRole(?Closure $callback = null, $operator = '>=', $count = 1): self
     {
         $this->whereHas('role', $callback, $operator, $count);
 
